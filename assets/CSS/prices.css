@@ -1,0 +1,138 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.prices {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 35.44%;
+}
+
+.section-price-title {
+  color: #4f4f4f;
+  font-weight: 500;
+  font-size: 36px;
+  margin-top: 31px;
+}
+
+.title-decoration {
+  margin-top: 9px;
+}
+
+.title-decoration hr {
+  width: 68px;
+  color: #cccccc;
+  height: 1px;
+  margin-top: 12px;
+}
+
+.title-decoration img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#large-btn {
+  height: 59px;
+  width: inherit;
+  font-size: 28px;
+  color: white;
+  background: #1d7a8c;
+  align-content: center;
+}
+
+.e-s .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.e-s .item .p1 {
+  margin-top: 14px;
+  margin-bottom: 0px;
+  color: #646464;
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+}
+
+.e-s .item .p2 {
+  margin-top: 5px;
+  color: #1d7a8c;
+  font-family: "Roboto-Bold";
+  font-size: 18px;
+}
+
+.e-s .item div {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #b0c9ce;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.s-c .item {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#item-image {
+  height: 210px;
+  width: 360px;
+}
+
+.s-c .item .p1 {
+  font-size: 20px;
+  font-family: "Roboto-Bold";
+  color: #4f4f4f;
+  margin-top: 20px;
+}
+
+.s-c .item .p2 {
+  font-size: 16px;
+  font-family: "Roboto-Regular";
+  color: #4f4f4f;
+}
+
+.s-c .item .p2 span {
+  margin-right: 9px;
+}
+
+.w-h-heading-l {
+  font-family: "Roboto-Bold";
+  font-size: 20px;
+  color: #646464;
+  text-align: right;
+}
+
+.w-h-explanation-l {
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+  color: #646464;
+  text-align: right;
+}
+
+.w-h-heading-r {
+  font-family: "Roboto-Bold";
+  font-size: 20px;
+  color: #646464;
+  text-align: left;
+}
+
+.w-h-explanation-r {
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+  color: #646464;
+  text-align: left;
+}

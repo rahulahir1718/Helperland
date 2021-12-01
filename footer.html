@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/CSS/header-footer.css">
-</head>
-<body>
-    
-    <div class="newslatter">
-        <div class="nl-c">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            <div class="nl-form">
-                <p><b>GET OUR NEWSLETTER</b></p>
-                <div class="nl-form-input">
-                    <input type="email" id="email" name="email" placeholder="YOUR EMAIL" class="email">
-                    <button>Submit</button>
-                </div>
-            </div>
-
-        </div>
-    
-        <footer>
-            <div class="fc">
-                <img src="assets/images/footer-logo.png" alt="" class="footer-logo">
-                <div class="footer-navbar">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Faqs</a></li>
-                        <li><a href="#">Insurence Policy</a></li>
-                        <li><a href="#">Impressum</a></li>
-                    </ul>
-                </div>
-                <div class="sm-c">
-                    <img src="assets/images/ic-facebook.png" alt="" class="ic-facebook">
-                    <img src="assets/images/ic-instagram.png" alt="" class="ic-instagram">
-                </div>
-            </div> 
-            <hr style="width: 1320px; height: 1px; margin-left: 120px; margin-top:0px; margin-bottom:0px; border: 0; background: #424242; opacity: 1;">
-            <p>©2018 Helperland. All rights reserved. <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
-        </footer>
+    <!--importing bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!--importing css-->
+    <link rel="stylesheet" href="assets/CSS/footer.css"">
+    <title>Footer</title>
+  </head>
+  <body>
+    <!--for newslater section-->
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="newslater-area">
+        <!--news later heading-->
+        <h6 class="newslatter-heading">GET OUR NEWSLETTER</h6>
+        <!--newslatter form-->
+        <form>
+          <input class="form-email" type="email" placeholder="Your Email" />
+          <input class="form-btn" type="button" value="Submit" />
+        </form>
+      </div>
     </div>
 
-</body>
+    <!--actual footer section-->
+    <div
+      class="container-fluid d-flex justify-content-center"
+      style="background-color: black"
+    >
+      <div class="main-footer">
+        <div class="main-footer-raw-1">
+          <!--footer logo-->
+          <img src="assets/images/footer-logo.png" />
+          <!--footer navbar-->
+          <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Faqs</a>
+            <a href="#">Insurence Policy</a>
+            <a href="#">Impressum</a>
+          </div>
+          <!--social media icons-->
+          <div class="main-footer-socialmedia-area">
+            <img src="assets/images/ic-facebook.png" alt="" />
+            <img src="assets/images/ic-instagram.png" />
+          </div>
+        </div>
+        <hr />
+        <!--copyright-->
+        <p class="copyright-text">
+          ©2018 Helperland.&nbsp;All rights reserved.
+          <a href="#">Terms and Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
