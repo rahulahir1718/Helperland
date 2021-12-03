@@ -19,6 +19,10 @@ body {
   margin-bottom: 16px;
 }
 
+form {
+  margin: 0;
+}
+
 .form-email {
   font-family: "Roboto-Regular";
   width: 233px;
