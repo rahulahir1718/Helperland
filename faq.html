@@ -1,117 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/CSS/style-faq.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script> 
-        $(function(){
-          $("#header").load("header.html"); 
-          $("#footer").load("footer.html"); 
-        });
-        </script>
-
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQs</title>
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/CSS/style-faq.css" />
+  </head>
+  <body>
+    <header>
+      <div id="header"></div>
+    </header>
+    <!-- faq image -->
+    <img src="assets/images/faq-banner.png" id="main-image" />
 
-    <div class="layer-0">
+    <!--faq section-->
+    <section id="faq">
+      <div class="d-flex justify-content-center">
+        <h2 class="title">FAQs</h2>
+      </div>
 
-        <div class="head">
-            <div id="header"></div>
-            <img class="header-image" src="assets/images/faq-banner.png" alt="">
-        </div> 
+      <!--section-decoration-->
+      <div class="d-flex justify-content-center title-decoration">
+        <hr />
+        <img src="assets/images/separator.png" />
+        <hr />
+      </div>
 
-        <h1 class="main-heading">FAQs</h1>
-        <div class="separator">
-            <hr>
-            <img src="assets/images/separator.png">
-            <hr>
+      <div class="d-flex justify-content-center">
+        <div class="faq-content d-flex justify-content-center flex-wrap">
+          <p>
+            Whether you are Customer or Service provider,<br />
+            We have tried our best to solve all your queries and questions.
+          </p>
         </div>
+      </div>
 
-        <div class="f-c">
-                <p class="main-p">Whether you are Customer or Service provider,<br> We have tried our best to solve all your queries and questions.</p>
-                <div class="two-buttons">
-                    <button class="btn-1">FOR CUSTOMER</button>
-                    <button class="btn-2">FOR SERVICE PROVIDER</button>
-                </div>
-                <div class="content-1">
-                    <img src="assets/images/down-arrow.png" alt="">
-                    <div>
-                        <p class="c-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-e">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor. Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum.</p>
-                    </div>
-                </div>
+      <div class="container faq-content">
+        <!-- large button starts -->
+        <div class="lrg-btns">
+          <div class="text-center btn-1">
+            <a href="" data-bs-toggle="collapse">FOR COUSTOMER</a>
+          </div>
+          <div class="text-center btn-2">
+            <a href="" data-bs-toggle="collapse">FOR SERVICE PROVIDER</a>
+          </div>
+        </div>
+        <!-- large button end -->
 
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
+        <!-- collapse button contenet start -->
+        <div class="row">
+          <div class="collapse show" id="fc">
+            <div class="pt-5">
+              <div class="d-flex">
+                <a href="#content" data-bs-toggle="collapse"
+                  ><img
+                    onclick="rotateimg1()"
+                    id="img1"
+                    src="assets/images/vector-smart-object-copy.png"
+                /></a>
+                <p class="query-heading">What's included in a cleaning?</p>
+              </div>
 
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
+              <div class="d-flex query-info">
+                <div id="content" class="collapse">
+                  Bedroom, Living Room & Common Areas, Bathrooms, Kitchen,
+                  Extras
                 </div>
-
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
-
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
-
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
-
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
-
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
-
-                <div class="content-n">
-                    <img>
-                    <div>
-                        <p class="c-n-h">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                        <p class="c-n-e"></p>
-                    </div>
-                </div>
+              </div>
             </div>
 
-            <div id="footer"></div>
-    </div>
-</body>
+            <div class="pt-3 ps-0">
+              <div class="d-flex">
+                <a href="#content1" data-bs-toggle="collapse"
+                  ><img
+                    onclick="rotateimg2()"
+                    id="img2"
+                    src="assets/images/vector-smart-object-copy.png"
+                /></a>
+                <p class="query-heading">
+                  Which Helperland professional will come to my place?
+                </p>
+              </div>
+
+              <div class="d-flex query-info">
+                <div id="content1" class="collapse">
+                  Helperland has a vast network of experienced, top-rated
+                  cleaners. Based on the time and date of your request, we work
+                  to assign the best professional available. Like working with a
+                  specific pro? Add them to your Pro Team from the mobile app
+                  and they'll be requested first for all future bookings. You
+                  will receive an email with details about your professional
+                  prior to your appointment.
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 ps-0">
+              <div class="d-flex">
+                <a href="#content2" data-bs-toggle="collapse"
+                  ><img
+                    onclick="rotateimg3()"
+                    id="img3"
+                    src="assets/images/vector-smart-object-copy.png"
+                /></a>
+                <p class="query-heading">Can I skip or reschedule bookings?</p>
+              </div>
+
+              <div class="d-flex query-info">
+                <div id="content2" class="collapse">
+                  You can reschedule any booking for free at least 24 hours in
+                  advance of the scheduled start time. If you need to skip a
+                  booking within the minimum commitment, we’ll credit the value
+                  of the booking to your account. You can use this credit on
+                  future cleanings and other Helperland services
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 ps-0">
+              <div class="d-flex">
+                <a href="#content3" data-bs-toggle="collapse"
+                  ><img
+                    onclick="rotateimg4()"
+                    id="img4"
+                    src="assets/images/vector-smart-object-copy.png"
+                /></a>
+                <p class="query-heading">
+                  Do I need to be home for the booking?
+                </p>
+              </div>
+
+              <div class="d-flex query-info">
+                <div id="content3" class="collapse">
+                  We strongly recommend that you are home for the first clean of
+                  your booking to show your cleaner around. Some customers
+                  choose to give a spare key to their cleaner, but this decision
+                  is based on individual preferences.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse show" id="fsp">
+            <div class="pt-5">
+              <div class="d-flex">
+                <a href="#content" data-bs-toggle="collapse"
+                  ><img
+                    onclick="rotateimg1()"
+                    id="img1"
+                    src="assets/images/vector-smart-object-copy.png"
+                /></a>
+                <p class="query-heading">How much do service providers earn?</p>
+              </div>
+
+              <div class="d-flex query-info">
+                <div id="content" class="collapse">
+                  The self-employed service providers working with Helperland
+                  set their own payouts, this means that they decide how much
+                  they earn per hour.
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 ps-0">
+              <div class="d-flex">
+                <a href="#content1" data-bs-toggle="collapse"
+                  ><img
+                    onclick="rotateimg2()"
+                    id="img2"
+                    src="assets/images/vector-smart-object-copy.png"
+                /></a>
+                <p class="query-heading">
+                  What support do you provide to the service providers?
+                </p>
+              </div>
+
+              <div class="d-flex query-info">
+                <div id="content1" class="collapse">
+                  Our call-centre is available to assist the service providers
+                  with all queries or issues in regards to their bookings during
+                  office hours. Before a service provider starts receiving jobs,
+                  every individual partner receives an orientation session to
+                  familiarise with the online platform and their profile.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- collaspse button content end -->
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div id="footer"></div>
+    </footer>
+
+    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="assets/JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

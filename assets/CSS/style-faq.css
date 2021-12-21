@@ -1,171 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
-
-body{
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-.layer-0{
-    width: 1560px;
-    height: 1803px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    opacity: 1;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.head{
-    width: inherit;
-    height: 434px;
+header {
+  width: 100%;
 }
 
-
-.header-image{
-    width: inherit;
-    height: 370px;
+#main-image {
+  width: 100%;
 }
 
-.main-heading{
-    margin-top: 32px;
-    margin-left: 738px;
-    width: 84px;
-    height: 43px;
-    text-align: center;
-    letter-spacing: 0px;
-    color: #4F4F4F;
-    opacity: 1;
-    font-family: "Roboto-Medium";
-    font-size: 36px;
+#faq {
+  margin-top: 32px;
 }
 
-.separator{
-    margin-top: 9px;
-    margin-left: 696px;
-    height: 25px;
-    width: 166px;
-    height: 25px;
-    opacity: 1;
-    display: flex;
-    flex-direction: row;
+.title {
+  margin: 0;
+  font: "Roboto";
+  font-weight: 500;
+  color: #4f4f4f;
+  text-align: center;
 }
 
-.separator hr{
-    width: 62px;
-    height: 0px;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    margin-top: 12px;
-    border-bottom: 1px solid  #CCCCCC;
+.title-decoration {
+  margin-top: 9px;
 }
 
-.separator img{
-    height: 25px;
-    width: 24px;
-    margin-left: 9px;
-    margin-right: 9px;
+.title-decoration hr {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 68px;
+  color: #cccccc;
+  height: 1px;
+  margin-top: 12px;
 }
 
-.f-c{
-    margin-top: 34px;
-    margin-left: 308px;
-    margin-bottom: 55px;
-    width: 931px;
-    height: 847px;
-    display: flex;
-    flex-direction: column;
+.title-decoration img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.main-p{
-    margin-left: 226px;
-    width: 498px;
-    height: 48px;
-    text-align: center;
-    letter-spacing: 0px;
-    color: #646464;
-    opacity: 1;
-    font-family: "Roboto-Regular";
-    font-size: 18px;
+p {
+  font-family: "Roboto";
+  font-weight: 400;
+  text-align: center;
+  font-size: 18px;
+  color: #646464;
+}
+.faq-content {
+  margin-top: 34px;
+  width: 60%;
+  padding: 0;
 }
 
-.two-buttons{
-    width: inherit;
-    margin-top: 0px;
-    height: 66px;
-    margin-top: 35px;
-    display: flex;
-    flex-direction: row;
+.lrg-btns {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+.btn-1,
+.btn-2 {
+  font-size: 24px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  line-height: 2.17;
+}
+.active-btn {
+  background: #1d7a8c;
 }
 
-.btn-1{
-    height: inherit;
-    flex: 0 0 50%;
-    color: white;
-    background-color: #29626D;
-    border: 0;
+.active-btn a {
+  width: inherit;
+  height: inherit;
+  color: #ffffff;
+  text-decoration: none;
 }
 
-.btn-2{
-    height: inherit;
-    flex: 0 0 50%;
-    border: 0;
-    border-bottom: 3px solid #29626D;
+.non-active-btn {
+  border-bottom: solid 3px #1d7a8c;
 }
 
-.content-1{
-    display: flex;
-    flex-direction: row;
-    margin-top: 43px;
-    width: 931px;
-    height: 221px;
-    opacity: 1;
+.non-active-btn a {
+  color: #646464;
+  text-decoration: none;
 }
 
-.content-1 img{
-    width: 22px;
-    height: 22px;
-    margin-right: 15px;
-    opacity: 1;
+.query-heading {
+  font-family: "Roboto";
+  padding-left: 15px;
+  font-size: 16px;
+  color: #646464;
+  font-weight: 700;
+  text-align: left;
 }
 
-.c-h{
-    width: 889px;
-    height: 19px;
-    margin-top: 0px;
-    font-family: "Roboto-Bold";
-    font-size: 16px;
+.query-info {
+  margin-left: 37px;
+}
+.collapse {
+  color: #646464;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
 }
 
-.c-e{
-    width: 889px;
-    height: auto;
-    font-family: "Roboto-Regular";
-    font-size: 16px;
-    color: #646464;
+#de {
+  padding: 0;
 }
 
-.content-n{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 40px;
-    width: 926px;
-    height: 22px;
-    opacity: 1;
+#fc,
+#fsp {
+  padding: 0;
 }
 
-.content-n img{
-    content: url('../images/right-arrow.png');
-    width: 22px;
-    height: 22px;
-    margin-right: 15px;
-    opacity: 1;
-}
-
-.c-n-h{
-    margin-top: 0px;
-    width: 889px;
-    height: 19px;
-    text-align: left;
-    letter-spacing: 0px;
-    opacity: 1;
-    font-family: "Roboto-Bold";
-    font-size: 16px;
+footer {
+  margin-top: 54px;
 }
