@@ -12,6 +12,12 @@ body {
   width: 100%;
 }
 
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 #contact-us {
   margin-top: 31px;
 }
@@ -84,8 +90,10 @@ body {
 
 form {
   margin-top: 23px;
+  width: 614px;
 }
 #form-section-title {
+  margin-bottom: 23px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0px;

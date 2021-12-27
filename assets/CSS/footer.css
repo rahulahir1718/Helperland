@@ -51,22 +51,23 @@ form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
   width: inherit;
+  background-color: black;
 }
 
 .main-footer-raw-1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 85%;
+  width: 84.61%;
   margin-top: 20px;
   row-gap: 10px;
-  column-gap: 257px;
-  justify-content: center;
+  align-self: center;
+  justify-content: space-between;
 }
 
 .main-footer-socialmedia-area {
+  justify-self: flex-end;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -96,17 +97,19 @@ form {
   color: blue;
 }
 
-hr {
-  width: 85%;
+.main-footer hr {
+  width: 84.61%;
   height: 1px;
   margin-top: 19px;
   margin-bottom: 0px;
   border: 0;
   background: #424242;
   opacity: 1;
+  align-self: center;
 }
 
 .copyright-text {
+  align-self: center;
   color: white;
   font-size: 14px;
   font-family: "Roboto-Regular";

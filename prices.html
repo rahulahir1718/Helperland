@@ -7,29 +7,18 @@
 
     <!--importing bootstrp-->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
     />
+    <!--importing css and jquery-->
+    <link rel="stylesheet" href="assets/CSS/prices.css" />
+    <script src="assets/jquery-3.6.0.js"></script>
+
     <!--importing font libraries-->
     <script
       src="https://kit.fontawesome.com/9090ba710e.js"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <!--importing css and jquery-->
-    <link rel="stylesheet" href="assets/CSS/prices.css" />
-    <script src="assets/jquery-3.6.0.js"></script>
-
     <title>prices</title>
   </head>
 
@@ -37,111 +26,65 @@
     <!--header section-->
     <header>
       <!--importing navbar by using jQuery-->
-      <div id="navbar"></div>
+      <div id="header"></div>
       <!--header image-->
-      <img src="assets/images/group-18.png" alt="" style="width: 100%" />
+      <img id="header-img" src="assets/images/group-18.png" alt="" />
     </header>
 
     <!--prices section-->
     <section id="prices">
-      <div class="container-fluid d-flex justify-content-center">
+      <div class="d-flex justify-content-center">
         <div class="prices">
-          <div class="d-flex justify-content-center section-price-title">
-            <h2>Prices</h2>
+          <div class="d-flex justify-content-center">
+            <h2 class="title">Prices</h2>
           </div>
+
+          <!--section-decoration-->
           <div class="d-flex justify-content-center title-decoration">
             <hr />
             <img src="assets/images/separator.png" />
             <hr />
           </div>
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              flex-wrap: wrap;
-              justify-content: center;
-              align-content: center;
-              width: 100%;
-              border: 1px solid #b0c9ce;
-              opacity: 1;
-              margin-top: 42px;
-            "
-          >
-            <div
-              class="d-flex justify-content-center align-content-center"
-              id="large-btn"
-            >
-              One Time
-            </div>
-            <div class="d-flex justify-content-center" style="margin-top: 12px">
-              <span
-                style="
-                  font-family: 'Roboto-Bold';
-                  font-size: 48px;
-                  color: #646464;
-                "
-                ><i class="fas fa-euro-sign"></i>18</span
-              >
-              <p
-                style="
-                  font-family: 'Roboto-Regular';
-                  font-size: 30px;
-                  color: #646464;
-                  margin-top: 20px;
-                "
-              >
-                /hr
-              </p>
+          <div class="price-box">
+            <div id="large-btn">One Time</div>
+            <div class="d-flex justify-content-center euro">
+              <span><i class="fas fa-euro-sign"></i>18</span>
+              <p>/hr</p>
             </div>
             <div class="d-flex justify-content-center">
-              <div
-                style="
-                  display: flex;
-                  flex-direction: column;
-                  align-items: flex-start;
-                "
-              >
-                <div class="d-flex justify-content-center">
-                  <span style="margin-right: 9px"
-                    ><img src="assets/images/forma-1_5.png"
-                  /></span>
-                  <p
-                    style="
-                      font-family: 'Roboto-Regular';
-                      font-size: 15px;
-                      color: #646464;
-                    "
-                  >
-                    Lower prices
-                  </p>
+              <div class="d-flex flex-column flex-wrap">
+                <div
+                  class="
+                    d-flex
+                    justify-content-center
+                    align-self-start
+                    benifits
+                  "
+                >
+                  <span><img src="assets/images/forma-1_5.png" /></span>
+                  <p>Lower prices</p>
                 </div>
-                <div class="d-flex justify-content-center">
-                  <span style="margin-right: 9px"
-                    ><img src="assets/images/forma-1_5.png"
-                  /></span>
-                  <p
-                    style="
-                      font-family: 'Roboto-Regular';
-                      font-size: 15px;
-                      color: #646464;
-                    "
-                  >
-                    Easy online & secure payment
-                  </p>
+                <div
+                  class="
+                    d-flex
+                    justify-content-center
+                    align-self-start
+                    benifits
+                  "
+                >
+                  <span><img src="assets/images/forma-1_5.png" /></span>
+                  <p>Easy online & secure payment</p>
                 </div>
-                <div class="d-flex justify-content-center">
-                  <span style="margin-right: 9px"
-                    ><img src="assets/images/forma-1_5.png"
-                  /></span>
-                  <p
-                    style="
-                      font-family: 'Roboto-Regular';
-                      font-size: 15px;
-                      color: #646464;
-                    "
-                  >
-                    Easy amendment
-                  </p>
+                <div
+                  class="
+                    d-flex
+                    justify-content-center
+                    align-self-start
+                    benifits
+                  "
+                >
+                  <span><img src="assets/images/forma-1_5.png" /></span>
+                  <p>Easy amendment</p>
                 </div>
               </div>
             </div>
@@ -150,283 +93,181 @@
       </div>
     </section>
 
-    <div
-      class="container-fluid d-flex justify-content-center"
-      style="width: 100%; margin-top: 51px"
-    >
-      <hr style="width: 73%; height: 1px; color: #dcdcdc" />
-    </div>
+    <section id="extra-services">
+      <div class="d-flex justify-content-center align-items-start">
+        <hr class="section-devider" />
+      </div>
 
-    <div class="container-fluid d-flex justify-content-center">
-      <div class="container-fluid">
-        <div
-          class="d-flex justify-content-center"
-          style="
-            color: #635353;
-            font-weight: 500;
-            font-size: 36px;
-            margin-top: 31px;
-          "
-        >
-          <h2>Extra services</h2>
-        </div>
-        <div class="d-flex justify-content-center" style="margin-top: 9px">
-          <hr
-            style="
-              width: 68px;
-              color: #4f4f4f;
-              margin-right: 10px;
-              height: 1px;
-              margin-top: 12px;
-            "
-          />
-          <img
-            src="assets/images/separator.png"
-            style="width: 24px; height: 24px"
-          />
-          <hr
-            style="
-              width: 68px;
-              color: #4f4f4f;
-              margin-top: 12px;
-              margin-left: 10px;
-              height: 1px;
-            "
-          />
+      <div class="d-flex justify-content-center mt-41">
+        <h2 class="title">Extra Services</h2>
+      </div>
+
+      <!--section-decoration-->
+      <div class="d-flex justify-content-center title-decoration">
+        <hr />
+        <img src="assets/images/separator.png" />
+        <hr />
+      </div>
+
+      <div class="e-s">
+        <div class="item">
+          <div>
+            <img src="assets/images/3.png" alt="" />
+          </div>
+          <p class="p1">Inside cabinets</p>
+          <p class="p2">30 minutes</p>
         </div>
 
-        <div
-          class="e-s"
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 39px;
-            flex-direction: row;
-            column-gap: 110px;
-          "
-        >
-          <div class="item">
-            <div>
-              <img src="assets/images/3.png" alt="" />
-            </div>
-            <p class="p1">Inside cabinets</p>
-            <p class="p2">30 minutes</p>
+        <div class="item">
+          <div>
+            <img src="assets/images/5.png" alt="" />
+          </div>
+          <p class="p1">Inside fridge</p>
+          <p class="p2">30 minutes</p>
+        </div>
+
+        <div class="item">
+          <div>
+            <img src="assets/images/4.png" alt="" />
+          </div>
+          <p class="p1">Inside oven</p>
+          <p class="p2">30 minutes</p>
+        </div>
+
+        <div class="item">
+          <div>
+            <img src="assets/images/2.png" alt="" />
+          </div>
+          <p class="p1">Laundry wash & dry</p>
+          <p class="p2">30 minutes</p>
+        </div>
+
+        <div class="item">
+          <div>
+            <img src="assets/images/1.png" alt="" />
+          </div>
+          <p class="p1">Interior windows</p>
+          <p class="p2">30 minutes</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="wwiios">
+      <div class="d-flex justify-content-center">
+        <div class="container-fluid mt-73">
+          <div class="d-flex justify-content-center">
+            <h2 class="title">What we include in cleaning</h2>
           </div>
 
-          <div class="item">
-            <div>
-              <img src="assets/images/5.png" alt="" />
-            </div>
-            <p class="p1">Inside fridge</p>
-            <p class="p2">30 minutes</p>
+          <!--section-decoration-->
+          <div class="d-flex justify-content-center title-decoration">
+            <hr />
+            <img src="assets/images/separator.png" />
+            <hr />
           </div>
 
-          <div class="item">
-            <div>
-              <img src="assets/images/4.png" alt="" />
+          <div class="included-services">
+            <div class="item">
+              <img src="assets/images/group-18_3.png" id="item-image" />
+              <h4 class="p1">Bedroom and Living Room</h4>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Dust
+                all accessible surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Wipe
+                down all mirrors and glass fixtures
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Not Included
+                Clean all floor surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Take
+                out garbage and recycling
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included To
+                clean up
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Make
+                beds
+              </p>
             </div>
-            <p class="p1">Inside oven</p>
-            <p class="p2">30 minutes</p>
-          </div>
 
-          <div class="item">
-            <div>
-              <img src="assets/images/2.png" alt="" />
+            <div class="item">
+              <img src="assets/images/group-18_4.png" id="item-image" />
+              <h4 class="p1">Bathrooms</h4>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>
+                Included Wash and sanitize the toilet, shower, tub, sink
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Not Included
+                Dust all accessible surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Wipe
+                down all mirrors and glass fixtures
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Not Included
+                Clean all floor surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Take
+                out garbage and recycling
+              </p>
             </div>
-            <p class="p1">Laundry wash & dry</p>
-            <p class="p2">30 minutes</p>
-          </div>
 
-          <div class="item">
-            <div>
-              <img src="assets/images/1.png" alt="" />
+            <div class="item">
+              <img src="assets/images/group-18_2.png" id="item-image" />
+              <h4 class="p1">Kitchen</h4>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included
+                Cleaning the sink
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span
+                >IncludedCleaning the oven (outside)
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included
+                Cleaning the work surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Dust
+                all accessible surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Clean
+                all floor surfaces
+              </p>
+              <p class="p2">
+                <span><img src="assets/images/right.png" /></span>Included Take
+                out garbage and recycling
+              </p>
             </div>
-            <p class="p1">Interior windows</p>
-            <p class="p2">30 minutes</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div
-      class="container-fluid d-flex justify-content-center"
-      style="background-color: #f6f6f6; margin-top: 56px"
-    >
-      <div class="container-fluid">
-        <div
-          class="d-flex justify-content-center"
-          style="
-            color: #4f4f4f;
-            font-weight: 500;
-            font-size: 36px;
-            margin-top: 73px;
-          "
-        >
-          <h2>What we include in cleaning</h2>
-        </div>
-        <div class="d-flex justify-content-center" style="margin-top: 9px">
-          <hr
-            style="
-              width: 68px;
-              color: #4f4f4f;
-              margin-right: 10px;
-              height: 1px;
-              margin-top: 12px;
-            "
-          />
-          <img
-            src="assets/images/separator.png"
-            style="width: 24px; height: 24px"
-          />
-          <hr
-            style="
-              width: 68px;
-              color: #4f4f4f;
-              margin-top: 12px;
-              margin-left: 10px;
-              height: 1px;
-            "
-          />
-        </div>
-
-        <div
-          class="s-c"
-          style="
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 42px;
-            margin-bottom: 81px;
-            column-gap: 30px;
-          "
-        >
-          <div class="item">
-            <img src="assets/images/group-18_3.png" id="item-image" />
-            <h4 class="p1">Bedroom and Living Room</h4>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Dust
-              all accessible surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Wipe
-              down all mirrors and glass fixtures
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Not Included
-              Clean all floor surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Take
-              out garbage and recycling
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included To
-              clean up
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Make
-              beds
-            </p>
-          </div>
-
-          <div class="item">
-            <img src="assets/images/group-18_4.png" id="item-image" />
-            <h4 class="p1">Bathrooms</h4>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>
-              Included Wash and sanitize the toilet, shower, tub, sink
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Not Included
-              Dust all accessible surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Wipe
-              down all mirrors and glass fixtures
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Not Included
-              Clean all floor surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Take
-              out garbage and recycling
-            </p>
-          </div>
-
-          <div class="item">
-            <img src="assets/images/group-18_2.png" id="item-image" />
-            <h4 class="p1">Kitchen</h4>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included
-              Cleaning the sink
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>IncludedCleaning
-              the oven (outside)
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included
-              Cleaning the work surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Dust
-              all accessible surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Clean
-              all floor surfaces
-            </p>
-            <p class="p2">
-              <span><img src="assets/images/right.png" /></span>Included Take
-              out garbage and recycling
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid d-flex justify-content-center">
-      <div class="container-fluid">
-        <div
-          class="d-flex justify-content-center"
-          style="
-            color: #4f4f4f;
-            font-weight: 500;
-            font-size: 36px;
-            margin-top: 71px;
-          "
-        >
-          <h2>Why Helperland</h2>
-        </div>
-        <div class="d-flex justify-content-center" style="margin-top: 9px">
-          <hr
-            style="
-              width: 68px;
-              color: #4f4f4f;
-              margin-right: 10px;
-              height: 1px;
-              margin-top: 12px;
-            "
-          />
-          <img
-            src="assets/images/separator.png"
-            style="width: 24px; height: 24px"
-          />
-          <hr
-            style="
-              width: 68px;
-              color: #4f4f4f;
-              margin-top: 12px;
-              margin-left: 10px;
-              height: 1px;
-            "
-          />
-        </div>
+    <section id="why-helperland">
+      <div class="d-flex flex-column align-items-center">
         <div class="container-fluid">
-          <div class="row">
+          <div class="d-flex justify-content-center">
+            <h2 class="title">Why Helperland</h2>
+          </div>
+          <!--section-decoration-->
+          <div class="d-flex justify-content-center title-decoration">
+            <hr />
+            <img src="assets/images/separator.png" />
+            <hr />
+          </div>
+
+          <div class="row mt-41">
             <div class="col-sm-4">
               <p class="w-h-heading-l">Experienced and vetted professionals</p>
               <p class="w-h-explanation-l">
@@ -434,18 +275,7 @@
                 extensive network that consistently delivers exceptional
                 results.
               </p>
-            </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-              <p class="w-h-heading-r">Every cleaning is insured</p>
-              <p class="w-h-explanation-r">
-                and seek to provide exceptional service and engage in proactive
-                behavior. We‘d be happy to clean your homes.
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
+
               <p class="w-h-heading-l">Dedicated customer service</p>
               <p class="w-h-explanation-l">
                 to our customers and are guided in all we do by their needs. The
@@ -453,8 +283,16 @@
                 information. you need.
               </p>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-4" style="text-align: center">
+              <img src="assets/images/the-best-img-1.png" alt="" />
+            </div>
             <div class="col-sm-4">
+              <p class="w-h-heading-r">Every cleaning is insured</p>
+              <p class="w-h-explanation-r">
+                and seek to provide exceptional service and engage in proactive
+                behavior. We‘d be happy to clean your homes.
+              </p>
+
               <p class="w-h-heading-r">Secure online payment</p>
               <p class="w-h-explanation-r">
                 Payment is processed securely online. Customers pay safely
@@ -464,32 +302,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!--importing footer by using jQuery-->
     <footer>
       <div id="footer"></div>
     </footer>
 
-    <script>
-      $("#navbar").load("demo.html");
-      $("#footer").load("footer.html");
-    </script>
-
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    <script src="assets/JS/price.js"></script>
+    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

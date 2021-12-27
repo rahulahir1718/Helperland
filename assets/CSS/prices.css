@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -7,19 +8,35 @@ body {
   padding: 0;
 }
 
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+#header-img {
+  width: 100%;
+}
 .prices {
+  margin-top: 31px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  width: 35.44%;
+  width: 553px;
 }
 
-.section-price-title {
-  color: #4f4f4f;
+@media screen and (max-width: 553px) {
+  .prices {
+    width: 90%;
+  }
+}
+
+.title {
+  margin: 0;
+  font: "Roboto";
   font-weight: 500;
-  font-size: 36px;
-  margin-top: 31px;
+  color: #4f4f4f;
+  text-align: center;
 }
 
 .title-decoration {
@@ -27,6 +44,8 @@ body {
 }
 
 .title-decoration hr {
+  margin-left: 0px;
+  margin-right: 0px;
   width: 68px;
   color: #cccccc;
   height: 1px;
@@ -40,15 +59,73 @@ body {
   margin-right: 10px;
 }
 
+.price-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  border: 1px solid #b0c9ce;
+  opacity: 1;
+  margin-top: 42px;
+}
+
 #large-btn {
   height: 59px;
   width: inherit;
   font-size: 28px;
   color: white;
   background: #1d7a8c;
-  align-content: center;
+  text-align: center;
 }
 
+.euro span {
+  font-weight: 700;
+  font-size: 48px;
+  color: #646464;
+}
+
+.euro p {
+  font-weight: 400;
+  font-size: 30px;
+  color: #646464;
+  margin-top: 20px;
+}
+
+.benifits span {
+  margin-right: 9px;
+}
+
+.benifits p {
+  font-weight: 400;
+  font-size: 15px;
+  color: #646464;
+}
+
+#extra-services {
+  width: 100%;
+  margin-top: 51px;
+}
+
+.section-devider {
+  margin: 0;
+  width: 73%;
+  height: 1px;
+  color: #4f4f4f;
+}
+
+.mt-41 {
+  margin-top: 41px;
+}
+.e-s {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 39px;
+  flex-direction: row;
+  column-gap: 110px;
+}
 .e-s .item {
   display: flex;
   flex-direction: column;
@@ -59,14 +136,14 @@ body {
   margin-top: 14px;
   margin-bottom: 0px;
   color: #646464;
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   font-size: 16px;
 }
 
 .e-s .item .p2 {
   margin-top: 5px;
   color: #1d7a8c;
-  font-family: "Roboto-Bold";
+  font-weight: 700;
   font-size: 18px;
 }
 
@@ -81,7 +158,25 @@ body {
   justify-content: center;
 }
 
-.s-c .item {
+#wwiios {
+  background-color: #f6f6f6;
+  margin-top: 56px;
+}
+
+.mt-73 {
+  margin-top: 73px;
+}
+.included-services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 81px;
+  column-gap: 30px;
+}
+
+.included-services .item {
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -92,47 +187,71 @@ body {
   width: 360px;
 }
 
-.s-c .item .p1 {
+.included-services .item .p1 {
   font-size: 20px;
-  font-family: "Roboto-Bold";
+  font-weight: 700;
   color: #4f4f4f;
   margin-top: 20px;
 }
 
-.s-c .item .p2 {
+.included-services .item .p2 {
   font-size: 16px;
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   color: #4f4f4f;
 }
 
-.s-c .item .p2 span {
+.included-services .item .p2 span {
   margin-right: 9px;
 }
 
+#why-helperland {
+  margin-top: 71px;
+}
+
+#why-helperland .container-fluid {
+  width: 79%;
+}
+
 .w-h-heading-l {
-  font-family: "Roboto-Bold";
+  font-weight: 700;
   font-size: 20px;
   color: #646464;
   text-align: right;
 }
 
 .w-h-explanation-l {
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   font-size: 14px;
   color: #646464;
   text-align: right;
 }
 
 .w-h-heading-r {
-  font-family: "Roboto-Bold";
+  font-weight: 700;
   font-size: 20px;
   color: #646464;
   text-align: left;
 }
 
 .w-h-explanation-r {
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   font-size: 14px;
   color: #646464;
   text-align: left;
+}
+
+@media screen and (max-width: 400px) {
+  .included-services {
+    column-gap: 0px;
+    row-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .w-h-heading-l,
+  .w-h-heading-r,
+  .w-h-explanation-l,
+  .w-h-explanation-r {
+    text-align: center;
+  }
 }
