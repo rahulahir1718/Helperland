@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service History</title>
+
+    <!--importing bootstrp-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!--importing css and jquery-->
+    <link rel="stylesheet" href="assets/CSS/service-history.css" />
+
+    <!--importing font libraries-->
+    <script
+      src="https://kit.fontawesome.com/9090ba710e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--header start-->
+    <header>
+      <!--navigation bar-->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a href="#" class="navbar-brand"
+            ><img src="assets/images/logo-small.png"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link nlbb l-2" href="#">Book Now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nlbt l-2 ms-3" href="#">Prices & services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link l-3 ms-4" href="#">Warranty</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link l-4 ms-4" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link l-5 ms-4" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <div class="d-flex ms-3">
+                  <a href=""
+                    ><i class="fas fa-bell"><span class="badge">2</span></i></a
+                  >
+                  <select name="sp" id="sp">
+                    <option value="Lotout"></option>
+                    <option value="Settings"></option>
+                  </select>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--header ends-->
+
+    <!--service section start-->
+    <section id="services-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>Gaurang!</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="horixontal-flexbox">
+          <!--side navigation bar-->
+          <div class="vertical-navbar">
+            <ul>
+              <div>
+                <button id="closebtn">
+                  <i class="fas fa-hand-point-left"></i>
+                </button>
+              </div>
+              <li><a href="#home">Dashboard</a></li>
+              <li><a href="#contact">Service History</a></li>
+              <li><a href="#about">Service Schedule</a></li>
+              <li><a href="#about">Favourite Pros</a></li>
+              <li><a href="#about">Invoices</a></li>
+              <li><a href="#about">Notifications</a></li>
+            </ul>
+          </div>
+          <!--service table-->
+          <div class="service-history">
+            <div class="d-flex flex-wrap">
+              <h6 class="sub-title">Service History</h6>
+              <button id="export" class="ms-auto">Export</button>
+            </div>
+            <!--table start-->
+            <div class="table-responsive">
+              <table class="table table-hover table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      Service Details<img src="assets/images/sort.png" alt="" />
+                    </th>
+                    <th scope="col">
+                      Service Provider<img
+                        src="assets/images/sort.png"
+                        alt=""
+                      />
+                    </th>
+                    <th scope="col">
+                      Payment
+                      <img src="assets/images/sort.png" alt="" />
+                    </th>
+                    <th scope="col">
+                      Status<img src="assets/images/sort.png" alt="" />
+                    </th>
+                    <th scope="col">Rate SP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">31/03/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="completed">Completed</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">15/03/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="completed">Completed</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">10/03/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="completed">Completed</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">28/02/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="cancelled">Cancelled</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">15/02/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="completed">Completed</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">10/02/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="cancelled">Cancelled</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">31/01/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="completed">Completed</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">19/01/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="completed">Completed</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">05/01/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="cancelled">Cancelled</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <img src="assets/images/calendar.png" alt="" />
+                      <span id="date">01/01/2018</span>
+                      <br />
+                      12:00 - 18:00
+                    </td>
+                    <td>
+                      <div class="d-flex flex-wrap align-items-center">
+                        <div
+                          class="cap d-flex align-items-center justify-content-center"
+                        >
+                          <img src="assets/images/cap.png" alt="" />
+                        </div>
+                        <div class="d-flex flex-column users-rating">
+                          Lyum Watson
+                          <div class="d-flex flex-wrap align-items-start">
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star1.png" alt="" />
+                            <img src="assets/images/star2.png" alt="" />
+                            4
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><i class="fas fa-euro-sign"></i><span>63</span></td>
+                    <td><button class="cancelled">Cancelled</button></td>
+                    <td><button class="rate-sp">Rate SP</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--table end-->
+            </div>
+
+            <!--record filter and pagination-->
+            <div
+              class="d-flex flex-wrap record-filter align-items-center justify-content-between"
+            >
+              <div>
+                <span>Show</span>
+                <select id="records">
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                </select>
+                <span>entries</span>
+                <span>Total Record: 55</span>
+              </div>
+              <div class="bottom-buttons">
+                <a
+                  ><button>
+                    <img src="assets/images/left_play.png" alt="" /></button
+                ></a>
+
+                <a
+                  ><button>
+                    <img
+                      src="assets/images/keyboard-left-arrow-button.png"
+                      alt=""
+                    /></button
+                ></a>
+
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <a
+                  ><button>
+                    <img
+                      src="assets/images/keyboard-right-arrow-button.png"
+                      alt=""
+                    /></button
+                ></a>
+
+                <a
+                  ><button>
+                    <img src="assets/images/right_play.png" alt="" /></button
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--service section ends-->
+
+    <!--footer will be loaded through jquery-->
+    <footer>
+      <div id="footer"></div>
+    </footer>
+    <!--importing scripts-->
+    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="assets/JS/service_history.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
