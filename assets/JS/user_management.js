@@ -1,6 +1,3 @@
-$("#openbtn").hide();
-$("#closebtn").hide();
-
 $("#openbtn").click(function () {
   openNavbar();
 });
@@ -9,13 +6,11 @@ $("#closebtn").click(function () {
   closeNavbar();
 });
 
-$(".sidebar ul li a").click(function () {
-  //closeNavbar();
+$(window).resize(function () {
+  var $width = $(window).width();
+  updateContainer($width);
 });
 
-$(window).resize(function () {
-  updateContainer();
-});
 function closeNavbar() {
   $(".sidebar").animate(
     {
@@ -24,13 +19,13 @@ function closeNavbar() {
     500,
     "swing"
   );
-  $(".sidebar").hide();
+
   $("#openbtn").show();
 }
 function openNavbar() {
   $(".sidebar").animate(
     {
-      width: "261px",
+      width: "273px",
     },
     500,
     "swing"
@@ -39,24 +34,34 @@ function openNavbar() {
   $("#openbtn").hide();
 }
 
-function updateContainer() {
-  var $width = $(window).width();
-  if ($width <= 1139) {
+function updateContainer(width) {
+  if (width <= 1000) {
     $(".sidebar").addClass("fixed");
-    $(".sidebar ul li a").addClass("fixed-color");
     $(".sidebar").hide();
     $("#openbtn").show();
     $("#closebtn").show();
   } else {
-    $(".sidebar").removeClass("fixed");
-    $(".sidebar ul li a").removeClass("fixed-color");
     $(".sidebar").show();
+    $(".sidebar").removeClass("fixed");
     $("#openbtn").hide();
     $("#closebtn").hide();
   }
 }
 
 $(document).ready(function () {
+  var $width = $(window).width();
+  $(window).resize(function () {
+    $width = $(window).width();
+    updateContainer($width);
+  });
+
+  if ($width <= 1000) {
+    closeNavbar();
+  } else {
+    $("#openbtn").hide();
+    $("#closebtn").hide();
+  }
+
   $("#table_id").DataTable({
     searching: false,
     info: false,
@@ -79,7 +84,7 @@ $(document).ready(function () {
 });
 
 var rotation = 0;
-$(".sidebar a").click(function () {
+$(".sidebar-links").click(function () {
   var element = $(this).children().eq(0);
   var currentRotation = getRotationDegrees(element);
   if (currentRotation == 90) {
@@ -93,6 +98,20 @@ $(".sidebar a").click(function () {
     "-ms-transform": "rotate(" + rotation + "deg)",
     transform: "rotate(" + rotation + "deg)",
   });
+  var $width = $(window).width();
+  if ($width <= 1000) {
+    if (element == null) {
+      closeNavbar();
+    }
+  }
+});
+
+$(".submenu-links").click(function () {
+  var $width = $(window).width();
+
+  if ($width <= 1000) {
+    closeNavbar();
+  }
 });
 
 function getRotationDegrees(obj) {

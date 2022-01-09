@@ -16,6 +16,16 @@ body {
 #header-img {
   width: 100%;
 }
+
+#prices,
+#extra-services,
+#wwiios,
+#why-helperland {
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 100%;
+}
+
 .prices {
   margin-top: 31px;
   display: flex;
@@ -77,7 +87,9 @@ body {
   font-size: 28px;
   color: white;
   background: #1d7a8c;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .euro span {
@@ -245,6 +257,10 @@ body {
     column-gap: 0px;
     row-gap: 10px;
   }
+
+  .e-s {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 560px) {
@@ -254,4 +270,34 @@ body {
   .w-h-explanation-r {
     text-align: center;
   }
+}
+@media screen and (max-width: 500px) {
+  #go-up {
+    left: 20px !important;
+    bottom: 20px !important;
+  }
+
+  #get-message {
+    right: 20px !important;
+    bottom: 20px !important;
+  }
+}
+
+#go-up {
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  left: 70px;
+  bottom: 271px;
+  position: fixed;
+  background: #525252;
+  border-radius: 50%;
+  border-color: transparent;
+}
+
+#get-message {
+  right: 70px;
+  bottom: 271px;
+  position: fixed;
+  z-index: 1;
 }

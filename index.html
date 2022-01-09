@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <!--importing bootstrp-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!--importing css and jquery-->
+    <link rel="stylesheet" href="assets/CSS/index.css" />
+  </head>
+  <body>
+    <!--banner section-->
+    <section id="banner-section">
+      <!--header section-->
+      <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"
+              ><img src="assets/images/logo-large.png"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link nlbt l-1" href="#">Book a cleaner</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-2 ms-2" href="prices.html">Prices</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-3 ms-4" href="#">Our Guarantee</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-4 ms-4" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-5 ms-4" href="contact_us.html"
+                    >Contact Us</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-6 nlbt ms-4" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-7 nlbt ms-2" href="#">Become a Helper</a>
+                </li>
+                <li class="nav-item">
+                  <div class="nav-link l-8 ms-2">
+                    <select name="cars" id="dropdown">
+                      <option value="US"></option>
+                      <option value="IN"></option>
+                      <option value="AU"></option>
+                    </select>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!--header ends-->
+      <div class="d-flex flex-wrap flex-column justify-content-center">
+        <div class="d-flex flex-column mt-235 ml-55">
+          <h1>Do not feel like housework?</h1>
+          <span
+            ><img src="assets/images/ic-check.png" alt="" /> certified & insured
+            helper</span
+          >
+          <span
+            ><img src="assets/images/ic-check.png" alt="" /> easy booking
+            procedure</span
+          >
+          <span
+            ><img src="assets/images/ic-check.png" alt="" /> friendly customer
+            service
+          </span>
+          <span
+            ><img src="assets/images/ic-check.png" alt="" /> secure online
+            payment method
+          </span>
+        </div>
+
+        <button id="banner-button" class="align-self-center">
+          Let’s Book a Cleaner
+        </button>
+        <div
+          class="process d-flex flex-wrap justify-content-between align-self-center mt-157"
+        >
+          <div class="d-flex flex-column align-items-center">
+            <img src="assets/images/step-1.png" alt="" />
+            <p>Enter your postcode</p>
+          </div>
+          <img src="assets/images/step-arrow-1.png" alt="" />
+          <div class="d-flex flex-column align-items-center">
+            <img src="assets/images/step-2.png" alt="" />
+            <p>Select your plan</p>
+          </div>
+          <img src="assets/images/step-arrow-1-copy.png" alt="" />
+          <div class="d-flex flex-column align-items-center">
+            <img src="assets/images/step-3.png" alt="" />
+            <p>Pay securely online</p>
+          </div>
+          <img src="assets/images/step-arrow-1.png" alt="" />
+          <div class="d-flex flex-column align-items-center">
+            <img src="assets/images/step-4.png" alt="" />
+            <p>Pay securely online</p>
+          </div>
+        </div>
+        <a class="align-self-center mt-42" href="#why-helperland"
+          ><img src="assets/images/group-18_5.png" alt=""
+        /></a>
+      </div>
+    </section>
+
+    <!--content that remain fixed on screen-->
+    <div id="acceptance">
+      <div class="flex-grow-1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc
+        libero, ac malesuada ligula aliquam ac.
+        <a href="">Privacy Policy</a>
+      </div>
+      <a id="ok-btn" class="btn btn-primary flex-shrink-1">OK!</a>
+    </div>
+
+    <a href="#banner-section" class="btn btn-primary" id="go-up"
+      ><img src="assets/images/forma-1.png" alt=""
+    /></a>
+
+    <a id="get-message"><img src="assets/images/layer-598.png" alt="" /></a>
+    <!---->
+
+    <!--Why Helperland section-->
+    <section
+      id="why-helperland"
+      class="d-flex flex-column align-items-center flex-wrap"
+    >
+      <!--section-title-->
+      <h2 class="section-title">Why Helperland</h2>
+      <!--section-content-->
+      <div class="d-flex justify-content-around flex-wrap">
+        <div class="d-flex justify-content-center flex-column flex-wrap">
+          <img
+            class="subsection-img"
+            src="assets/images/helper-img-1.png"
+            alt=""
+          />
+          <h6 class="subsection-title">Friendly & Certified Helpers</h6>
+          <p class="subsection-p">
+            We want you to be completely satisfied with our service and feel
+            comfortable at home. In order to guarantee this, our helpers go
+            through a test procedure. Only when the cleaners meet our high
+            standards, they may call themselves Helper.
+          </p>
+        </div>
+
+        <div class="d-flex flex-column flex-wrap">
+          <img class="subsection-img" src="assets/images/group-23.png" alt="" />
+          <h6 class="subsection-title">Transparent and secure payment</h6>
+          <p class="subsection-p">
+            We have transparent prices, you do not have to scratch money or
+            money on the sideboard Leave it: Pay your helper easily and securely
+            via the online payment method. You will also receive an invoice for
+            each completed cleaning.
+          </p>
+        </div>
+
+        <div class="d-flex flex-column flex-wrap">
+          <img
+            class="subsection-img"
+            src="assets/images/group-24.png"
+            alt=""
+            class="f-c-i1-img"
+          />
+          <h6 class="subsection-title">We're here for you</h6>
+          <p class="subsection-p">
+            You have a question or need assistance with the booking process? Our
+            customer service is happy to help and advise you. How you can reach
+            us you will find out when you look under "Contact". We look forward
+            to hearing from you or reading.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--blog section-->
+    <section
+      class="d-flex flex-column align-items-center flex-wrap"
+      id="our-blog"
+    >
+      <div
+        class="d-flex justify-content-between blog-paragraph-image-container flex-wrap"
+      >
+        <div class="d-flex flex-column blog-paragraph-container flex-wrap">
+          <h6 class="subsection-title">
+            We do not know what makes you happy, but ...
+          </h6>
+          <p class="subsection-p">
+            If it's not dusting off, our friendly helpers will free you from
+            this burden - do not worry anymore about spending valuable time
+            doing housework, but savor life, you're well worth your time with
+            beautiful experiences. Free yourself and enjoy the gained time: Go
+            celebrate, relax, play with your children, meet friends or dare to
+            jump on the bungee.Other leisure ideas and exclusive events can be
+            found in our blog - guaranteed free from dust and cleaning tips!
+          </p>
+        </div>
+        <img src="assets/images/group-36.png" alt="" />
+      </div>
+      <h2 class="section-title">Our Blog</h2>
+      <div class="d-flex flex-row justify-content-between flex-wrap">
+        <div class="card">
+          <img src="assets/images/group-28.png" class="card-img-top" alt="" />
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum dolor sit amet</h5>
+            <span>January 28, 2019</span>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum metus pulvinar aliquet.
+            </p>
+            <a href="#"
+              >Read the Post <img src="assets/images/shape-2.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/images/group-29.png" class="card-img-top" alt="" />
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum dolor sit amet</h5>
+            <span>January 28, 2019</span>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum metus pulvinar aliquet.
+            </p>
+            <a href="#"
+              >Read the Post <img src="assets/images/shape-2.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="assets/images/group-30.png" class="card-img-top" alt="" />
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum dolor sit amet</h5>
+            <span>January 28, 2019</span>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum metus pulvinar aliquet.
+            </p>
+            <a href="#"
+              >Read the Post <img src="assets/images/shape-2.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--customer feedback section starts-->
+    <section
+      class="d-flex flex-column align-items-center flex-wrap"
+      id="customer-review"
+    >
+      <h2 class="section-title">What our customer says</h2>
+      <div class="d-flex flex-row flex-wrap">
+        <div class="card">
+          <div class="card-header">
+            <img src="assets/images/message.png" alt="" style="float: right" />
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0">
+                <img src="assets/images/group-31.png" alt="" />
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h6>Lary Watson</h6>
+                <span>Manchester</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body ms-3">
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum metus pulvinar aliquet consequat. Praesent nec malesuada
+              nibh. <br /><br />
+              Nullam et metus congue, auctor augue sit amet, consectetur tortor.
+            </p>
+            <a href="#"
+              >Read More <img src="assets/images/shape-2.png" alt=""
+            /></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img src="assets/images/message.png" alt="" style="float: right" />
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0">
+                <img src="assets/images/group-32.png" alt="" />
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h6>John Smith</h6>
+                <span>Manchester</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body ms-3">
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum metus pulvinar aliquet consequat. Praesent nec malesuada
+              nibh. <br /><br />
+              Nullam et metus congue, auctor augue sit amet, consectetur tortor.
+            </p>
+            <a href="#"
+              >Read More <img src="assets/images/shape-2.png" alt=""
+            /></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img src="assets/images/message.png" alt="" style="float: right" />
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0">
+                <img src="assets/images/group-33.png" alt="" />
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h6>Lars Johnson</h6>
+                <span>Manchester</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body ms-3">
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum metus pulvinar aliquet consequat. Praesent nec malesuada
+              nibh. <br /><br />
+              Nullam et metus congue, auctor augue sit amet, consectetur tortor.
+            </p>
+            <a href="#"
+              >Read More <img src="assets/images/shape-2.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--customer feedback section ends-->
+
+    <footer>
+      <div class="d-flex justify-content-center flex-wrap">
+        <div class="newslater-area">
+          <!--news later heading-->
+          <h6 class="newslatter-heading">GET OUR NEWSLETTER</h6>
+          <!--newslatter form-->
+          <form class="d-flex justify-content-center">
+            <input class="form-email" type="email" placeholder="Your Email" />
+            <input class="form-btn" type="button" value="Submit" />
+          </form>
+        </div>
+      </div>
+
+      <!--actual footer section-->
+      <div class="main-footer">
+        <div class="main-footer-raw-1">
+          <!--footer logo-->
+          <img src="assets/images/footer-logo.png" id="footer-navbar-logo" />
+          <!--footer navbar-->
+          <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#">Testimonials</a>
+            <a href="faq.html">Faqs</a>
+            <a href="#">Insurence Policy</a>
+            <a href="#">Impressum</a>
+          </div>
+          <!--social media icons-->
+          <div class="main-footer-socialmedia-area">
+            <img src="assets/images/ic-facebook.png" alt="" />
+            <img src="assets/images/ic-instagram.png" />
+          </div>
+        </div>
+        <hr />
+        <!--copyright-->
+        <p class="copyright-text">
+          ©2018 Helperland.&nbsp;All rights reserved.
+          <a href="#">Terms and Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="assets/JS/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

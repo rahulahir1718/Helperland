@@ -25,6 +25,10 @@ body {
   background-repeat: no-repeat;
 }
 
+header {
+  width: 100%;
+}
+
 .registration-form {
   width: 430px;
   height: 664px;
@@ -106,12 +110,6 @@ form button span img {
   margin-top: 15px;
 }
 
-@media screen and(max-width:430px) {
-  .registration-form {
-    width: 100%;
-  }
-}
-
 .items-container {
   width: 720px;
   margin-top: 40px;
@@ -120,11 +118,6 @@ form button span img {
   row-gap: 20px;
 }
 
-@media screen and (max-width: 720px) {
-  .items-container {
-    width: 100%;
-  }
-}
 .ic {
   width: 50%;
   display: flex;
@@ -167,26 +160,10 @@ form button span img {
 #how-it-works {
   margin-top: 30px;
   margin-bottom: 60px;
-}
-
-@media screen and (max-width: 500px) {
-  .items-container {
-    row-gap: 40px;
-  }
-  .items-container > div {
-    justify-content: center;
-    row-gap: 10px;
-  }
-
-  .items-container-img {
-    margin-left: 0px;
-  }
-
-  .ic,
-  .ic-2 {
-    margin-left: 0px;
-    width: 90%;
-  }
+  background-image: url("../images/blog-right-bg.png"),
+    url("../images/blog-left-bg.png");
+  background-position: right, left;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .navbar {
@@ -256,8 +233,45 @@ form button span img {
 
 .fixed {
   position: fixed;
+  z-index: 1;
   top: 0;
   width: 100%;
+}
+
+@media screen and (max-width: 720px) {
+  .items-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 430px) {
+  .registration-form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .items-container {
+    row-gap: 40px;
+  }
+  .items-container > div {
+    justify-content: center;
+    row-gap: 10px;
+  }
+
+  .items-container p {
+    text-align: center;
+  }
+
+  .items-container-img {
+    margin-left: 0px;
+  }
+
+  .ic,
+  .ic-2 {
+    margin-left: 0px;
+    width: 90%;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -270,8 +284,8 @@ form button span img {
   }
 
   .navbar-brand img {
-    width: 73px;
-    height: 54px;
+    width: 73px !important;
+    height: 54px !important;
   }
   .nav-item {
     margin-left: auto;

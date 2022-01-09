@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
 
 body {
   margin: 0;
@@ -14,9 +17,10 @@ body {
 }
 
 .newslatter-heading {
-  font-family: "Roboto-Medium";
+  font-weight: 500;
   font-size: 18px;
   margin-bottom: 16px;
+  color: #353548;
 }
 
 form {
@@ -24,7 +28,7 @@ form {
 }
 
 .form-email {
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   width: 233px;
   height: 40px;
   background: #f4f5f8 0% 0% no-repeat padding-box;
@@ -36,7 +40,7 @@ form {
 }
 
 .form-btn {
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   width: 88px;
   height: 40px;
   background: #ff7b6d;
@@ -88,13 +92,13 @@ form {
   text-decoration: none;
   color: white;
   font-size: 12px;
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   text-transform: uppercase;
 }
 
 .nav a:hover {
   text-decoration: none;
-  color: blue;
+  color: #346d75;
 }
 
 .main-footer hr {
@@ -112,11 +116,22 @@ form {
   align-self: center;
   color: white;
   font-size: 14px;
-  font-family: "Roboto-Regular";
+  font-weight: 400;
   margin-top: 25px;
 }
 
 .copyright-text a {
   color: white;
   text-decoration: none;
+}
+
+@media screen and (max-width: 810px) {
+  .main-footer-raw-1,
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .copyright-text {
+    text-align: center;
+  }
 }

@@ -7,10 +7,10 @@ function initialization() {
   $(".btn-1").addClass("active-btn");
   $(".btn-2").addClass("non-active-btn");
 
-  $(".btn-1 a").click(function () {
+  $(".btn-1").click(function () {
     btn1Clicked();
   });
-  $(".btn-2 a").click(function () {
+  $(".btn-2").click(function () {
     btn2Clicked();
   });
   alert(
@@ -40,58 +40,46 @@ function btn2Clicked() {
   }
 }
 
-let rotation1 = 0;
-function rotateimg1() {
-  rotation1 += 90;
-  if (rotation1 === 180) {
-    rotation1 = 0;
+function getRotationDegrees(obj) {
+  var matrix =
+    obj.css("-webkit-transform") ||
+    obj.css("-moz-transform") ||
+    obj.css("-ms-transform") ||
+    obj.css("-o-transform") ||
+    obj.css("transform");
+  if (matrix !== "none") {
+    var values = matrix.split("(")[1].split(")")[0].split(",");
+    var a = values[0];
+    var b = values[1];
+    var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+  } else {
+    var angle = 0;
   }
-  document.querySelector("#img1").style.transform = `rotate(${rotation1}deg)`;
+  return angle < 0 ? angle + 360 : angle;
 }
 
-let rotation2 = 0;
-function rotateimg2() {
-  rotation2 += 90;
-  if (rotation2 === 180) {
-    rotation2 = 0;
-  }
-  document.querySelector("#img2").style.transform = `rotate(${rotation2}deg)`;
-}
+$("#fc img").click(function () {
+  rotate($(this));
+});
 
-let rotation3 = 0;
-function rotateimg3() {
-  rotation3 += 90;
-  if (rotation3 === 180) {
-    rotation3 = 0;
-  }
-  document.querySelector("#img3").style.transform = `rotate(${rotation3}deg)`;
-}
+$("#fsp img").click(function () {
+  rotate($(this));
+});
 
-let rotation4 = 0;
-function rotateimg4() {
-  rotation4 += 90;
-  if (rotation4 === 180) {
-    rotation4 = 0;
+var rotation = 0;
+function rotate(obj) {
+  var currentRotation = getRotationDegrees(obj);
+  if (currentRotation == 90) {
+    rotation = 0;
+  } else {
+    rotation = 90;
   }
-  document.querySelector("#img4").style.transform = `rotate(${rotation4}deg)`;
-}
-
-let rotation_1 = 0;
-function rotateimg_1() {
-  rotation_1 += 90;
-  if (rotation_1 === 180) {
-    rotation_1 = 0;
-  }
-  document.querySelector("#img-1").style.transform = `rotate(${rotation_1}deg)`;
-}
-
-let rotation_2 = 0;
-function rotateimg_2() {
-  rotation_2 += 90;
-  if (rotation_2 === 180) {
-    rotation_2 = 0;
-  }
-  document.querySelector("#img-2").style.transform = `rotate(${rotation_2}deg)`;
+  obj.css({
+    "-webkit-transform": "rotate(" + rotation + "deg)",
+    "-moz-transform": "rotate(" + rotation + "deg)",
+    "-ms-transform": "rotate(" + rotation + "deg)",
+    transform: "rotate(" + rotation + "deg)",
+  });
 }
 
 $(window).scroll(function () {

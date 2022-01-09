@@ -69,31 +69,30 @@ p {
 
 .btn-1,
 .btn-2 {
-  font-size: 24px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  line-height: 2.17;
-}
-.active-btn {
-  background: #1d7a8c;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 !important;
 }
 
-.active-btn a {
-  width: inherit;
-  height: inherit;
+.active-btn {
+  background: #1d7a8c;
   color: #ffffff;
   text-decoration: none;
 }
 
 .non-active-btn {
   border-bottom: solid 3px #1d7a8c;
-}
-
-.non-active-btn a {
   color: #646464;
   text-decoration: none;
 }
 
+@media screen and (max-width: 750px) {
+  .non-active-btn {
+    border-bottom: 0px;
+  }
+}
 .query-heading {
   font-family: "Roboto";
   padding-left: 15px;
@@ -106,6 +105,7 @@ p {
 .query-info {
   margin-left: 37px;
 }
+
 .collapse {
   color: #646464;
   font-family: "Roboto";

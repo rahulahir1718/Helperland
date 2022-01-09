@@ -1,3 +1,7 @@
+alert(
+  "footer html file will be loaded using jquery..so make sure that this page is loaded using web server like Apache or VS Code plugin Live Server because header and footer will not be shown directly on Google Chrome or any other browser due to file access constraint."
+);
+
 $("#footer").load("footer.html", function () {
   $(".newslater-area").hide();
 });
@@ -63,4 +67,38 @@ $(".bottom-buttons > button").click(function () {
   $(".bottom-buttons > button").css("color", "#777777");
   $(this).addClass("active");
   $(this).css("color", "white");
+});
+
+$(document).ready(function () {
+  $("#table_id").DataTable({
+    searching: false,
+    info: false,
+    buttons: [
+      {
+        extend: "excelHtml5",
+        title: "Data export",
+      },
+      {
+        extend: "pdfHtml5",
+        title: "Data export",
+      },
+    ],
+    stripeClasses: [],
+    aLengthMenu: [
+      [5, 10, 15, -1],
+      [5, 10, 25, "All"],
+    ],
+    dom: '<"float-left"B><"float-right"f>rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
+    pageLength: 10,
+    paging: "true",
+    pagingType: "full_numbers",
+    language: {
+      paginate: {
+        next: '<img src="assets/images/keyboard-right-arrow-button.png" />',
+        previous: '<img src="assets/images/keyboard-left-arrow-button.png" />',
+        first: '<img src="assets/images/left_play.png" alt="" />',
+        last: '<img src="assets/images/right_play.png"/>',
+      },
+    },
+  });
 });

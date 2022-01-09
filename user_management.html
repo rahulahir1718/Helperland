@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Management</title>
+    <title>Admin > User Management</title>
 
     <!--importing bootstrp-->
     <link
@@ -33,7 +33,7 @@
       <!--navigation bar-->
       <nav class="navbar navbar-expand navbar-dark">
         <div class="container-fluid">
-          <a href="#" class="navbar-brand"><h2>helperland</h2> </a>
+          <a href="index.html" class="navbar-brand"><h2>helperland</h2> </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -78,41 +78,43 @@
               <i class="fas fa-hand-point-left"></i>
             </button>
           </div>
-          <li><a href="">Service Management</a></li>
-          <li><a href="">Role Management</a></li>
+          <li><a href="" class="sidebar-links">Service Management</a></li>
+          <li><a href="" class="sidebar-links">Role Management</a></li>
           <li>
-            <a href=""
+            <a href="" class="sidebar-links"
               >Coupen Code Management
               <i class="fas fa-chevron-right"></i>
             </a>
             <ul class="submenu collapse">
-              <li><a href="#">Coupon Codes</a></li>
-              <li><a href="#">Usage History</a></li>
+              <li><a href="#" class="submenu-links">Coupon Codes</a></li>
+              <li><a href="" class="submenu-links">Usage History</a></li>
             </ul>
           </li>
-          <li><a href="">Escalation Management</a></li>
-          <li><a href="">Service Requests</a></li>
-          <li><a href="">Service Providers</a></li>
-          <li><a href="">User Management</a></li>
+          <li><a href="" class="sidebar-links">Escalation Management</a></li>
+          <li><a href="" class="sidebar-links">Service Requests</a></li>
+          <li><a href="" class="sidebar-links">Service Providers</a></li>
+          <li><a href="" class="sidebar-links">User Management</a></li>
           <li>
-            <a href="">Finance Module<i class="fas fa-chevron-right"></i></a>
+            <a href="" class="sidebar-links"
+              >Finance Module<i class="fas fa-chevron-right"></i
+            ></a>
             <ul class="submenu collapse">
-              <li><a href="#">All Transactions</a></li>
-              <li><a href="#">Generate Payment</a></li>
-              <li><a href="#">Customer Invoices</a></li>
+              <li><a href="#" class="submenu-links">All Transactions</a></li>
+              <li><a href="#" class="submenu-links">Generate Payment</a></li>
+              <li><a href="#" class="submenu-links">Customer Invoices</a></li>
             </ul>
           </li>
-          <li><a href="">Zip Code Management</a></li>
-          <li><a href="">Rating Management</a></li>
-          <li><a href="">Inquiry Management</a></li>
-          <li><a href="">Newsletter Management</a></li>
+          <li><a href="" class="sidebar-links">Zip Code Management</a></li>
+          <li><a href="" class="sidebar-links">Rating Management</a></li>
+          <li><a href="" class="sidebar-links">Inquiry Management</a></li>
+          <li><a href="" class="sidebar-links">Newsletter Management</a></li>
           <li>
-            <a href=""
+            <a href="" class="sidebar-links"
               >Content Management<i class="fas fa-chevron-right"></i
             ></a>
             <ul class="submenu collapse">
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">FAQs</a></li>
+              <li><a href="#" class="submenu-links">Blog</a></li>
+              <li><a href="#" class="submenu-links">FAQs</a></li>
             </ul>
           </li>
         </ul>
@@ -128,7 +130,7 @@
         <!--horizontal form starts-->
         <div class="form">
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-xxl-2">
               <select
                 id="user-name"
                 class="form-select"
@@ -141,7 +143,7 @@
               </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-xxl-3">
               <div>
                 <select
                   id="user-role"
@@ -156,7 +158,7 @@
               </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-xxl-3">
               <div id="phone-number" class="input-group">
                 <span class="input-group-text" id="basic-addon1">+49</span>
                 <input
@@ -169,7 +171,7 @@
               </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-xxl-2">
               <input
                 type="email"
                 class="form-control"
@@ -178,8 +180,8 @@
               />
             </div>
 
-            <div class="col-sm-1"><button id="search">Search</button></div>
-            <div class="col-sm-1"><button id="clear">Clear</button></div>
+            <div class="col-xxl-1"><button id="search">Search</button></div>
+            <div class="col-xxl-1"><button id="clear">Clear</button></div>
           </div>
         </div>
         <!--horizontal form ends-->

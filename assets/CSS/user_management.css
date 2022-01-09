@@ -64,8 +64,7 @@ body {
 .fixed {
   height: 80%;
   position: fixed;
-  z-index: 99;
-  background-color: #6dcbfa;
+  z-index: 1;
 }
 
 .fixed-color {
@@ -296,6 +295,11 @@ div.row {
   background: #565656 !important;
   color: #ffffff !important;
 }
+
+.page-item.active .page-link {
+  color: white !important;
+}
+
 .dataTables_paginate span a {
   border: 1px solid #d6d6d6 !important;
 }
@@ -315,15 +319,21 @@ div.row {
 }
 
 @media screen and (max-width: 555px) {
+  .table-container > div {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1400px) {
   .form .row > div {
     margin-bottom: 15px;
   }
 
-  .form .col-sm-1 {
+  .form .col-xxl-1 {
     text-align: center;
   }
 }
-
 @media screen and (max-width: 380px) {
   #add-new-user {
     margin-left: 0px;
@@ -331,5 +341,16 @@ div.row {
 
   .table-container > div {
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebar,
+  .sidebar li .submenu {
+    background-color: #6dcbfa;
+  }
+
+  .sidebar ul li a {
+    color: white;
   }
 }

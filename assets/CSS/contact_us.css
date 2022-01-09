@@ -173,3 +173,12 @@ iframe {
   text-decoration: none;
   color: l#1d7a8c;
 }
+
+@media screen and (max-width: 400px) {
+  #contact-us,
+  #form-section,
+  #map-section {
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+}
