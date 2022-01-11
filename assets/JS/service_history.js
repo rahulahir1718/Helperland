@@ -69,20 +69,16 @@ $(".bottom-buttons > button").click(function () {
   $(this).css("color", "white");
 });
 
+$("#export").on("click", function () {
+  $(".buttons-pdf").trigger("click");
+});
+
 $(document).ready(function () {
-  $("#table_id").DataTable({
+  var table = $("#table_id").DataTable({
     searching: false,
     info: false,
-    buttons: [
-      {
-        extend: "excelHtml5",
-        title: "Data export",
-      },
-      {
-        extend: "pdfHtml5",
-        title: "Data export",
-      },
-    ],
+    responsive: true,
+    buttons: ["pdfHtml5"],
     stripeClasses: [],
     aLengthMenu: [
       [5, 10, 15, -1],
@@ -101,4 +97,7 @@ $(document).ready(function () {
       },
     },
   });
+  $(".buttons-pdf").hide();
+  var entries = table.page.info().recordsTotal;
+  $("#table_id_length label").append(" Total Record: " + entries);
 });

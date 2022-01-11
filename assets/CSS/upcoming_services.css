@@ -92,6 +92,7 @@ body {
   width: 100%;
   height: 119px;
   background-color: #f9f9f9;
+  border: 1px solid #e1e1e1;
 }
 
 #user-title {
@@ -108,8 +109,9 @@ body {
 
 .vertical-navbar {
   background-color: #1d7a8c;
-  width: 262px;
+  width: 262px !important;
 }
+
 .vertical-navbar ul {
   list-style-type: none;
   margin: 0;
@@ -119,6 +121,7 @@ body {
 .vertical-navbar li {
   border-bottom: 1px solid #3c8c9c;
 }
+
 .vertical-navbar li a {
   display: block;
   text-decoration: none;
@@ -128,8 +131,8 @@ body {
   font-size: 18px;
 }
 
-.vertical-navbar ul div {
-  text-align: end;
+.active-link {
+  background-color: #146371 !important;
 }
 
 .vertical-navbar button {
@@ -163,13 +166,14 @@ body {
   margin-bottom: 30px;
 }
 
-.table-responsive {
-  width: 845px;
+table {
+  width: 845px !important;
+  border: 1px solid #e1e1e1 !important;
+  border-bottom: 0px !important;
 }
 
-thead {
+thead tr {
   background-color: #f9f9f9;
-  border: 1px solid #ececec;
 }
 
 thead tr th {
@@ -177,6 +181,7 @@ thead tr th {
   font-size: 16px;
   align-items: center;
   color: #646464;
+  border-bottom: 1px solid #e1e1e1 !important;
 }
 
 td {
@@ -184,6 +189,7 @@ td {
   font-weight: 400;
   font-size: 16px;
   color: #646464;
+  border-bottom: 1px solid #e1e1e1 !important;
 }
 
 td img {
@@ -210,22 +216,6 @@ td button {
 div.row {
   padding: 15px;
   background-color: white;
-}
-
-.col-sm-4 label {
-  color: #646464;
-  font-weight: 400;
-  font-size: 14px;
-}
-.col-sm-4 select {
-  width: 58px;
-  height: 38px;
-  color: #646464;
-  font-weight: 400;
-  font-size: 14px;
-  background: #ffffff;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
 }
 
 .dataTables_paginate {
@@ -257,19 +247,22 @@ div.row {
 @media screen and (max-width: 1139px) {
   .services {
     width: 100%;
+    flex-direction: column;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
   .ssc {
     width: 100%;
   }
 
-  .table-responsive {
-    width: 100%;
+  table {
+    width: 100% !important;
   }
-}
 
-.closed {
-  position: fixed;
-  left: 0;
-  z-index: 1;
+  .closed {
+    position: fixed;
+    left: 0;
+    z-index: 1;
+  }
 }

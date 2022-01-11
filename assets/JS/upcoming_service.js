@@ -11,6 +11,7 @@ $(document).ready(function () {
   $("table").DataTable({
     searching: false,
     info: false,
+    responsive: true,
     stripeClasses: [],
     aLengthMenu: [
       [5, 10, 15, -1],

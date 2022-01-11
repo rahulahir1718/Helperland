@@ -62,7 +62,7 @@ $(document).ready(function () {
     $("#closebtn").hide();
   }
 
-  $("#table_id").DataTable({
+  var table = $("#table_id").DataTable({
     searching: false,
     info: false,
     responsive: true,
