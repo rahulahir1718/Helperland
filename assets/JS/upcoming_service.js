@@ -46,7 +46,11 @@ $("#closebtn").click(function () {
 });
 
 $(".vertical-navbar ul li a").click(function () {
-  closeNavbar();
+  $(".vertical-navbar ul li").removeClass("active-link");
+  $(this).parent().addClass("active-link");
+  if ($width <= 1139) {
+    closeNavbar();
+  }
 });
 
 $(window).resize(function () {

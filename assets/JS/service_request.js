@@ -86,6 +86,8 @@ $(document).ready(function () {
 
 var rotation = 0;
 $(".sidebar-links").click(function () {
+  $(".sidebar-links").removeClass("active-link");
+  $(this).addClass("active-link");
   var element = $(this).children().eq(0);
   var currentRotation = getRotationDegrees(element);
   if (currentRotation == 90) {

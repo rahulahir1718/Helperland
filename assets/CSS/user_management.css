@@ -142,6 +142,11 @@ body {
   margin-left: auto;
   margin-right: 5px;
 }
+
+.active-link {
+  color: #1fb6ff !important;
+}
+
 .table-container {
   padding: 22px;
 }
