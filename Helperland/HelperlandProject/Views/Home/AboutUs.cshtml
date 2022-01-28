@@ -1,0 +1,69 @@
+﻿@{ 
+    ViewData["Title"] = "About Us"; 
+}
+
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/home/about-us.css" asp-append-version="true" />
+}
+
+<!--Main image-->
+<img src="~/images/hero-banner-img.png" id="header-image" />
+
+<!--about us section-->
+<section id="about-us">
+  <div class="d-flex justify-content-center">
+    <h2 class="title">A Few words about us</h2>
+  </div>
+
+  <!--section-decoration-->
+  <div class="d-flex justify-content-center title-decoration">
+    <hr />
+    <img src="~/images/separator.png" />
+    <hr />
+  </div>
+  <div class="d-flex justify-content-center paragraph">
+    <div>
+      <p>
+        We are providers of professional home cleaning services, offering hourly
+        based house cleaning options, which mean that you don’t have to fret
+        about getting your house cleaned anymore. We will handle everything for
+        you, so that you can focus on spending your precious time with your
+        family members.
+      </p>
+      <p>
+        We have a number of experienced cleaners to help you make cleaning out
+        or shifting your home an easy affair.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--our story section-->
+<section id="our-story">
+  <div class="d-flex justify-content-center">
+    <h2 class="title">Our Story</h2>
+  </div>
+
+  <!--section-decoration-->
+  <div class="d-flex justify-content-center title-decoration">
+    <hr />
+    <img src="~/images/separator.png" />
+    <hr />
+  </div>
+  <div class="d-flex justify-content-center paragraph">
+    <div>
+      <p>
+        A cleaner is a type of industrial or domestic worker who cleans homes or
+        commercial premises for payment. Cleaners may specialise in cleaning
+        particular things or places, such as window cleaners. Cleaners often
+        work when the people who otherwise occupy the space are not around. They
+        may clean offices at night or houses during the workday.
+      </p>
+    </div>
+  </div>
+</section>
+
+@section AddAfterFooter{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/home/contact-us.js" asp-append-version="true"></script>
+}

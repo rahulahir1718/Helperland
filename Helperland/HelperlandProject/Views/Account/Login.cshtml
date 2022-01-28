@@ -1,0 +1,50 @@
+﻿<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Login to your account</h4>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form id="loginForm" method="post">
+        <div class="input-container">
+          <input
+            class="input-field"
+            type="text"
+            placeholder="Email"
+            name="Email"
+          />
+          <i class="fa fa-user"></i>
+        </div>
+        <div class="input-container">
+          <input
+            class="input-field"
+            type="password"
+            placeholder="Password"
+            name="Password"
+          />
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="input-container forCheckBox">
+          <input
+            type="checkbox"
+            id="remember_me"
+            name="checkbox"
+            value="Bike"
+          />
+          <label for="checkbox">Remember me</label>
+        </div>
+        <input type="submit" value="Login" class="Login" />
+        <p>
+          <a onclick="openForgetPasswordPopUp();">Forget password?</a><br />
+          Don't have an account?
+          <a asp-controller="account" asp-action="register">Create an account</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

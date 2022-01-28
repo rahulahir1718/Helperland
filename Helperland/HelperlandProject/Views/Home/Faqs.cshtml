@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "Faqs";
+} 
+
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/home/faqs.css" asp-append-version="true" />
+}
+
+<!-- faq image -->
+<img src="~/images/faq-banner.png" id="main-image" alt="image" />
+
+<!--faq section-->
+<section id="faq">
+  <div class="d-flex justify-content-center">
+    <h2 class="title">FAQ</h2>
+  </div>
+
+  <!--section-decoration-->
+  <div class="d-flex justify-content-center title-decoration">
+    <hr />
+    <img src="~/images/separator.png" alt="image" />
+    <hr />
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="faq-content d-flex justify-content-center flex-wrap">
+      <p>
+        Whether you are Customer or Service provider,<br />
+        We have tried our best to solve all your queries and questions.
+      </p>
+    </div>
+  </div>
+
+  <div class="container faq-content">
+    <!-- large button starts -->
+    <div class="row">
+      <a class="btn btn-1 col-md-6" href="" data-bs-toggle="collapse"
+        >FOR COUSTOMER</a
+      >
+
+      <a class="btn btn-2 col-md-6" href="" data-bs-toggle="collapse"
+        >FOR SERVICE PROVIDER</a
+      >
+    </div>
+    <!-- large button end -->
+
+    <!-- collapse button contenet start -->
+    <div class="row">
+      <div class="collapse show" id="fc">
+        <div class="pt-5">
+          <div class="d-flex">
+            <a href="#content" data-bs-toggle="collapse"
+              ><img src="~/images/vector-smart-object-copy.png" alt="image"
+            /></a>
+            <p class="query-heading">What's included in a cleaning?</p>
+          </div>
+
+          <div class="d-flex query-info">
+            <div id="content" class="collapse">
+              Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3 ps-0">
+          <div class="d-flex">
+            <a href="#content1" data-bs-toggle="collapse"
+              ><img src="~/images/vector-smart-object-copy.png" alt="image"
+            /></a>
+            <p class="query-heading">
+              Which Helperland professional will come to my place?
+            </p>
+          </div>
+
+          <div class="d-flex query-info">
+            <div id="content1" class="collapse">
+              Helperland has a vast network of experienced, top-rated cleaners.
+              Based on the time and date of your request, we work to assign the
+              best professional available. Like working with a specific pro? Add
+              them to your Pro Team from the mobile app and they'll be requested
+              first for all future bookings. You will receive an email with
+              details about your professional prior to your appointment.
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3 ps-0">
+          <div class="d-flex">
+            <a href="#content2" data-bs-toggle="collapse"
+              ><img src="~/images/vector-smart-object-copy.png" alt="image"
+            /></a>
+            <p class="query-heading">Can I skip or reschedule bookings?</p>
+          </div>
+
+          <div class="d-flex query-info">
+            <div id="content2" class="collapse">
+              You can reschedule any booking for free at least 24 hours in
+              advance of the scheduled start time. If you need to skip a booking
+              within the minimum commitment, we’ll credit the value of the
+              booking to your account. You can use this credit on future
+              cleanings and other Helperland services
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3 ps-0">
+          <div class="d-flex">
+            <a href="#content3" data-bs-toggle="collapse"
+              ><img src="~/images/vector-smart-object-copy.png" alt="image"
+            /></a>
+            <p class="query-heading">Do I need to be home for the booking?</p>
+          </div>
+
+          <div class="d-flex query-info">
+            <div id="content3" class="collapse">
+              We strongly recommend that you are home for the first clean of
+              your booking to show your cleaner around. Some customers choose to
+              give a spare key to their cleaner, but this decision is based on
+              individual preferences.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse show" id="fsp">
+        <div class="pt-5">
+          <div class="d-flex">
+            <a href="#content" data-bs-toggle="collapse"
+              ><img src="~/images/vector-smart-object-copy.png" alt="image"
+            /></a>
+            <p class="query-heading">How much do service providers earn?</p>
+          </div>
+
+          <div class="d-flex query-info">
+            <div id="content" class="collapse">
+              The self-employed service providers working with Helperland set
+              their own payouts, this means that they decide how much they earn
+              per hour.
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3 ps-0">
+          <div class="d-flex">
+            <a href="#content1" data-bs-toggle="collapse"
+              ><img src="~/images/vector-smart-object-copy.png" alt="image"
+            /></a>
+            <p class="query-heading">
+              What support do you provide to the service providers?
+            </p>
+          </div>
+
+          <div class="d-flex query-info">
+            <div id="content1" class="collapse">
+              Our call-centre is available to assist the service providers with
+              all queries or issues in regards to their bookings during office
+              hours. Before a service provider starts receiving jobs, every
+              individual partner receives an orientation session to familiarise
+              with the online platform and their profile.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- collaspse button content end -->
+    </div>
+  </div>
+</section>
+
+@section AddAfterFooter{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/home/script-faq.js" asp-append-version="true"></script>
+}

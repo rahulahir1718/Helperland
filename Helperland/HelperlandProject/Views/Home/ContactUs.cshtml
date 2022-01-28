@@ -1,0 +1,162 @@
+﻿@{ 
+    ViewData["Title"] = "Contact Us"; 
+}
+
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/home/contact-us.css" asp-append-version="true" />
+}
+
+<!--Main image-->
+<img id="header-image" src="~/images/group-16_2.png" />
+
+<!--contact-us section-->
+<section id="contact-us">
+  <!--section-title-->
+  <div class="d-flex justify-content-center">
+    <h2 class="title">Contact us</h2>
+  </div>
+  <!--section-decoration-->
+  <div class="d-flex justify-content-center title-decoration">
+    <hr />
+    <img src="~/images/separator.png" />
+    <hr />
+  </div>
+  <!--contact-options-->
+  <div class="d-flex justify-content-center flex-wrap" id="contact-option">
+    <div class="contact-option">
+      <img src="~/images/forma-1_2.png" alt="" />
+      <span
+        >Königswinterer Str. 116<br />
+        53227 Bonn</span
+      >
+    </div>
+
+    <div class="contact-option">
+      <img src="~/images/phone-call.png" alt="" />
+      <span>+49 (228) 28693320</span>
+    </div>
+
+    <div class="contact-option">
+      <img src="~/images/vector-smart-object.png" alt="" />
+      <span>info@helperland.com</span>
+    </div>
+  </div>
+</section>
+
+<div class="d-flex justify-content-center contact-divider">
+  <hr />
+</div>
+
+<!--get in touch section-->
+<section id="form-section">
+  <div class="d-flex justify-content-center flex-wrap">
+    <h4 id="form-section-title">Get in touch with us</h4>
+  </div>
+  <div class="d-flex justify-content-center flex-wrap">
+    <form>
+      <div class="row">
+        <!--First Name-->
+        <div class="form-group col-sm-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            placeholder="First Name"
+          />
+        </div>
+        <!--Last Name-->
+        <div class="form-group col-sm-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+      <!--Mobile Number-->
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">+49</span>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile-number"
+              placeholder="Mobile Number"
+            />
+          </div>
+        </div>
+
+        <!--Email-->
+        <div class="form-group col-sm-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="Email address"
+          />
+        </div>
+      </div>
+      <!--Subject selection-->
+      <div class="form-group mb-3">
+        <select id="inputState" class="form-control">
+          <option selected>Subject</option>
+          <option>...</option>
+        </select>
+      </div>
+      <!--messsage-->
+      <div class="form-group mb-3">
+        <textarea
+          class="form-control"
+          id="message"
+          rows="5"
+          placeholder="Message"
+        ></textarea>
+        <!--file upload-->
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="exampleFormControlFile1"
+          >Attach the attachment
+        </label>
+        <button class="btn btn-default upload-btn">Upload</button>
+        <input class="upload-control" type="file" id="fileUpload" />
+      </div>
+      <!--checkbox-->
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="defaultCheck1"
+        />
+        <label class="form-check-label" for="defaultCheck1">
+          Our current ones apply <a href="#">privacy policy.</a>I hereby agree
+          that my data entered into the contact<br />
+          form will be stored electronically and processed and used for the
+          purpose of establishing<br />
+          contact.The consent can be withdrawan at any time pursuant to Art.
+          7(3) GDPR by informal<br />
+          notification(eg by e-mail).
+        </label>
+      </div>
+      <!--Submit button-->
+      <div class="row justify-content-center">
+        <button id="submit-btn" type="submit" class="btn btn-lg">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!--Map Section-->
+<section id="map-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.274682704888!2d7.1303344156052235!3d50.73339407951535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bee13f0afebfb1%3A0x7caeb94f4c1042fc!2sK%C3%B6nigswinterer%20Str.%20116%2C%2053227%20Bonn%2C%20Germany!5e0!3m2!1sen!2sin!4v1638543145206!5m2!1sen!2sin"
+    loading="lazy"
+  ></iframe>
+</section>
+
+@section AddAfterFooter{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/home/contact-us.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,118 @@
+﻿@{ ViewData["Title"] = "Register"; Layout = "~/Views/Home/_Layout.cshtml"; }
+@section AddToHead{
+<link
+  rel="stylesheet"
+  href="~/css/account/register.css"
+  asp-append-version="true"
+/>
+}
+<!--sign up form start-->
+<section id="sectionRegister">
+  <div class="d-flex flex-column align-items-center">
+    <h2 class="title">Create an account</h2>
+    <!--section-decoration-->
+    <div class="d-flex justify-content-center title-decoration">
+      <hr />
+      <img src="~/images/separator.png" />
+      <hr />
+    </div>
+
+    <form>
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Email-->
+        <div class="form-group col-md-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="Email address"
+          />
+        </div>
+        <!--Mobile Number-->
+        <div class="col-md-6 mb-3">
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">+49</span>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile-number"
+              placeholder="Mobile Number"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="first-name"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="last-name"
+            placeholder="Confirm Password"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              I have read the <a href="">privacy policy.</a>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-12 text-center">
+          <input class="btn btn-primary px-4" type="submit" value="Register" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Already registered? <a href="">Login now</a></p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!--sign up form ends-->
+
+@section AddAfterFooter{
+<script src="~/lib/jquery/jquery.js"></script>
+<script>
+  $("footer").hide();
+  $("header .navbar").css("background", "rgba(82, 82, 82, 1)");
+</script>
+}

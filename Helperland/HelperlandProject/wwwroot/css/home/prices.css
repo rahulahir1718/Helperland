@@ -1,0 +1,299 @@
+﻿.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#header-img {
+  width: 100%;
+}
+
+#prices,
+#extra-services,
+#wwiios,
+#why-helperland {
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 100%;
+}
+
+.prices {
+  margin-top: 31px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 553px;
+}
+
+@media screen and (max-width: 553px) {
+  .prices {
+    width: 90%;
+  }
+}
+
+.title {
+  margin: 0;
+  font: "Roboto";
+  font-weight: 500;
+  color: #4f4f4f;
+  text-align: center;
+}
+
+.title-decoration {
+  margin-top: 9px;
+}
+
+.title-decoration hr {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 68px;
+  color: #cccccc;
+  height: 1px;
+  margin-top: 12px;
+}
+
+.title-decoration img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  border: 1px solid #b0c9ce;
+  opacity: 1;
+  margin-top: 42px;
+}
+
+#large-btn {
+  height: 59px;
+  width: inherit;
+  font-size: 28px;
+  color: white;
+  background: #1d7a8c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.euro span {
+  font-weight: 700;
+  font-size: 48px;
+  color: #646464;
+}
+
+.euro p {
+  font-weight: 400;
+  font-size: 30px;
+  color: #646464;
+  margin-top: 20px;
+}
+
+.benifits span {
+  margin-right: 9px;
+}
+
+.benifits p {
+  font-weight: 400;
+  font-size: 15px;
+  color: #646464;
+}
+
+#extra-services {
+  width: 100%;
+  margin-top: 51px;
+}
+
+.section-devider {
+  margin: 0;
+  width: 73%;
+  height: 1px;
+  color: #4f4f4f;
+}
+
+.mt-41 {
+  margin-top: 41px;
+}
+
+.e-s {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 39px;
+  flex-direction: row;
+  column-gap: 110px;
+}
+
+.e-s .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.e-s .item .p1 {
+  margin-top: 14px;
+  margin-bottom: 0px;
+  color: #646464;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.e-s .item .p2 {
+  margin-top: 5px;
+  color: #1d7a8c;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.e-s .item div {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #b0c9ce;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wwiios {
+  background-color: #f6f6f6;
+  margin-top: 56px;
+}
+
+.mt-73 {
+  margin-top: 73px;
+}
+
+.included-services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 81px;
+  column-gap: 30px;
+}
+
+.included-services .item {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#item-image {
+  height: 210px;
+  width: 360px;
+}
+
+.included-services .item .p1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4f4f4f;
+  margin-top: 20px;
+}
+
+.included-services .item .p2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4f4f4f;
+}
+
+.included-services .item .p2 span {
+  margin-right: 9px;
+}
+
+#why-helperland {
+  margin-top: 71px;
+}
+
+#why-helperland .container-fluid {
+  width: 79%;
+}
+
+.w-h-heading-l {
+  font-weight: 700;
+  font-size: 20px;
+  color: #646464;
+  text-align: right;
+}
+
+.w-h-explanation-l {
+  font-weight: 400;
+  font-size: 14px;
+  color: #646464;
+  text-align: right;
+}
+
+.w-h-heading-r {
+  font-weight: 700;
+  font-size: 20px;
+  color: #646464;
+  text-align: left;
+}
+
+.w-h-explanation-r {
+  font-weight: 400;
+  font-size: 14px;
+  color: #646464;
+  text-align: left;
+}
+
+@media screen and (max-width: 400px) {
+  .included-services {
+    column-gap: 0px;
+    row-gap: 10px;
+  }
+
+  .e-s {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .w-h-heading-l,
+  .w-h-heading-r,
+  .w-h-explanation-l,
+  .w-h-explanation-r {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #go-up {
+    left: 20px !important;
+    bottom: 20px !important;
+  }
+
+  #get-message {
+    right: 20px !important;
+    bottom: 20px !important;
+  }
+}
+
+#go-up {
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  left: 70px;
+  bottom: 271px;
+  position: fixed;
+  background: #525252;
+  border-radius: 50%;
+  border-color: transparent;
+}
+
+#get-message {
+  right: 70px;
+  bottom: 271px;
+  position: fixed;
+  z-index: 1;
+}

@@ -1,0 +1,334 @@
+﻿@{
+    //this file does not use common latout page
+    Layout=null; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Provider > Become a provider</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
+
+    <!--importing bootstrap-->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+
+    <!--importing css and jquery-->
+    <link
+      rel="stylesheet"
+      href="~/css/home/become-a-provider.css"
+      asp-append-version="true"
+    />
+  </head>
+  <body>
+    <section id="banner-section">
+      <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="home" asp-action="index"
+              ><img src="~/images/logo-large.png"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link nlbt l-1" href="#">Book a cleaner</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link l-2 ms-2"
+                    asp-controller="home"
+                    asp-action="prices"
+                    >Prices</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-3 ms-4" href="#">Our Guarantee</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-4 ms-4" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link l-5 ms-4"
+                    asp-controller="home"
+                    asp-action="contactus"
+                    >Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-6 nlbt ms-4" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-7 nlbt ms-2" href="#">Become a Helper</a>
+                </li>
+                <li class="nav-item">
+                  <div class="nav-link l-8 ms-2">
+                    <div class="btn-group dropstart">
+                      <button
+                        class="btn btn-secondary data-toggle"
+                        type="button"
+                        id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <img id="flagImage" src="~/images/ic-flag.png" alt="" />
+                        <img
+                          id="ddIcon"
+                          src="~/images/sp-arrow-down.png"
+                          alt=""
+                        />
+                      </button>
+                      <ul
+                        class="dropdown-menu mt-5"
+                        aria-labelledby="dropdownMenuButton1"
+                      >
+                        <li>
+                          <a class="dropdown-item"
+                            ><img src="~/images/ic-flag.png" alt="" /> UK</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item"
+                            ><img src="~/images/ic-flag-india.png" alt="" />
+                            Ind</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item"
+                            ><img src="~/images/ic-flag-australia.png" alt="" />
+                            AUS</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="d-flex flex-column align-items-center">
+        <div class="registration-form d-flex flex-column align-items-center">
+          <h6>Register Now!</h6>
+          <form>
+            <input
+              type="text"
+              class="form-control mb-15"
+              placeholder="First name"
+              aria-label="First name"
+            />
+
+            <input
+              type="text"
+              class="form-control mb-15"
+              placeholder="Last name"
+              aria-label="Last name"
+            />
+
+            <input
+              type="text"
+              class="form-control mb-15"
+              placeholder="Email Address"
+              aria-label="Email Address"
+            />
+
+            <div class="input-group mb-15">
+              <span class="input-group-text" id="basic-addon1">+49</span>
+              <input
+                type="text"
+                class="form-control"
+                id="mobile-number"
+                placeholder="Mobile Number"
+              />
+            </div>
+
+            <input
+              type="text"
+              class="form-control mb-15"
+              placeholder="Password"
+              aria-label="Password"
+            />
+
+            <input
+              type="text"
+              class="form-control mb-15"
+              placeholder="Confirm Password"
+              aria-label="Confirm Password"
+            />
+
+            <div class="form-check mb-10">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault1"
+              />
+              <label class="form-check-label ms-1" for="flexCheckDefault">
+                Send me newsletters from Helperland
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault2"
+              />
+              <label class="form-check-label ms-1" for="flexCheckDefault">
+                I accept <a href="#">terms and conditions</a> &
+                <a href="#">privacy policy</a>
+              </label>
+            </div>
+
+            <div class="d-flex align-items-center not-robot ps-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault3"
+                />
+                <label class="form-check-label ms-2" for="flexCheckDefault">
+                  i'm not a robot
+                </label>
+              </div>
+              <img src="~/images/recaptcha.png" alt="" class="ms-auto" />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button>
+                <span
+                  >Get Started <img src="~/images/arrow-white.png" alt=""
+                /></span>
+              </button>
+            </div>
+          </form>
+        </div>
+        <a href="#how-it-works"><img src="~/images/group-18_5.png" alt="" /></a>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="d-flex flex-column align-items-center">
+        <h2 class="title">How it works</h2>
+        <div class="items-container">
+          <div class="d-flex flex-wrap">
+            <div class="ic">
+              <h6>Register Yourself</h6>
+              <p>
+                Provide your basic information to register yourself as a service
+                provider.
+              </p>
+
+              <span
+                ><p>Read more</p>
+                <img src="~/images/shape-2.png" alt=""
+              /></span>
+            </div>
+            <img
+              class="ml-auto items-container-img"
+              src="~/images/group-25.png"
+              alt=""
+            />
+          </div>
+
+          <div class="d-flex flex-wrap">
+            <img
+              class="items-container-img-2"
+              src="~/images/group-29.png"
+              alt=""
+            />
+            <div class="ic-2 ml-auto">
+              <h6>Get service requests</h6>
+              <p>
+                You eill get service requests frm customers depend on service
+                area and profile.
+              </p>
+              <span
+                ><p>Read more</p>
+                <img src="~/images/shape-2.png" alt=""
+              /></span>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap">
+            <div class="ic">
+              <h6>Complete serivice</h6>
+              <p>
+                Accept service request from your customers and complete your
+                work.
+              </p>
+              <span
+                ><p>Read more</p>
+                <img src="~/images/shape-2.png" alt=""
+              /></span>
+            </div>
+            <img
+              class="ml-auto items-container-img"
+              src="~/images/group-30.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <!--for newslater section-->
+      <div class="d-flex justify-content-center flex-wrap">
+        <div class="newslater-area">
+          <!--news later heading-->
+          <h6 class="newslatter-heading">GET OUR NEWSLETTER</h6>
+          <!--newslatter form-->
+          <form class="d-flex justify-content-center">
+            <input class="form-email" type="email" placeholder="Your Email" />
+            <input class="form-btn" type="button" value="Submit" />
+          </form>
+        </div>
+      </div>
+
+      <!--actual footer section-->
+      <div class="main-footer">
+        <div class="main-footer-raw-1">
+          <!--footer logo-->
+          <img src="~/images/footer-logo.png" id="footer-navbar-logo" />
+          <!--footer navbar-->
+          <div class="nav">
+            <a asp-controller="home" asp-action="index">home</a>
+            <a asp-controller="home" asp-action="aboutus">About</a>
+            <a href="#">Testimonials</a>
+            <a asp-controller="home" asp-action="faqs">Faqs</a>
+            <a href="#">Insurence Policy</a>
+            <a href="#">Impressum</a>
+          </div>
+          <!--social media icons-->
+          <div class="main-footer-socialmedia-area">
+            <img src="~/images/ic-facebook.png" alt="" />
+            <img src="~/images/ic-instagram.png" />
+          </div>
+        </div>
+        <hr />
+        <!--copyright-->
+        <p class="copyright-text">
+          ©2018 Helperland.&nbsp;All rights reserved.
+          <a href="#">Terms and Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/home/become-a-provider.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>
