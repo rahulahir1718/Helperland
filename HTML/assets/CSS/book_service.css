@@ -22,5 +22,178 @@ header {
   width: 100%;
 }
 
-#book-service {
+.title {
+  margin: 0;
+  font: "Roboto";
+  font-weight: 500;
+  color: #4f4f4f;
+  text-align: center;
+}
+
+.title-decoration {
+  margin-top: 9px;
+}
+
+.title-decoration hr {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 68px;
+  color: #cccccc;
+  height: 1px;
+  margin-top: 12px;
+}
+
+.title-decoration img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#tab-nav {
+  gap: 0px !important;
+}
+
+.nav-pills .nav-item {
+  background-color: #f3f3f3;
+  border: 1px solid #e1e1e1;
+}
+
+#tab-nav span {
+  color: #646464 !important;
+  font-weight: 500 !important;
+  font-size: 16px;
+  text-transform: none;
+}
+
+#postalcode-div label {
+  font-weight: 500;
+  color: #4f4f4f;
+}
+
+#schedule-div form {
+  color: #4f4f4f;
+}
+
+#schedule-div label {
+  font-weight: 500;
+  color: #4f4f4f;
+}
+
+#schedule-div span {
+  font-weight: 400;
+  color: #4f4f4f;
+}
+
+#postalcodeSubmit,
+#scheduleSubmit {
+  background-color: #1d7a8c;
+  color: white;
+  font-weight: 500;
+  border: 0px !important;
+  border-color: transparent !important;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.nav-item-active {
+  background-color: #1d7a8c !important;
+  border-radius: 0px !important;
+}
+
+#tab-nav .nav-item-active > span {
+  color: white !important;
+}
+
+.divider-line {
+  margin: 0;
+  width: 100%;
+  height: 1px;
+  color: #4f4f4f;
+}
+
+.round-border {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #b0c9ce;
+}
+
+.form-check-label {
+  color: #4f4f4f;
+  font-weight: 400 !important;
+}
+
+.card {
+  color: #4f4f4f;
+  width: auto;
+  height: fit-content;
+}
+
+.card-header {
+  color: white;
+  font-weight: 500;
+  background-color: #1d7a8c;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+.card-body {
+  padding: 0px !important;
+}
+
+.card-body > div {
+  padding: 1rem;
+}
+
+.card-body label {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.card-body span {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#total-payment-text {
+  color: #1d7a8c;
+  font-size: 22px;
+}
+
+#total-payment-count {
+  color: #1d7a8c;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+h5 {
+  color: #4f4f4f;
+}
+
+.accordion-button:after {
+  order: -1;
+  margin-left: 0;
+  margin-right: 0.5em;
+}
+
+.accordion-button,
+.accordion-body {
+  color: #4f4f4f;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1070px) {
+  #tab-nav span {
+    display: none;
+  }
+
+  .nav {
+    justify-content: center;
+  }
 }

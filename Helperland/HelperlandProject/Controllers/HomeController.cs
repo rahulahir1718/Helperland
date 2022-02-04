@@ -1,20 +1,27 @@
 ﻿using HelperlandProject.Models;
+using HelperlandProject.Models.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Hosting;
+using HelperlandProject.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HelperlandProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
+        private readonly HelperlandContext helperlandContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> _logger, HelperlandContext _helperlandContext)
         {
-            _logger = logger;
+            logger = _logger;
+            helperlandContext = _helperlandContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Boolean loginPopUp)
         {
+            ViewBag.loginPopUp = loginPopUp;
             return View();
         }
 
@@ -28,17 +35,49 @@ namespace HelperlandProject.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ContactUs()
         {
             return View();
         }
 
-        public IActionResult AboutUs()
+        
+        [HttpPost]
+        public IActionResult ContactUs(ContactUsViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = null;
+                if (model.File != null)
+                {
+                    string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ContactUsAttechment");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.File.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    model.File.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+
+                ContactU contact = new()
+                {
+                    Name = model.FirstName + " " + model.LastName,
+                    Email = model.Email,
+                    PhoneNumber = model.Mobile,
+                    Message = model.Message,
+                    Subject = model.Subject,
+                    UploadFileName = model.File.FileName,
+                    CreatedOn = DateTime.Now,
+                    FileName = uniqueFileName
+                };
+                helperlandContext.ContactUs.Add(contact);
+                helperlandContext.SaveChanges();
+                return Json("Query submitted successfully..");
+            }
+            else
+            {
+                return Json(ModelState.Values);
+            }
         }
 
-        public IActionResult BecomeAProvider()
+        public IActionResult AboutUs()
         {
             return View();
         }

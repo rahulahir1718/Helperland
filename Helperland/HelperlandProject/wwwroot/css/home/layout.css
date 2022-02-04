@@ -9,19 +9,6 @@ body {
   background-color: white;
 }
 
-#exampleModal {
-  width: 320px;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  transform: translate(-50%, -50%);
-}
-
-.modal-dialog {
-  background-color: white;
-}
-
 header {
   font-weight: 400;
 }

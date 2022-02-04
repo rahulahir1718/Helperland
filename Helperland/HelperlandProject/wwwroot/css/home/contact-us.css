@@ -78,12 +78,15 @@
 }
 
 #form-section {
-  margin-top: 74px;
+    margin-top: 74px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 form {
   margin-top: 23px;
   width: 614px;
+  color:#4c4c4c;
 }
 
 #form-section-title {
@@ -114,9 +117,50 @@ form {
   margin-bottom: 5px;
 }
 
-.form-group input[type="file"] {
-  display: block;
+.control-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+    #forFileUpload {
+        border-radius: 50px;
+        border: 1px solid #c6c6c6;
+        color: #666;
+        background: 0 0;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 10px 25px;
+        display: inline;
+        cursor:pointer;
+    }
+
+        #forFileUpload:hover {
+            border: 1px solid #1d7a8c;
+            color: #1d7a8c;
+        }
+
+.uploaded {
+    border: 1px solid #1d7a8c !important;
+    color: #1d7a8c !important;
+}
+        .form-check-label {
+            color: #4f4f4f;
+            font-size: 14px;
+        }
+
+    .form-check-label a {
+        color: #1d7a8c;
+    }
+
+        .form-check-label a:hover {
+            text-decoration: none;
+            color: #1d7a8c;
+        }
 
 #map-section {
   margin-top: 80px;
@@ -129,50 +173,17 @@ iframe {
   opacity: 1;
 }
 
-.control-label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.form-group {
-  margin-bottom: 0px;
-}
-
-.form-group button {
-  border-radius: 50px;
-  border-color: #c6c6c6;
-  color: #666;
-  background: 0 0;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 10px 25px;
-  display: inline;
-}
-
-.upload-control {
-  visibility: hidden;
-}
-
-.form-check-label {
-  color: #4f4f4f;
-  font-size: 14px;
-}
-
-.form-check-label a {
-  color: #1d7a8c;
-}
-
-.form-check-label a:hover {
-  text-decoration: none;
-  color: l#1d7a8c;
-}
-
 @media screen and (max-width: 400px) {
   #contact-us,
   #form-section,
   #map-section {
-    padding-right: 3px;
-    padding-left: 3px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
+
+    form {
+        width:100%;
+    }
 }
+
+

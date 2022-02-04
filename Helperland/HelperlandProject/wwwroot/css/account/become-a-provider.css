@@ -59,7 +59,7 @@ header {
 }
 .registration-form {
   width: 430px;
-  height: 664px;
+  height:auto;
   background-color: white;
   box-shadow: 0px 0px 16px #00000026;
   margin: 20px;
@@ -90,13 +90,10 @@ header {
   font-size: 16px;
 }
 
-.form-check label a {
-  text-decoration: none;
-}
+    .form-check label a {
+        text-decoration: none;
+    }
 
-.not-robot {
-  width: 70.23%;
-}
 
 #banner-section > div > a {
   margin-top: 44px;
@@ -119,27 +116,21 @@ form button span img {
 }
 
 .form-check-label a {
-  color: #1fb6ff;
+    color: #1d7a8c;
 }
 
-#flexCheckDefault1,
-#flexCheckDefault2 {
+#flexCheckDefault1{
   height: 20px;
   width: 20px;
 }
 
-#flexCheckDefault3 {
-  height: 30px;
-  width: 30px;
+#btnSubmit:disabled, #btnSubmit.disabled {
+    color: #fff;
+    background-color: #346d75;
+    border-color: transparent;
+    cursor: no-drop;
+    pointer-events: visible;
 }
-
-.not-robot {
-  width: 302px;
-  height: 76px;
-  border: 1px solid #e6e6e6;
-  margin-top: 15px;
-}
-
 .items-container {
   width: 720px;
   margin-top: 40px;

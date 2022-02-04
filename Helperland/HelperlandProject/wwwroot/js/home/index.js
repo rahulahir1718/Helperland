@@ -1,27 +1,67 @@
+var currentlyOpen;
 $(document).ready(function () {
-  $("#go-up").hide();
-  $("#get-message").hide();
-  $(".l-6").click(function () {
-    $(window).scrollTop(0);
-    var url = $(this).data("url");
-    openLoginPopUp(url);
-  });
+    $("#go-up").hide();
+    $("#get-message").hide();
+
+    loadLoginPopUp(loginPopUp);
+
+    $(".l-6").click(function () {
+        $(window).scrollTop(0);
+        if (currentlyOpen != "Login") {
+            loadLoginPopUp('True');
+        }
+        else {
+            showLoginPopUp();
+        }
+    });
 });
 
-function openLoginPopUp(url) {
-  $.get(url, function (data) {
-    $("#exampleModal").html(data);
+function loadLoginPopUp(openPopUp) {
+    var url = "/account/login";
+    $.get(url, function (data) {
+        $("#exampleModal").html(data);
+        if (openPopUp=='True') {
+            showLoginPopUp();
+        }
+    });
+}
+
+function showLoginPopUp() {
     $("#exampleModal").modal("show");
-  });
+    currentlyOpen = "Login";
 }
 
 function openForgetPasswordPopUp() {
   var url = "/account/forgotpassword";
   $.get(url, function (data) {
     $("#exampleModal").html(data);
-    $("#exampleModal").modal("show");
+      $("#exampleModal").modal("show");
+      currentlyOpen = "ForgotPassword";
   });
 }
+
+function PostRequest() {
+    var url = "/account/login";
+    var valdata = $("#loginForm").serialize();
+    //to get alert popup   
+    $.post(url, valdata, function (data) {
+        if (data == "Success") {
+            window.location.href = "/account/register";
+        }
+        $("#exampleModal").html(data);
+        $("#exampleModal").modal("show");
+    });
+}
+
+function forgotPasswordPostRequest() {
+    var url = "/account/forgotpassword";
+    var valdata = $("#forgetPasswordForm").serialize();
+    $.post(url, valdata, function (data) {
+        $("#exampleModal").html(data);
+        $("#exampleModal").modal("show");
+    });
+}
+
 
 $(".dropdown-item").click(function () {
     var src = $(this).children().eq(0).attr('src');
@@ -78,3 +118,6 @@ $(window).scroll(function () {
     }
   }
 });
+
+
+

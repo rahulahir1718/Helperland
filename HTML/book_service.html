@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/CSS/book_service.css" />
+    <script
+      src="https://kit.fontawesome.com/9090ba710e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -18,6 +22,328 @@
     </header>
     <!-- faq image -->
     <img src="assets/images/book-service-banner.jpg" id="main-image" />
+
+    <div class="d-flex align-items-center flex-column mt-4 mb-4">
+      <h2 class="title">Set up your cleaning service</h2>
+      <!--section-decoration-->
+      <div class="d-flex justify-content-center title-decoration">
+        <hr />
+        <img src="assets/images/separator.png" />
+        <hr />
+      </div>
+
+      <div class="d-flex mt-5">
+        <div>
+          <ul class="nav nav-pills" id="tab-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link nav-item-active"
+                data-bs-toggle="pill"
+                href="#postalcode-div"
+              >
+                <img src="assets/images/setup-service-white.png" alt="" />
+                <span>Setup Service</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="pill" href="#schedule-div">
+                <img src="assets/images/schedule-plan.png" alt="" />
+                <span>Schedule & Plan</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="pill" href="#details-div"
+                ><img src="assets/images/details.png" alt="" />
+                <span>Your Details</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="pill" href="#payment-div"
+                ><img src="assets/images/make-payment.png" alt="" />
+                <span>Make Payment</span></a
+              >
+            </li>
+          </ul>
+
+          <div class="tab-content mt-4">
+            <div class="tab-pane container active" id="postalcode-div">
+              <div class="row">
+                <div class="col-sm-5">
+                  <label for="postalcode" class="form-label"
+                    >Enter your Postal Code</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="postalcode"
+                    placeholder="Postal code"
+                  />
+                </div>
+                <div class="col-sm-3 align-self-end">
+                  <input
+                    id="postalcodeSubmit"
+                    class="btn btn-primary"
+                    type="submit"
+                    value="Check Availability"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane container fade" id="schedule-div">
+              <form>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <label>When do you need the cleaner?</label>
+                    <div class="row mt-2">
+                      <div class="col-sm-7">
+                        <div class="form-group">
+                          <input
+                            type="date"
+                            name="entry_date"
+                            class="form-control"
+                            id="entry_date"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-5">
+                        <div>
+                          <select
+                            id="status"
+                            class="form-select"
+                            aria-label="Default select example"
+                          >
+                            <option selected>8:00</option>
+                            <option value="1">9:00</option>
+                            <option value="2">10:00</option>
+                            <option value="3">11:00</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-7">
+                    <label>How long do you need your cleaner to stay?</label>
+                    <div class="row mt-2">
+                      <div class="col-sm-4">
+                        <select
+                          id="status"
+                          class="form-select"
+                          aria-label="Default select example"
+                        >
+                          <option selected>4.0 Hrs</option>
+                          <option value="1">5.0 Hrs</option>
+                          <option value="2">6.0 Hrs</option>
+                          <option value="3">7.0 Hrs</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                  <hr class="divider-line" />
+                </div>
+
+                <label class="mt-4">Extra Services</label>
+                <div class="d-flex justify-content-between mt-3">
+                  <div class="d-flex flex-column align-items-center">
+                    <div class="round-border">
+                      <img src="assets/images/inside-cabinet.png" alt="" />
+                    </div>
+                    <span>Inside cabinets</span>
+                  </div>
+                  <div class="d-flex flex-column align-items-center">
+                    <div class="round-border">
+                      <img src="assets/images/inside-fridge.png" alt="" />
+                    </div>
+                    <span>Inside fridge</span>
+                  </div>
+                  <div class="d-flex flex-column align-items-center">
+                    <div class="round-border">
+                      <img src="assets/images/inside-oven.png" alt="" />
+                    </div>
+                    <span>Inside oven</span>
+                  </div>
+                  <div class="d-flex flex-column align-items-center">
+                    <div class="round-border">
+                      <img src="assets/images/laundry-wash&dry.png" alt="" />
+                    </div>
+                    <span>laundry wash & dry</span>
+                  </div>
+                  <div class="d-flex flex-column align-items-center">
+                    <div class="round-border">
+                      <img src="assets/images/interior-windows.png" alt="" />
+                    </div>
+                    <span>Interior windows</span>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                  <hr class="divider-line" />
+                </div>
+
+                <label class="mb-1 mt-4">Comments</label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  placeholder="Comments"
+                ></textarea>
+
+                <div class="form-check mt-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    I have pets at home
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                  <hr class="divider-line" />
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-auto ms-auto">
+                    <input
+                      id="scheduleSubmit"
+                      class="btn btn-primary"
+                      type="submit"
+                      value="Continue"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-pane container fade" id="details-div">3</div>
+            <div class="tab-pane container fade" id="payment-div">3</div>
+          </div>
+        </div>
+        <div class="d-flex flex-column ms-3">
+          <div class="card">
+            <div class="card-header">Payment Summary</div>
+            <div class="card-body">
+              <div class="d-flex flex-column">
+                <span id="service-date-detail"></span>
+                <label>Duration</label>
+                <div class="d-flex">
+                  <span>Basic</span>
+                  <span class="ms-auto">3 Hrs</span>
+                </div>
+                <label>Extra</label>
+                <div class="d-flex flex-column">
+                  <div class="d-flex">
+                    <span>Inside cabinets</span>
+                    <span class="ms-auto">30 Min.</span>
+                  </div>
+                  <div class="d-flex">
+                    <span>Inside fridge</span>
+                    <span class="ms-auto">30 Min.</span>
+                  </div>
+                </div>
+                <hr class="divider-line mt-2 mb-2" />
+                <div class="d-flex">
+                  <label>Total Service Time</label>
+                  <label class="ms-auto">4 Hrs</label>
+                </div>
+              </div>
+              <hr class="divider-line" />
+              <div class="d-flex">
+                <span>Per cleaning</span>
+                <span class="ms-auto">100,00&euro;</span>
+              </div>
+              <hr class="divider-line" />
+              <div class="d-flex align-items-center">
+                <span id="total-payment-text">Total Payment</span>
+                <span id="total-payment-count" class="ms-auto"
+                  >100,00&euro;</span
+                >
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+              <img src="assets/images/smiley.png" alt="" /> See what is always
+              included
+            </div>
+          </div>
+          <div class="d-flex flex-column mt-3">
+            <h5 class="text-center">Questions?</h5>
+            <div class="accordion accordion-flush">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    What's included in a cleaning?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">answer1</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                    Which Helperland professional will come to my place?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTwo"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">answer 2</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                  >
+                    Can i skip or reschedule bookings?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingThree"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">Answer 3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div id="footer"></div>

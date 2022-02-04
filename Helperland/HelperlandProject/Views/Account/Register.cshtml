@@ -1,4 +1,7 @@
-﻿@{ ViewData["Title"] = "Register"; Layout = "~/Views/Home/_Layout.cshtml"; }
+﻿@using HelperlandProject.Models.ViewModels
+@model RegisterUserViewModel;
+
+@{ ViewData["Title"] = "Register"; Layout = "~/Views/Home/_Layout.cshtml"; }
 @section AddToHead{
 <link
   rel="stylesheet"
@@ -17,7 +20,7 @@
       <hr />
     </div>
 
-    <form>
+    <form method="post">
       <div class="row">
         <div class="form-group col-md-6 mb-3">
           <input
@@ -25,7 +28,9 @@
             class="form-control"
             id="first-name"
             placeholder="First Name"
+            asp-for="FirstName"
           />
+          @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
         </div>
         <div class="form-group col-md-6 mb-3">
           <input
@@ -33,7 +38,9 @@
             class="form-control"
             id="last-name"
             placeholder="Last Name"
+            asp-for="LastName"
           />
+          @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
       </div>
 
@@ -45,7 +52,9 @@
             class="form-control"
             id="email"
             placeholder="Email address"
+            asp-for="Email"
           />
+          @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
         <!--Mobile Number-->
         <div class="col-md-6 mb-3">
@@ -56,8 +65,10 @@
               class="form-control"
               id="mobile-number"
               placeholder="Mobile Number"
+              asp-for="Mobile"
             />
           </div>
+          @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
         </div>
       </div>
 
@@ -68,7 +79,9 @@
             class="form-control"
             id="first-name"
             placeholder="Password"
+            asp-for="Password"
           />
+          @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
         </div>
         <div class="form-group col-md-6 mb-3">
           <input
@@ -76,7 +89,9 @@
             class="form-control"
             id="last-name"
             placeholder="Confirm Password"
+            asp-for="ConfirmPassword"
           />
+          @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
       </div>
       <div class="row mb-3">
@@ -86,7 +101,7 @@
               class="form-check-input"
               type="checkbox"
               value=""
-              id="flexCheckDefault"
+              id="myCheckbox"
             />
             <label class="form-check-label" for="flexCheckDefault">
               I have read the <a href="">privacy policy.</a>
@@ -94,6 +109,7 @@
           </div>
         </div>
       </div>
+      @Html.Raw(@ViewBag.Alert)
       <div class="row mb-3">
         <div class="col-md-12 text-center">
           <input class="btn btn-primary px-4" type="submit" value="Register" />
@@ -101,7 +117,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <p>Already registered? <a href="">Login now</a></p>
+          <p>Already registered? <a asp-controller="home" asp-action="index" asp-route-loginPopUp=true>Login now</a></p>
         </div>
       </div>
     </form>
@@ -110,7 +126,9 @@
 <!--sign up form ends-->
 
 @section AddAfterFooter{
-<script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 <script>
   $("footer").hide();
   $("header .navbar").css("background", "rgba(82, 82, 82, 1)");

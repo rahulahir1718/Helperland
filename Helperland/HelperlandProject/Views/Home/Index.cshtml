@@ -1,15 +1,14 @@
 ﻿@{
     //this file does not use common latout page
-    Layout = null; 
+    Layout = null;   
 }
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>@ViewBag.loginPopUp</title>
     <link rel="icon" type="image/x-icon" href="~/favicon.png" />
 
     <!--importing bootstrap-->
@@ -31,7 +30,9 @@
       src="https://kit.fontawesome.com/9090ba710e.js"
       crossorigin="anonymous"
     ></script>
+    <script> var loginPopUp = '@ViewBag.loginPopUp';</script>
   </head>
+
   <body>
     <!--For login and forget password modals-->
     <div
@@ -90,7 +91,7 @@
                     >Login</a>  
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link l-7 nlbt ms-2" href="#">Become a Helper</a>
+                  <a class="nav-link l-7 nlbt ms-2" asp-controller="account" asp-action="becomeaprovider">Become a Helper</a>
                 </li>
                 <li class="nav-item">
                   <div class="nav-link l-8 ms-2">
@@ -457,7 +458,9 @@
     </footer>
 
     <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/js/home/index.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/js/home/index.js" asp-append-version="true"></script>
   </body>
 </html>

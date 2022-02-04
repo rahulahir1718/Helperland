@@ -68,6 +68,14 @@ form a:hover {
   color: #1d7a8c;
 }
 
+.btn-primary:disabled, .btn-primary.disabled {
+    color: #fff;
+    background-color: #1d7a8c;
+    border-color: transparent;
+    cursor: no-drop;
+    pointer-events:visible;
+}
+
 @media screen and (max-width: 624px) {
   form {
     width: 90%;

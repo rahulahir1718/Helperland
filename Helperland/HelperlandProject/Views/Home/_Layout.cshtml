@@ -72,24 +72,17 @@
                 <li class="nav-item">
                   <a
                     class="nav-link l-6 nlbb ms-4"
-                    data-url='@Url.Action("login","account")'
+                    asp-controller="home" asp-action="index" asp-route-loginPopUp=true
                     >Login</a>                 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link l-7 nlbb ms-2" href="#">Become a Helper</a>
+                  <a class="nav-link l-7 nlbb ms-2" asp-controller="account" asp-action="becomeaprovider">Become a Helper</a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      <!--For login and forget password modals-->
-      <div
-        class="modal fade"
-        tab-index="-1"
-        id="exampleModal"
-        role="dialog"
-      ></div>
 
       <!--For main content of different pages-->
       @RenderBody();

@@ -3,6 +3,9 @@
     Layout=null; 
 }
 
+@using HelperlandProject.Models.ViewModels
+@model RegisterUserViewModel;
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +21,7 @@
     <!--importing css and jquery-->
     <link
       rel="stylesheet"
-      href="~/css/home/become-a-provider.css"
+      href="~/css/account/become-a-provider.css"
       asp-append-version="true"
     />
   </head>
@@ -120,98 +123,109 @@
       <div class="d-flex flex-column align-items-center">
         <div class="registration-form d-flex flex-column align-items-center">
           <h6>Register Now!</h6>
-          <form>
-            <input
-              type="text"
-              class="form-control mb-15"
-              placeholder="First name"
-              aria-label="First name"
-            />
-
-            <input
-              type="text"
-              class="form-control mb-15"
-              placeholder="Last name"
-              aria-label="Last name"
-            />
-
-            <input
-              type="text"
-              class="form-control mb-15"
-              placeholder="Email Address"
-              aria-label="Email Address"
-            />
-
-            <div class="input-group mb-15">
-              <span class="input-group-text" id="basic-addon1">+49</span>
-              <input
-                type="text"
-                class="form-control"
-                id="mobile-number"
-                placeholder="Mobile Number"
-              />
-            </div>
-
-            <input
-              type="text"
-              class="form-control mb-15"
-              placeholder="Password"
-              aria-label="Password"
-            />
-
-            <input
-              type="text"
-              class="form-control mb-15"
-              placeholder="Confirm Password"
-              aria-label="Confirm Password"
-            />
-
-            <div class="form-check mb-10">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault1"
-              />
-              <label class="form-check-label ms-1" for="flexCheckDefault">
-                Send me newsletters from Helperland
-              </label>
-            </div>
-
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault2"
-              />
-              <label class="form-check-label ms-1" for="flexCheckDefault">
-                I accept <a href="#">terms and conditions</a> &
-                <a href="#">privacy policy</a>
-              </label>
-            </div>
-
-            <div class="d-flex align-items-center not-robot ps-3">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault3"
-                />
-                <label class="form-check-label ms-2" for="flexCheckDefault">
-                  i'm not a robot
-                </label>
+          <form method=post>
+              <div class="row">
+                  <div class="col-12 mb-3">
+                      <input
+                          type="text"
+                          class="form-control"
+                          placeholder="First name"
+                          asp-for="FirstName"
+                      />
+                      @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                  </div>
               </div>
-              <img src="~/images/recaptcha.png" alt="" class="ms-auto" />
-            </div>
-            <div class="d-flex justify-content-center">
-              <button>
-                <span
-                  >Get Started <img src="~/images/arrow-white.png" alt=""
-                /></span>
-              </button>
-            </div>
+            
+              <div class="row">
+                  <div class="col-12 mb-3">
+                       <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Last name"
+                          asp-for="LastName"
+                      />
+                      @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+               
+              <div class="row">
+                  <div class="col-12 mb-3">
+                      <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Email Address"
+                          asp-for="Email"
+                        />
+                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 mb-3">
+                      <div class="input-group">
+                          <span class="input-group-text" id="basic-addon1">+49</span>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="mobile-number"
+                            placeholder="Mobile Number"
+                            asp-for="Mobile"
+                          />
+                      </div>
+                      @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 mb-3">
+                      <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Password"
+                          asp-for="Password"
+                        />
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+            
+               <div class="row">
+                  <div class="col-12 mb-3">
+                      <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Confirm Password"
+                          asp-for="ConfirmPassword"
+                        />
+                         @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 mb-3">
+                       <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="myCheckBox"
+                          />
+                          <label class="form-check-label ms-1" for="flexCheckDefault">
+                            I accept <a href="#">terms and conditions</a> &
+                            <a href="#">privacy policy</a>
+                          </label>
+                        </div>
+                  </div>
+              </div>
+            
+              <div class="row">
+                  <div class="col-12 text-center mb-3">
+                      <button type="submit" id="btnSubmit">
+                            <span
+                              >Get Started <img src="~/images/arrow-white.png" alt=""
+                            /></span>
+                      </button>
+                  </div>
+              </div>
           </form>
         </div>
         <a href="#how-it-works"><img src="~/images/group-18_5.png" alt="" /></a>
@@ -328,7 +342,9 @@
     </footer>
 
     <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/js/home/become-a-provider.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/account/become-a-provider.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
   </body>
 </html>

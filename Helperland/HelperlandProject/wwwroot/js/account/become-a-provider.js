@@ -1,4 +1,10 @@
-﻿$(window).scroll(function () {
+﻿$('document').ready(function () {
+    $('#myCheckBox').change(function () {
+        $('#btnSubmit').prop("disabled", !this.checked);
+    }).change()
+});
+
+$(window).scroll(function () {
   var sticky = $("#header"),
     scroll = $(window).scrollTop();
 

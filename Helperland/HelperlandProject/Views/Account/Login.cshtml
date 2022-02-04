@@ -1,4 +1,12 @@
-﻿<div class="modal-dialog modal-dialog-centered">
+﻿@using HelperlandProject.Models.ViewModels
+@model LoginViewModel
+<!--<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+<link
+      rel="stylesheet"
+      href="~/css/account/login-forgotpassword.css"
+      asp-append-version="true"
+    />-->
+<div class="modal-dialog modal-dialog-centered">
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Login to your account</h4>
@@ -10,41 +18,75 @@
       ></button>
     </div>
     <div class="modal-body">
-      <form id="loginForm" method="post">
-        <div class="input-container">
-          <input
-            class="input-field"
-            type="text"
-            placeholder="Email"
-            name="Email"
-          />
-          <i class="fa fa-user"></i>
-        </div>
-        <div class="input-container">
-          <input
-            class="input-field"
-            type="password"
-            placeholder="Password"
-            name="Password"
-          />
-          <i class="fas fa-lock"></i>
-        </div>
-        <div class="input-container forCheckBox">
-          <input
-            type="checkbox"
-            id="remember_me"
-            name="checkbox"
-            value="Bike"
-          />
-          <label for="checkbox">Remember me</label>
-        </div>
-        <input type="submit" value="Login" class="Login" />
-        <p>
-          <a onclick="openForgetPasswordPopUp();">Forget password?</a><br />
-          Don't have an account?
-          <a asp-controller="account" asp-action="register">Create an account</a>
-        </p>
+        @Html.Raw(@ViewBag.Alert)
+      <form id="loginForm">
+          <div class="row mb-3">
+              <div class="col-12 text-center">
+                  <div class="input-container">
+                      <input
+                        class="input-field"
+                        type="text"
+                        placeholder="Email"
+                        asp-for="Email"
+                      />
+                      <i class="fa fa-user"></i>
+                 </div>
+                  @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger ms-auto" })
+                </div>
+          </div>
+        
+          <div class="row mb-3">
+              <div class="col-12 text-center ">
+                  <div class="input-container">
+                      <input
+                        class="input-field"
+                        type="password"
+                        placeholder="Password"
+                        asp-for="Password"
+                      />
+                      <i class="fas fa-lock"></i>
+                  </div>
+                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+              </div>
+          </div>
+        
+          <div class="row mb-3">
+              <div class="col-12">
+                  <div class="d-flex align-items-center">
+                      @Html.CheckBoxFor(model=>model.RememberMe)Remember Me
+                  </div>
+                  
+              </div>
+          </div>
+         
+          <div class="row mb-3">
+              <div class="col-12">
+                   <button type="button" class="btn btn-primary" onclick="PostRequest();">Login</button>
+                   <!--<input class="btn btn-primary" type="submit" value="Submit">-->
+              </div>
+          </div>
+        
+          <div class="row">
+              <div class="col-12">
+                  <p>
+                      <a onclick="openForgetPasswordPopUp();">Forget password?</a><br />
+                      Don't have an account?
+                      <a asp-controller="account" asp-action="register">Create an account</a>
+                  </p>
+              </div>
+          </div>
       </form>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#loginForm");
+    });
+</script>
+
+
+     <!--<script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>-->

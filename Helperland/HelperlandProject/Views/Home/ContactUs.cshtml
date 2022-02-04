@@ -1,4 +1,7 @@
-﻿@{ 
+﻿@using HelperlandProject.Models.ViewModels
+@model ContactUsViewModel;
+
+@{ 
     ViewData["Title"] = "Contact Us"; 
 }
 
@@ -53,7 +56,7 @@
     <h4 id="form-section-title">Get in touch with us</h4>
   </div>
   <div class="d-flex justify-content-center flex-wrap">
-    <form>
+    <form method="post" enctype="multipart/form-data">
       <div class="row">
         <!--First Name-->
         <div class="form-group col-sm-6 mb-3">
@@ -62,7 +65,9 @@
             class="form-control"
             id="first-name"
             placeholder="First Name"
+            asp-for="FirstName"
           />
+          @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
         </div>
         <!--Last Name-->
         <div class="form-group col-sm-6 mb-3">
@@ -71,7 +76,9 @@
             class="form-control"
             id="last-name"
             placeholder="Last Name"
+            asp-for="LastName"
           />
+          @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
       </div>
       <!--Mobile Number-->
@@ -84,8 +91,10 @@
               class="form-control"
               id="mobile-number"
               placeholder="Mobile Number"
+              asp-for="Mobile"
             />
           </div>
+          @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
         </div>
 
         <!--Email-->
@@ -95,54 +104,85 @@
             class="form-control"
             id="email"
             placeholder="Email address"
+            asp-for="Email"
           />
+          @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
       </div>
       <!--Subject selection-->
-      <div class="form-group mb-3">
-        <select id="inputState" class="form-control">
-          <option selected>Subject</option>
-          <option>...</option>
-        </select>
+      <div class="row">
+          <div class="col-sm-12 mb-3">
+              <div class="form-group">
+                   @Html.DropDownListFor(model => model.Subject, new List<SelectListItem>
+                       { new SelectListItem{Text="General", Value="General"},
+                         new SelectListItem{Text="inquiry", Value="inquiry"},
+                         new SelectListItem{Text="renewal",Value="renewal"},
+                         new SelectListItem{Text="revocation",Value="revocation"}})
+              </div>
+          </div>
       </div>
+      
       <!--messsage-->
-      <div class="form-group mb-3">
-        <textarea
-          class="form-control"
-          id="message"
-          rows="5"
-          placeholder="Message"
-        ></textarea>
-        <!--file upload-->
+      <div class="row">
+          <div class="col-sm-12 mb-3">
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="5"
+                  placeholder="Message"
+                  asp-for="Message"
+                ></textarea>
+              </div>
+              @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+          </div>
       </div>
-      <div class="form-group">
-        <label class="control-label" for="exampleFormControlFile1"
-          >Attach the attachment
-        </label>
-        <button class="btn btn-default upload-btn">Upload</button>
-        <input class="upload-control" type="file" id="fileUpload" />
-      </div>
+
+      <!--file upload-->
+      <div class="row">
+          <div class="col-sm-12 mb-3">
+              <div class="form-group">
+                <label class="control-label mb-3" for="fileUpload"
+                  >Attach the attachment
+                </label>
+
+                <input id="fileUpload" asp-for="File" hidden/>
+                <label for="fileUpload" id="forFileUpload">Upload</label>
+                <span id="file-chosen"></span>
+                 @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+              </div>
+          </div>
+      </div> 
+
       <!--checkbox-->
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="defaultCheck1"
-        />
-        <label class="form-check-label" for="defaultCheck1">
-          Our current ones apply <a href="#">privacy policy.</a>I hereby agree
-          that my data entered into the contact<br />
-          form will be stored electronically and processed and used for the
-          purpose of establishing<br />
-          contact.The consent can be withdrawan at any time pursuant to Art.
-          7(3) GDPR by informal<br />
-          notification(eg by e-mail).
-        </label>
+      <div class="row">
+          <div class="col-sm-12 mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="defaultCheck1"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Our current ones apply <a href="#">privacy policy.</a>I hereby agree
+                  that my data entered into the contact<br />
+                  form will be stored electronically and processed and used for the
+                  purpose of establishing<br />
+                  contact.The consent can be withdrawan at any time pursuant to Art.
+                  7(3) GDPR by informal<br />
+                  notification(eg by e-mail).
+                </label>
+             </div>
+          </div>
       </div>
+      
+
       <!--Submit button-->
-      <div class="row justify-content-center">
-        <button id="submit-btn" type="submit" class="btn btn-lg">Submit</button>
+      <div class="row">
+          <div class="col-sm-12 text-center">
+              <button id="submit-btn" type="submit" class="btn btn-lg">Submit</button>
+          </div>
       </div>
     </form>
   </div>
