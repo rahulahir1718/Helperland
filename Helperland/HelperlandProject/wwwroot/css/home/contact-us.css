@@ -111,6 +111,15 @@ form {
   opacity: 1;
 }
 
+    #submit-btn:disabled, #submit-btn.disabled {
+        color: #fff;
+        opacity:0.7;
+        border-color: transparent;
+        cursor: no-drop;
+        pointer-events: visible;
+    }
+
+
 .form-group label {
   font: "Roboto";
   font-weight: 700;

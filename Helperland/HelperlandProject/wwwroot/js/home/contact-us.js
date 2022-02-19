@@ -14,3 +14,7 @@ $(document).ready(function () {
         $("#forFileUpload").addClass("uploaded");
     });
 });
+
+$('#myCheckBox').change(function () {
+    $('#submit-btn').prop("disabled", !this.checked);
+}).change()

@@ -1,14 +1,19 @@
 using HelperlandProject.Models.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<IHttpContextAccessor,HttpContextAccessor>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie("Cookies", options =>
 {
     options.LoginPath = "/home/index/true";
+    options.ReturnUrlParameter = "ReturnUrl";
 });
 
 builder.Services.AddDbContextPool<HelperlandContext>(options =>
@@ -34,6 +39,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

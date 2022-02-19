@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using HelperlandProject.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace HelperlandProject.Controllers
 {
@@ -19,9 +20,10 @@ namespace HelperlandProject.Controllers
             helperlandContext = _helperlandContext;
         }
 
-        public IActionResult Index(Boolean loginPopUp)
+        public IActionResult Index(Boolean loginPopUp,string? ReturnUrl)
         {
             ViewBag.loginPopUp = loginPopUp;
+            TempData["returnUrl"] = ReturnUrl;
             return View();
         }
 
@@ -47,6 +49,13 @@ namespace HelperlandProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userString = HttpContext.Session.GetString("CurrentUser");
+                int createdBy=0;
+                if (userString != null) 
+                {
+                    User user = JsonConvert.DeserializeObject<User>(userString);
+                    createdBy = user.UserId;
+                }
                 string uniqueFileName = null;
                 if (model.File != null)
                 {
@@ -63,9 +72,10 @@ namespace HelperlandProject.Controllers
                     PhoneNumber = model.Mobile,
                     Message = model.Message,
                     Subject = model.Subject,
-                    UploadFileName = model.File.FileName,
+                    UploadFileName = model.File?.FileName,
                     CreatedOn = DateTime.Now,
-                    FileName = uniqueFileName
+                    FileName = uniqueFileName,
+                    CreatedBy = createdBy
                 };
                 helperlandContext.ContactUs.Add(contact);
                 helperlandContext.SaveChanges();

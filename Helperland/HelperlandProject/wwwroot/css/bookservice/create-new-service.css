@@ -1,0 +1,454 @@
+﻿#main-image {
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  font: "Roboto";
+  font-weight: 500;
+  color: #4f4f4f;
+  text-align: center;
+}
+
+.title-decoration {
+  margin-top: 9px;
+}
+
+.title-decoration hr {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 68px;
+  color: #cccccc;
+  height: 1px;
+  margin-top: 12px;
+}
+
+.title-decoration img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#tab-nav {
+  gap: 0px !important;
+}
+
+.tab-pane {
+  padding: 0px;
+}
+
+.nav-pills .nav-item {
+  background-color: #f3f3f3;
+  border: 1px solid #e1e1e1;
+  padding: 0px;
+}
+
+#tab-nav span {
+  color: #646464 !important;
+  font-weight: 400 !important;
+  font-size: 16px;
+  text-transform: none;
+}
+
+label {
+  font-weight: 500;
+  color: #4f4f4f;
+}
+
+#postalcode-div label {
+  font-weight: 500;
+  color: #4f4f4f;
+}
+
+#schedule-div form {
+  color: #4f4f4f;
+}
+
+#schedule-div label {
+  font-weight: 500;
+  color: #4f4f4f;
+}
+
+#schedule-div span {
+  font-weight: 400;
+  color: #4f4f4f;
+  text-align: center;
+}
+
+#schedule-div input[type="date"] {
+  display: flex;
+  flex-flow: row-reverse;
+  height: auto;
+  width: 15ch;
+  padding: 6px;
+}
+
+#schedule-div input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-left: 0px !important;
+  filter: invert(35%) sepia(81%) saturate(430%) hue-rotate(142deg)
+    brightness(95%) contrast(90%);
+}
+
+#schedule-div #ServiceTime {
+  width: 9ch;
+  padding: 6px;
+}
+
+#schedule-div #ServiceHours {
+  width: 11ch;
+  padding: 6px;
+}
+
+#postalcodeSubmit,
+#scheduleSubmit,
+#detailSubmit,
+#paymentSubmit {
+  background-color: #1d7a8c;
+  color: white;
+  font-weight: 500;
+  border: 0px !important;
+  border-color: transparent !important;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.nav-item-active {
+  background-color: #1d7a8c !important;
+  border-radius: 0px !important;
+}
+
+#tab-nav .nav-item-active > span {
+  color: white !important;
+}
+
+.active::after {
+  position: relative;
+  content: "";
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #1d7a8c;
+  left: -43%;
+  top: 46px;
+  width: 0px;
+}
+
+.divider-line {
+  margin: 0;
+  width: 100%;
+  height: 1px;
+  color: #4f4f4f;
+}
+
+.round-border {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #b0c9ce;
+}
+
+.extra-services > div {
+  text-align: center;
+  width: 120px;
+}
+
+.round-border:hover {
+  cursor: pointer;
+}
+
+.active-service {
+  border: 3px solid #1d7a8c !important;
+}
+
+.form-check-label {
+  color: #4f4f4f;
+  font-weight: 400 !important;
+}
+
+.form-check-label a {
+  color: #1d7a8c;
+  text-decoration: none;
+}
+
+.payment-summary-section {
+    width:320px
+}
+.card {
+    color: #4f4f4f;
+    width: auto;
+    height: fit-content;
+}
+
+.card-header {
+  color: white;
+  font-weight: 500;
+  background-color: #1d7a8c;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+.card-body {
+  padding: 0px !important;
+}
+
+.card-body > div {
+  padding: 1rem;
+}
+
+.card-body label,
+.card-body label span {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.card-body span {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.duration {
+  font-weight: 400 !important;
+}
+
+#total-payment-text {
+  color: #1d7a8c;
+  font-size: 22px;
+}
+
+#total-payment-count {
+  color: #1d7a8c;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+h5 {
+  color: #4f4f4f;
+}
+
+.accordion-button:after {
+  order: -1;
+  margin-left: 0;
+  margin-right: 0.5em;
+  transform: rotate(-90deg);
+  width: 0.75rem;
+  height: 0.75rem;
+  background-size: 0.75rem;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #4f4f4f;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(-0deg);
+  color: #4f4f4f;
+}
+.accordion-button,
+.accordion-body {
+  color: #4f4f4f;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 1rem 0rem;
+}
+
+#more-help {
+  color: #1d7a8c;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#yourDetailsForm .checkbox-col {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  padding: 10px 15px;
+}
+
+.form-check-input:checked {
+  background-color: #1d7a8c;
+  border-color: #1d7a8c;
+}
+
+#add-new-address {
+  color: #1d7a8c;
+  background-color: white;
+  border: 2px solid #1d7a8c;
+  border-radius: 20px;
+  padding: 8px;
+  font-weight: 500;
+}
+
+#newAddressForm {
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  padding: 10px;
+}
+
+#addressSubmit {
+  text-align: center;
+  background-color: #1d7a8c;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid #1d7a8c;
+}
+
+#addressCancel {
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  border: 1px solid #4f4f4f;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#applyBtn {
+  color: #1d7a8c;
+  background-color: white;
+  border: 2px solid #1d7a8c;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: 500;
+  width: 100%;
+}
+
+#card-number,
+#card-expiry,
+#card-cvc {
+  border: 0px;
+  padding: 0px;
+}
+
+#card-expiry {
+  width: 7ch;
+}
+
+#card-cvc {
+  width: 5ch;
+}
+
+#paymentForm.form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+#card-detail-div {
+  box-shadow: 0px 0px 30px #e4ebf0;
+  padding: 10px;
+  color: #4f4f4f;
+}
+
+#paymentForm span {
+  font-size: 12px;
+  color: #4f4f4f;
+}
+
+#paymentForm .form-label {
+  font-weight: 400;
+}
+
+#paymentSubmit:disabled,
+#paymentSubmit.disabled {
+  color: #fff;
+  background-color: #1d7a8c;
+  opacity: 0.7;
+  border-color: transparent;
+  cursor: no-drop;
+  pointer-events: visible;
+}
+
+#resultModal {
+  width: 350px;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+#resultModal h5 {
+  text-align: center;
+  font-weight: 400;
+  color: #4f4f4f;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#resultModal p {
+  text-align: center;
+  font-weight: 400;
+  color: #4f4f4f;
+}
+
+#resultModal #okBtn {
+  background: #1d7a8c;
+  color: white;
+  border-radius: 20px;
+  border-color: transparent;
+  text-align: center;
+  width: 70px;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.modal-dialog {
+  background-color: white;
+}
+
+.modal-header {
+  background-color: white;
+  border: 0px;
+  padding: 10px;
+}
+
+.modal-body {
+  padding-top: 0px;
+}
+
+@media screen and (max-width: 1070px) {
+  .tab-forms-section {
+    justify-content: center;
+  }
+  .nav {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width:710px) {
+    .nav-link span {
+        display:none;
+    }
+
+    #tab-nav {
+        width:100%;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .payment-summary-section {
+        width:100%;
+        padding-left:10px;
+        padding-right:10px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+  .tab-pane {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #postalcodeSubmit,
+  #applyBtn {
+    margin-top: 10px;
+  }
+}

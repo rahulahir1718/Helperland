@@ -4,6 +4,7 @@ using HelperlandProject.Models.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Mail;
 using System.Security.Claims;
@@ -37,10 +38,9 @@ namespace HelperlandProject.Controllers
                     {
                         var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
 
-                        identity.AddClaim(new Claim(ClaimTypes.Email, user.Email)); ;
-                        identity.AddClaim(new Claim(ClaimTypes.Name, user.FirstName));
-                        identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
-
+                        identity.AddClaim(new Claim(ClaimTypes.Email,user.Email));
+                        identity.AddClaim(new Claim(ClaimTypes.Role, user.UserTypeId.ToString()));
+                        
                         var principal = new ClaimsPrincipal(identity);
 
                         var authProperties = new AuthenticationProperties
@@ -50,11 +50,20 @@ namespace HelperlandProject.Controllers
                             IsPersistent = model.RememberMe,
                         };
 
+                        HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal ,authProperties);
+                        string returnUrl=(string)TempData["returnUrl"];
+                        if (returnUrl != null)
+                        {
+                            return Json("returnUrl="+returnUrl);
+                        }
+                        else 
+                        {
+                            message = "Logged in..";
+                            ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                            return View(model);
+                        }
 
-                        message = "Logged in ..";
-                        ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                        return View(model);
                     }
                     else 
                     {
@@ -183,7 +192,9 @@ namespace HelperlandProject.Controllers
 
                     string subject = "Reset Password";
                     string body = "<b>Please find the Password Reset Link. </b><br/><br/>" + lnkHref;
-                    EmailManager.SendEmail(model.Email,subject,body);
+                    List<string> toList = new List<string>();
+                    toList.Add(model.Email);
+                    EmailManager.SendEmail(toList,subject,body);
                     ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>An email has been sent to your account. <b>Click on the link in received email to reset the password.</b><button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                     return View();
                 }

@@ -126,7 +126,7 @@ form button span img {
 
 #btnSubmit:disabled, #btnSubmit.disabled {
     color: #fff;
-    background-color: #346d75;
+    opacity:0.7;
     border-color: transparent;
     cursor: no-drop;
     pointer-events: visible;

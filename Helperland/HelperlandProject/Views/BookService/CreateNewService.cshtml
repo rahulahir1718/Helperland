@@ -1,0 +1,240 @@
+﻿@using HelperlandProject.Models.ViewModels.BookService
+@{
+    ViewData["Title"] = "Book Service";
+    Layout = "~/Views/Home/_Layout.cshtml";
+    ServiceScheduleViewModel model = new ServiceScheduleViewModel();
+}
+
+
+@section AddToHead{
+<link
+  rel="stylesheet"
+  href="~/css/bookservice/create-new-service.css"
+  asp-append-version="true"
+/>
+<script src="~/lib/jquery/jquery.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+}
+
+<img src="~/images/book-service-banner.jpg" id="main-image" />
+
+<div
+      class="modal fade"
+      tab-index="-1"
+      id="resultModal"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-column align-items-center">
+                    <img id="resultImage" src="~/images/big-right.png"/>
+                    <h5 id="resultMessage"></h5>
+                    <p id="serviceRequestId"></p>
+                    <button id="okBtn" onclick="hideModal();">Ok</button>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+
+<div class="d-flex align-items-center flex-column mt-4 mb-4 main-div">
+  <h2 class="title">Set up your cleaning service</h2>
+  <!--section-decoration-->
+  <div class="d-flex justify-content-center title-decoration">
+    <hr />
+    <img src="~/images/separator.png" />
+    <hr />
+  </div>
+  <!--tab section-->
+  <div class="d-flex flex-wrap mt-5 tab-forms-section">
+    <div>
+      <ul class="nav nav-pills" id="tab-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link active nav-item-active"
+            id="link-tab-1"
+            data-bs-toggle="pill"
+            href="#postalcode-div"
+          >
+            <img src="~/images/setup-service-white.png" alt="" />
+            <span>Setup Service</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="link-tab-2" data-bs-toggle="pill" href="#schedule-div">
+            <img src="~/images/schedule-plan.png" alt="" />
+            <span>Schedule & Plan</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="link-tab-3" data-bs-toggle="pill" href="#details-div"
+            ><img src="~/images/details.png" alt="" />
+            <span>Your Details</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="link-tab-4" data-bs-toggle="pill" href="#payment-div"
+            ><img src="~/images/make-payment.png" alt="" />
+            <span>Make Payment</span></a
+          >
+        </li>
+      </ul>
+
+      <div class="tab-content mt-4">
+        <div class="tab-pane container active" id="postalcode-div">
+            <partial name="ZipCode"/>
+        </div>
+      
+        <div class="tab-pane container fade" id="schedule-div">
+            <partial name="ServiceSchedule" model="model"/>
+        </div>
+
+        <div class="tab-pane container fade" id="details-div"></div>
+        <div class="tab-pane container fade" id="payment-div">
+            <partial name="MakePayment"/>
+        </div>
+      </div>
+    </div>
+    <!--payment summary section-->
+    <div class="d-flex flex-column ms-3 payment-summary-section">
+      <div class="card">
+        <div class="card-header">Payment Summary</div>
+        <div class="card-body">
+          <div class="d-flex flex-column">
+              <div class="d-flex">
+                <span id="service-date"></span>
+                <span class="ms-1" id="service-time"></span>
+              </div>
+            
+            <label class="duration">Duration</label>
+            <div class="d-flex">
+              <span>Basic</span>
+              <span class="ms-auto">3 Hrs</span>
+            </div>
+            <label>Extra</label>
+            <div class="d-flex flex-column" id="card-extra-services">
+              <div class="d-flex"></div>
+
+              <div class="d-flex"></div>
+
+              <div class="d-flex"></div>
+
+              <div class="d-flex"></div>
+
+              <div class="d-flex"></div>
+            </div>
+            <hr class="divider-line mt-2 mb-2" />
+            <div class="d-flex">
+              <label>Total Service Time</label>
+              <label class="ms-auto"><span id="total-service-time">3</span> Hrs</label>
+            </div>
+          </div>
+          <hr class="divider-line" />
+          <div class="d-flex">
+            <span>Per cleaning</span>
+            <span class="ms-auto" id="per-cleaning-payment">0,00&euro;</span>
+          </div>
+          <hr class="divider-line" />
+          <div class="d-flex align-items-center">
+            <span id="total-payment-text">Total Payment</span>
+            <span id="total-payment-count" class="ms-auto">0,00&euro;</span>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <img src="~/images/smiley.png" alt="" /> See what is always included
+        </div>
+      </div>
+      <div class="d-flex flex-column mt-3">
+        <h5 class="text-center">Questions?</h5>
+        <div class="accordion accordion-flush">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne"
+                aria-expanded="false"
+                aria-controls="flush-collapseOne"
+              >
+                 What is included in the basic cleaning? 
+              </button>
+            </h2>
+            <div
+              id="flush-collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo"
+                aria-expanded="false"
+                aria-controls="flush-collapseTwo"
+              >
+                Which Helperland professional will come to my place?
+              </button>
+            </h2>
+            <div
+              id="flush-collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">Helperland has a vast network of experienced, top-rated cleaners. Based on the time and date of your request, we work to assign the best professional available. Like working with a specific pro? Add them to your Pro Team from the mobile app and they'll be requested first for all future bookings. You will receive an email with details about your professional prior to your appointment.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree"
+                aria-expanded="false"
+                aria-controls="flush-collapseThree"
+              >
+                Can i skip or reschedule bookings?
+              </button>
+            </h2>
+            <div
+              id="flush-collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingThree"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">You can reschedule any booking for free at least 24 hours in advance of the scheduled start time. If you need to skip a booking within the minimum commitment, we’ll credit the value of the booking to your account. You can use this credit on future cleanings and other Helperland services</div>
+            </div>
+          </div>
+        </div>
+        <a asp-controller="home" asp-action="faqs" id="more-help">For more help</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section AddAfterFooter{
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script
+  src="~/js/bookservice/create-new-service.js"
+  asp-append-version="true"
+></script>
+}
+

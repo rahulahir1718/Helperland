@@ -1,0 +1,130 @@
+﻿@using HelperlandProject.Models.ViewModels.BookService
+@model YourDetailsViewModel 
+@{
+    var postalCode = Model.userAddresses?.FirstOrDefault()?.PostalCode; 
+    var city= Model.userAddresses?.FirstOrDefault()?.City;
+    var mobile = Model.userAddresses?.FirstOrDefault()?.Mobile;
+}
+<form id="yourDetailsForm" data-ajax="true" data-ajax-url="/bookservice/yourdetails" data-ajax-method="post" data-ajax-update="#details-div">
+  <div class="row mb-2">
+    <div class="col-12">
+      <label
+        >Enter your contact details, so we can serve you in better way!</label
+      >
+    </div>
+  </div>
+
+  @foreach(var address in Model.userAddresses) 
+  { 
+      if (address.IsDefault)
+      {
+          Model.check = address.AddressId;
+      }
+      else
+      {
+          Model.check = 0;
+      }
+      <div class="checkbox-col d-flex align-items-center mb-3">
+        @Html.RadioButtonFor(model=>model.check,address.AddressId,new{@class="form-check-input"})
+        <label class="form-check-label ms-3"
+          ><b>Address: </b>@address.AddressLine1, @address.City-@address.State
+          @address.PostalCode<br />Phone number: @address.Mobile</label
+        >
+      </div>
+  }
+  @Html.ValidationMessageFor(model=>model.check,"",new{@class="text-danger"})
+  <div id="newAddressForm" class="mb-3">
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <label for="AddressLine1" class="form-label">Street name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="AddressLine1"
+          placeholder="Street Name"
+        />
+      </div>
+      <div class="col-sm-6 mb-3">
+        <label for="AddressLine2" class="form-label">House number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="AddressLine2"
+          placeholder="House number"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <label for="PostalCode" class="form-label">Postal code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="PostalCode"
+          value="@postalCode"
+          disabled
+        />
+      </div>
+      <div class="col-sm-6 mb-3">
+        <label for="City" class="form-label">City</label>
+        <input type="text" class="form-control" id="City" value="@city" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <label for="Mobile" class="form-label">Phone number</label>
+        <div class="input-group">
+          <div class="input-group-text">+91</div>
+          <input type="text" class="form-control" id="Mobile" value="@mobile" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <button
+          class="btn btn-primary px-4 mx-1"
+          type="button"
+          id="addressSubmit"
+          onclick="addNewAddress();"
+        >
+          Save
+        </button>
+        <button
+          class="btn btn-primary px-4"
+          type="button"
+          id="addressCancel"
+          onclick="hideNewAddressDiv();"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <button type="button" id="add-new-address">
+        <span>+</span> Add New Address
+      </button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-auto ms-auto">
+      <input
+        id="detailSubmit"
+        class="btn btn-primary"
+        type="submit"
+        value="Continue"
+      />
+    </div>
+  </div>
+</form>
+
+<script>
+  var msg = "@ViewBag.Message";
+  if (msg == "MakePayment") {
+    $('a[href="#payment-div"]').tab("show");
+    $("#link-tab-4").removeClass("disabled");
+    makeActive($("#link-tab-4"));
+  }
+</script>

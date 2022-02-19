@@ -1,0 +1,36 @@
+﻿@using HelperlandProject.Models.ViewModels.BookService
+@model ZipCodeViewModel
+
+<form method="post" data-ajax="true" data-ajax-url="/bookservice/zipcode" data-ajax-method="post" data-ajax-update="#postalcode-div">
+  <div class="row mb-4">
+    <div class="col-sm-5">
+      <label for="postalcode" class="form-label">Enter your Postal Code</label>
+      <input
+        type="text"
+        class="form-control"
+        id="postalcode"
+        placeholder="Postal code"
+        asp-for="ZipCode"
+      />
+    </div>
+    <div class="col-sm-3 align-self-end">
+      <input
+        id="postalcodeSubmit"
+        class="btn btn-primary"
+        type="submit"
+        value="Check Availability"
+      />
+    </div>
+    @Html.ValidationMessageFor(model=>model.ZipCode,"", new {@class="text-danger"})
+  </div>
+  @Html.Raw(@ViewBag.Alert)
+</form>
+
+<script>
+  var msg = "@ViewBag.Message";
+  if (msg == "ServiceSchedule") {
+    $('a[href="#schedule-div"]').tab("show");
+    $("#link-tab-2").removeClass("disabled");
+    makeActive($("#link-tab-2"));
+  }
+</script>

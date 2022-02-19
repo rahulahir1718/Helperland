@@ -136,6 +136,10 @@
     {
         @RenderSection("AddAfterFooter");
     }
+     @if (IsSectionDefined("ExtraScripts")) 
+    {
+        @RenderSection("ExtraScripts");
+    }
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="~/js/home/layout.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

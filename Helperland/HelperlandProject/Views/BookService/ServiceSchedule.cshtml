@@ -1,0 +1,106 @@
+﻿@using HelperlandProject.Models.ViewModels.BookService 
+@model ServiceScheduleViewModel
+<form id="scheduleForm" data-ajax="true" data-ajax-url="/bookservice/serviceschedule" data-ajax-method="post" data-ajax-update="#schedule-div">
+  <div class="row">
+    <div class="col-sm-6">
+      <label>When do you need the cleaner?</label>
+      <div class="row mt-2">
+        <div class="col-auto">
+          @Html.TextBoxFor(model =>
+          model.ServiceDate,DateTime.Now.ToString("yyyy-MM-dd"),new { @type ="date",@class="form-control mb-2",@max="@DateTime.Now.ToString('yyyy-MM-dd')"})
+        </div>
+        <div class="col-auto">
+          @Html.DropDownListFor(model=>model.ServiceTime,Model.timeList,new{@class="form-select"})
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label>How long do you need your cleaner to stay?</label>
+      <div class="row mt-2">
+        <div class="col-auto">
+          @Html.DropDownListFor(model => model.ServiceHours,Model.hourList,new
+          {@class="form-select"})
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <hr class="divider-line" />
+  </div>
+
+  <label class="mt-4">Extra Services</label>
+  <div class="d-flex flex-wrap justify-content-between mt-3 extra-services">
+    <div class="d-flex flex-column align-items-center">
+      <div class="round-border">
+        <img src="~/images/inside-cabinet.png" alt="" />
+      </div>
+      <span>Inside cabinets</span>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <div class="round-border">
+        <img src="~/images/inside-fridge.png" alt="" />
+      </div>
+      <span>Inside fridge</span>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <div class="round-border">
+        <img src="~/images/inside-oven.png" alt="" />
+      </div>
+      <span>Inside oven</span>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <div class="round-border">
+        <img src="~/images/laundry-wash&dry.png" alt="" />
+      </div>
+      <span>laundry wash & dry</span>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <div class="round-border">
+        <img src="~/images/interior-windows.png" alt="" />
+      </div>
+      <span>Interior windows</span>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <hr class="divider-line" />
+  </div>
+
+  <label class="mb-1 mt-4">Comments</label>
+  <textarea
+    class="form-control"
+    asp-for="Comments"
+    rows="3"
+    placeholder="Comments"
+  ></textarea>
+
+  <div class="form-check mt-3">
+    @Html.CheckBoxFor(model=>model.HasPets,new {@class="form-check-input"})
+    @Html.LabelFor(model=>model.HasPets,new {@class="form-check-label"})
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <hr class="divider-line" />
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-auto ms-auto">
+      <input
+        id="scheduleSubmit"
+        class="btn btn-primary"
+        type="submit"
+        value="Continue"
+      />
+    </div>
+  </div>
+</form>
+
+<script>
+  var msg = "@ViewBag.Message";
+  if (msg == "YourDetails") {
+    $('a[href="#details-div"]').tab("show");
+    $("#link-tab-3").removeClass("disabled");
+    makeActive($("#link-tab-3"));
+  }
+</script>

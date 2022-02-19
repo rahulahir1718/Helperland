@@ -45,11 +45,14 @@ function PostRequest() {
     var valdata = $("#loginForm").serialize();
     //to get alert popup   
     $.post(url, valdata, function (data) {
-        if (data == "Success") {
-            window.location.href = "/account/register";
+        var url = data.split("returnUrl=");
+        if (url[1] != null) {
+            window.location.href = url[1];
         }
-        $("#exampleModal").html(data);
-        $("#exampleModal").modal("show");
+        else {
+            $("#exampleModal").html(data);
+            $("#exampleModal").modal("show");
+        }    
     });
 }
 
