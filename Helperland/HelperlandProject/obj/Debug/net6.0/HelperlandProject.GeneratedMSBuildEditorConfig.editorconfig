@@ -55,6 +55,50 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1NlcnZpY2VcWmlwQ29kZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/CancelServiceRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ2FuY2VsU2VydmljZVJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/EditAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRWRpdEFkZHJlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/MyAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTXlBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/MyAddresses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTXlBZGRyZXNzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/MyDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTXlEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/RescheduleService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUmVzY2hlZHVsZVNlcnZpY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/ServiceHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcU2VydmljZUhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/ServiceRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcU2VydmljZVJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/ServiceRequestDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcU2VydmljZVJlcXVlc3REZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Customer/SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcU2lkZUJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -79,16 +123,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Home/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTGF5b3V0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Home/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfVmlld1N0YXJ0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -102,7 +142,3 @@ build_metadata.AdditionalFiles.CssScope =
 [c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/Rahul Kumbharvadiya/OneDrive/Desktop/Helperland/Helperland/HelperlandProject/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-qti0uetenq

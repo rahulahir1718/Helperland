@@ -1,5 +1,8 @@
 ﻿@using HelperlandProject.Models.ViewModels.BookService 
 @model ServiceScheduleViewModel
+@{
+    Layout = null;
+}
 <form id="scheduleForm" data-ajax="true" data-ajax-url="/bookservice/serviceschedule" data-ajax-method="post" data-ajax-update="#schedule-div">
   <div class="row">
     <div class="col-sm-6">
@@ -10,7 +13,7 @@
           model.ServiceDate,DateTime.Now.ToString("yyyy-MM-dd"),new { @type ="date",@class="form-control mb-2",@max="@DateTime.Now.ToString('yyyy-MM-dd')"})
         </div>
         <div class="col-auto">
-          @Html.DropDownListFor(model=>model.ServiceTime,Model.timeList,new{@class="form-select"})
+          @Html.DropDownListFor(model=>model.ServiceTime,Constants.timeList,new{@class="form-select"})
         </div>
       </div>
     </div>
@@ -18,8 +21,7 @@
       <label>How long do you need your cleaner to stay?</label>
       <div class="row mt-2">
         <div class="col-auto">
-          @Html.DropDownListFor(model => model.ServiceHours,Model.hourList,new
-          {@class="form-select"})
+          @Html.DropDownListFor(model => model.ServiceHours,Constants.hourList,new{@class="form-select"})
         </div>
       </div>
     </div>

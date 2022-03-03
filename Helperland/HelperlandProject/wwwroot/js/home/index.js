@@ -1,74 +1,71 @@
 var currentlyOpen;
 $(document).ready(function () {
-    $("#go-up").hide();
-    $("#get-message").hide();
+  $("#go-up").hide();
+  $("#get-message").hide();
 
-    loadLoginPopUp(loginPopUp);
+  loadLoginPopUp(loginPopUp);
 
-    $(".l-6").click(function () {
-        $(window).scrollTop(0);
-        if (currentlyOpen != "Login") {
-            loadLoginPopUp('True');
-        }
-        else {
-            showLoginPopUp();
-        }
-    });
+  $(".l-6").click(function () {
+    $(window).scrollTop(0);
+    if (currentlyOpen != "Login") {
+      loadLoginPopUp("True");
+    } else {
+      showLoginPopUp();
+    }
+  });
 });
 
 function loadLoginPopUp(openPopUp) {
-    var url = "/account/login";
-    $.get(url, function (data) {
-        $("#exampleModal").html(data);
-        if (openPopUp=='True') {
-            showLoginPopUp();
-        }
-    });
+  var url = "/account/login";
+  $.get(url, function (data) {
+    $("#exampleModal").html(data);
+    if (openPopUp == "True") {
+      showLoginPopUp();
+    }
+  });
 }
 
 function showLoginPopUp() {
-    $("#exampleModal").modal("show");
-    currentlyOpen = "Login";
+  $("#exampleModal").modal("show");
+  currentlyOpen = "Login";
 }
 
 function openForgetPasswordPopUp() {
   var url = "/account/forgotpassword";
   $.get(url, function (data) {
     $("#exampleModal").html(data);
-      $("#exampleModal").modal("show");
-      currentlyOpen = "ForgotPassword";
+    $("#exampleModal").modal("show");
+    currentlyOpen = "ForgotPassword";
   });
 }
 
 function PostRequest() {
-    var url = "/account/login";
-    var valdata = $("#loginForm").serialize();
-    //to get alert popup   
-    $.post(url, valdata, function (data) {
-        var url = data.split("returnUrl=");
-        if (url[1] != null) {
-            window.location.href = url[1];
-        }
-        else {
-            $("#exampleModal").html(data);
-            $("#exampleModal").modal("show");
-        }    
-    });
+  var url = "/account/login";
+  var valdata = $("#loginForm").serialize();
+  //to get alert popup
+  $.post(url, valdata, function (data) {
+    var url = data.split("returnUrl=");
+    if (url[1] != null) {
+      window.location.href = url[1];
+    } else {
+      $("#exampleModal").html(data);
+      $("#exampleModal").modal("show");
+    }
+  });
 }
 
 function forgotPasswordPostRequest() {
-    var url = "/account/forgotpassword";
-    var valdata = $("#forgetPasswordForm").serialize();
-    $.post(url, valdata, function (data) {
-        $("#exampleModal").html(data);
-        $("#exampleModal").modal("show");
-    });
+  var url = "/account/forgotpassword";
+  var valdata = $("#forgetPasswordForm").serialize();
+  $.post(url, valdata, function (data) {
+    $("#exampleModal").html(data);
+    $("#exampleModal").modal("show");
+  });
 }
 
-
 $(".dropdown-item").click(function () {
-    var src = $(this).children().eq(0).attr('src');
-    $('#flagImage').attr('src',src);
+  var src = $(this).children().eq(0).attr("src");
+  $("#flagImage").attr("src", src);
 });
 
 $("#acceptance > a").click(function () {
@@ -121,6 +118,3 @@ $(window).scroll(function () {
     }
   }
 });
-
-
-

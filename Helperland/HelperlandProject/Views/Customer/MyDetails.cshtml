@@ -1,0 +1,49 @@
+﻿@using HelperlandProject.Models.ViewModels.Customer
+@model MyDetailsViewModel
+<form id="myDetailsForm" data-ajax="true" data-ajax-url="/customer/mydetails" data-ajax-method="post" data-ajax-update="#my-details-div">
+	<div class="row">
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.FirstName,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.FirstName,new {@class="form-control"})
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.LastName,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.LastName,new {@class="form-control"})
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.Email,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.Email,new {@class="form-control",@type="email",@disabled=true})
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.Mobile,new {@class="form-label"})
+			<div class="input-group">
+				<div class="input-group-text">+91</div>
+				@Html.TextBoxFor(model=>model.Mobile,new {@class="form-control"})
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<label class="form-label">Date Of Birth</label>
+			<div class="row">
+				<div class="col-auto mb-3">
+					@Html.DropDownListFor(model=>model.BirthDay,Constants.birthDateList,new {@class="form-select"})
+				</div>
+				<div class="col-auto mb-3">
+					@Html.DropDownListFor(model=>model.BirthMonth,Constants.birthMonthList,new {@class="form-select"})
+				</div>
+				<div class="col-auto mb-3">
+					@Html.DropDownListFor(model=>model.BirthYear,Constants.birthYearList,new {@class="form-select"})
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-auto mb-3">
+			@Html.LabelFor(model=>model.LanguageId,new{@class="form-label"})
+			@Html.DropDownListFor(model=>model.LanguageId,Constants.languageList,new {@class="form-select"})
+		</div>
+	</div>
+	<input class="btn btn-primary px-3 mb-3" type="submit" value="Save" />
+	@Html.Raw(@ViewBag.Alert)
+</form>

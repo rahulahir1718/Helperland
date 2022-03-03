@@ -9,7 +9,8 @@ using System.Security.Claims;
 
 namespace HelperlandProject.Controllers
 {
-    [Authorize]
+    //only customers can access methods of this controllersss
+    [Authorize(Roles ="1")]
     public class BookServiceController : Controller
     {
         private readonly HelperlandContext helperlandContext;
@@ -128,6 +129,7 @@ namespace HelperlandProject.Controllers
             serviceRequest.CreatedDate = DateTime.Now;
             serviceRequest.ModifiedDate = DateTime.Now;
             serviceRequest.ModifiedBy = user.UserId;
+            serviceRequest.Status = Constants.SERVICE_PENDING;
             serviceRequest.RecordVersion = new Guid();
             serviceRequest.ServiceRequestAddresses.Add(new ServiceRequestAddress() { 
                 AddressLine1=userAddress.AddressLine1,

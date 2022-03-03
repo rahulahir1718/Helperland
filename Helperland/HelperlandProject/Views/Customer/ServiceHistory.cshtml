@@ -1,0 +1,176 @@
+﻿@model IEnumerable<HelperlandProject.Models.Data.ServiceRequest>
+
+@{
+    ViewData["Title"] = "Service History";
+}
+
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/customer/service-history.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/customer/sidebar.css" asp-append-version="true" />
+    <link href="~/rateit-plugin/scripts/rateit.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>    
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>    
+}
+
+<div class="modal fade" tab-index="-1" id="customerModal" role="dialog"></div>
+
+<!--main section start-->
+    <section id="main-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>@User.Identity.Name.Split(" ").ElementAt(0) !</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="main-content">
+          <partial name="SideBar"/>
+         
+          <!--service table-->
+          <div class="service-history">
+            <div class="d-flex flex-wrap">
+              <h6 class="sub-title">Service History</h6>
+              <button id="export" class="ms-auto">Export</button>
+            </div>
+
+            <!--table start-->
+            <table
+              id="table_id"
+              class="table table-hover table-borderless"
+              data-export-title="test"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Service Id</th>
+                  <th scope="col">Service Dete</th>
+                  <th scope="col">Service Provider</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" data-orderable="false">Rate SP</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach(var request in Model)
+              {
+                  <tr>
+                      <td class="serviceId">@request.ServiceRequestId</td>
+                      <td>
+                        <img src="~/images/calendar2.png" alt="" />
+                        <span id="date">@request.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
+                        <br />
+                        <img src="~/images/layer-712.png" alt="" />@request.ServiceStartDate.TimeOfDay
+                      </td> 
+                       <td>
+                         @if (request.ServiceProvider!=null) 
+                         {
+                             <div class="d-flex flex-wrap justify-content-center align-items-center">
+                                <img id="profileImg" src=@request.ServiceProvider.UserProfilePicture alt="" />
+                                <div class="d-flex flex-column users-rating">
+                                    <span>@request.ServiceProvider.FirstName @request.ServiceProvider.LastName</span>
+                                    <div class="d-flex align-items-center">
+                                        <div class="rateit" data-rateit-mode="font" style="font-size:20px" data-rateit-readonly="true" data-rateit-value="@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)"></div>
+                                        <span>@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)</span>
+                                    </div>
+                                </div>
+                            </div>
+                         }       
+                      </td>
+                      <td><span>@request.TotalCost &euro;</span></td>
+                      @switch(@request.Status)
+                      {
+                          case 3:<td><button class="completed">Completed</button></td>
+                          break;
+                          case 4:<td><button class="cancelled">Cancelled</button></td>
+                          break;
+                          case 5:<td><button class="refunded">Refunded</button></td>
+                          break;
+                      }
+                      @if (request.Status==3)
+                      {
+                         <td><button class="rate-sp" data-id="@request.ServiceRequestId">Rate SP</button></td>
+                      }
+                      else
+                      {
+                         <td><button class="rate-sp" disabled>Rate SP</button></td>
+                      }
+                </tr>
+              }
+              </tbody>
+            </table>
+            <!--table end-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main section ends-->
+
+<div class="modal fade" tab-index="-1" id="ratingModal" role="dialog" >
+    <div class="modal-dialog modal-dialog-centered rating-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex align-items-center">
+                <img id="modalPeofileImage" alt=""/>              
+                <div class="ms-2 d-flex flex-column users-rating">             
+                   <span id="modal-sp-name"></span>           
+                   <div class="d-flex flex-wrap align-items-center">
+                       <div class="rateit-average"></div>
+                       <span id="average-rating-text"></span>
+                   </div>          
+                </div>
+            </div>
+
+            <h6 class="mt-2">Rate your service provider</h6>
+
+             <div class="d-flex justify-content-center my-2">
+                <hr class="divider-line" />
+             </div>
+
+            <div class="d-flex mb-3">
+                <span>On time arrival</span>
+                <div class="ms-2 rateit-ontime"></div>
+
+            </div>
+            <div class="d-flex mb-3">
+                <span>Friendly</span>
+                <div class="ms-2 rateit-friendly"></div>
+
+            </div>
+            <div class="d-flex mb-3">
+                <span>Quality of service</span>
+                <div class="ms-2 rateit-quality"></div>
+            </div>
+            <label class="mb-1">Feedback on service provider</label>
+            <textarea rowspan="2" class="mb-3" id="feedback"></textarea><br />
+            <button id="ratingSubmit">Submit</button>
+        </div>
+      </div>
+    </div>  
+</div>
+
+
+@section AddAfterFooter{
+    <script src="~/rateit-plugin/scripts/jquery.rateit.js"></script>
+    <script src="~/js/customer/service-history.js" asp-append-version="true"></script>
+    <script src="~/DataTables/datatables.min.js"></script>
+    <script src="~/DataTables/DataTables-1.11.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+}
+   

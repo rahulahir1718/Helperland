@@ -38,7 +38,8 @@ namespace HelperlandProject.Controllers
                     {
                         var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
 
-                        identity.AddClaim(new Claim(ClaimTypes.Email,user.Email));
+                        identity.AddClaim(new Claim("userId", user.UserId.ToString()));
+                        identity.AddClaim(new Claim(ClaimTypes.Name,user.FirstName+" "+user.LastName));
                         identity.AddClaim(new Claim(ClaimTypes.Role, user.UserTypeId.ToString()));
                         
                         var principal = new ClaimsPrincipal(identity);
@@ -53,15 +54,20 @@ namespace HelperlandProject.Controllers
                         HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal ,authProperties);
                         string returnUrl=(string)TempData["returnUrl"];
+
                         if (returnUrl != null)
                         {
                             return Json("returnUrl="+returnUrl);
                         }
                         else 
                         {
-                            message = "Logged in..";
-                            ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                            return View(model);
+                            switch (user.UserTypeId)
+                            {
+                                case Constants.CUSTOMER : return Json("returnUrl=/customer/servicerequest");
+                                case Constants.SERVICE_PROVIDER : return Json("returnUrl=/serviceprovider/newservicerequest");
+                                case Constants.ADMIN : return Json("returnUrl=/admin/dashboard");
+                                default: return Json("returnUrl=/home/index");
+                            }
                         }
 
                     }
@@ -112,11 +118,12 @@ namespace HelperlandProject.Controllers
                         Email = model.Email,
                         Mobile = model.Mobile,
                         Password = model.Password,
-                        UserTypeId = 1,
+                        UserTypeId = Constants.CUSTOMER,
                         CreatedDate = DateTime.Now,
                         ModifiedDate = DateTime.Now,
                         IsApproved=true,
                         IsActive=true,
+                        IsRegisteredUser=true
                     };
 
                     helperlandContext.Users.Add(user);
@@ -158,7 +165,8 @@ namespace HelperlandProject.Controllers
                         Email = model.Email,
                         Mobile = model.Mobile,
                         Password = model.Password,
-                        UserTypeId = 2,
+                        UserTypeId = Constants.SERVICE_PROVIDER,
+                        IsRegisteredUser = true,
                         CreatedDate = DateTime.Now,
                         ModifiedDate = DateTime.Now,
                     };
@@ -236,6 +244,12 @@ namespace HelperlandProject.Controllers
                 return View(model);
             }
             
+        }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("index","home");
         }
     }
 }

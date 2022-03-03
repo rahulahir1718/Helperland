@@ -1,0 +1,33 @@
+﻿@using HelperlandProject.Models.Data
+@model IEnumerable<UserAddress>
+<!--table start-->
+@if (Model.Count() > 0)
+{
+    <table id="table_id" class="table table-borderless" data-export-title="test">
+        <thead>
+            <tr>
+                <th scope="col">Addresses</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var address in Model)
+        {
+            <tr>
+                <td>
+                    <b>Address: </b>@address.AddressLine1, @address.City-@address.State @address.PostalCode<br /><b>Phone number:</b> @address.Mobile
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <a data-id=@address.AddressId class="editBtn"><img src="~/images/edit-icon.png"/></a>
+                        <a data-id=@address.AddressId class="deleteBtn"><img class="ms-2" src="~/images/delete-icon.png"/></a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-primary" id="newAddressBtn">Add New Address</button>
+

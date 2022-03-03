@@ -2,6 +2,8 @@
     $('#myCheckBox').change(function () {
         $('#btnSubmit').prop("disabled", !this.checked);
     }).change()
+
+    $("header .l-6").attr('href', "/home/index/true");
 });
 
 $(window).scroll(function () {

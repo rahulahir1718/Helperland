@@ -16303,8 +16303,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\MyAccount.cshtml",
+      "TargetPath": "Views\\Customer\\MyAccount.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\ServiceHistory.cshtml",
+      "TargetPath": "Views\\Customer\\ServiceHistory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Home\\AboutUs.cshtml",
       "TargetPath": "Views\\Home\\AboutUs.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\SideBar.cshtml",
+      "TargetPath": "Views\\Customer\\SideBar.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16328,11 +16343,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Home\\_Layout.cshtml",
-      "TargetPath": "Views\\Home\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -16353,8 +16363,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\EditAddress.cshtml",
+      "TargetPath": "Views\\Customer\\EditAddress.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\ChangePassword.cshtml",
+      "TargetPath": "Views\\Customer\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Account\\BecomeAProvider.cshtml",
       "TargetPath": "Views\\Account\\BecomeAProvider.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\RescheduleService.cshtml",
+      "TargetPath": "Views\\Customer\\RescheduleService.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\MyAddresses.cshtml",
+      "TargetPath": "Views\\Customer\\MyAddresses.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\MyDetails.cshtml",
+      "TargetPath": "Views\\Customer\\MyDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\ServiceRequestDetail.cshtml",
+      "TargetPath": "Views\\Customer\\ServiceRequestDetail.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16368,8 +16408,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Home\\_ViewStart.cshtml",
-      "TargetPath": "Views\\Home\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\CancelServiceRequest.cshtml",
+      "TargetPath": "Views\\Customer\\CancelServiceRequest.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16385,6 +16425,11 @@
     {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Home\\Prices.cshtml",
       "TargetPath": "Views\\Home\\Prices.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\ServiceRequest.cshtml",
+      "TargetPath": "Views\\Customer\\ServiceRequest.cshtml",
       "FileKind": "mvc"
     },
     {

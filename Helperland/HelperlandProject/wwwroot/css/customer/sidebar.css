@@ -1,0 +1,46 @@
+﻿.sidebar {
+  background-color: #1d7a8c;
+  width: 262px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul div {
+  text-align: end;
+}
+
+.active-link {
+  background-color: #146371 !important;
+}
+
+.sidebar button {
+  border-radius: 50%;
+  margin: 5px;
+  background: white;
+  border: 0;
+  border-color: transparent;
+  color: #1d7a8c;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.sidebar li {
+  border-bottom: 1px solid #3c8c9c;
+}
+
+.sidebar li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.active-link {
+  background-color: #146371;
+}

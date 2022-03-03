@@ -1,0 +1,36 @@
+﻿@using HelperlandProject.Models.ViewModels.Customer
+@model RescheduleServiceViewModel
+@{
+    Layout = null;
+}
+<div class="modal-dialog modal-dialog-centered reschedule-modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Reschedule Service Request</h4>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body reschedule-request">
+        <form id="rescheduleForm" data-ajax="true" data-ajax-url="/customer/rescheduleservice" data-ajax-method="post" data-ajax-update="#customerModal">
+            <span>Select New Date & Time</span>
+            <div class="row">
+                <div class="col-6">
+                    @Html.TextBoxFor(model =>model.ServiceDate,DateTime.Now.ToString("yyyy-MM-dd"),new { @type ="date",@class="form-control mb-2"})
+                </div>
+                <div class="col-6">
+                    @Html.DropDownListFor(model=>model.ServiceTime,Model.timeList,new{@class="form-select"})
+                </div>
+            </div>
+            @Html.Raw(@ViewBag.Alert)
+            <div class="row">
+                <div class="col-12">
+                    <input type="submit" class="btn btn-primary" value="Update"/>
+                </div>
+            </div>
+            @Html.HiddenFor(model=>model.ServiceRequestId)
+        </form>
+    </div>

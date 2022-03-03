@@ -1,19 +1,7 @@
 ﻿@{
-    //this file does not use common latout page
-    Layout = null;   
-}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
-
-    <!--importing bootstrap-->
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-
+    ViewData["Title"] = "Home";
+} 
+@section AddToHead{
     <!--importing css and jquery-->
     <link
       rel="stylesheet"
@@ -25,131 +13,10 @@
       href="~/css/account/login-forgotpassword.css"
       asp-append-version="true"
     />
-
-    <script
-      src="https://kit.fontawesome.com/9090ba710e.js"
-      crossorigin="anonymous"
-    ></script>
     <script> var loginPopUp = '@ViewBag.loginPopUp';</script>
-  </head>
-
-  <body>
-    <!--For login and forget password modals-->
-    <div
-      class="modal fade"
-      tab-index="-1"
-      id="exampleModal"
-      role="dialog"
-    ></div>
-
-    <!--banner section-->
-    <section id="banner-section">
-      <!--header section-->
-      <header id="header">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" asp-controller="home" asp-action="index"
-              ><img src="~/images/logo-large.png"
-            /></a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapsibleNavbar"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link nlbt l-1" asp-controller="bookservice" asp-action="createnewservice">Book a cleaner</a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link l-2 ms-2"
-                    asp-controller="home"
-                    asp-action="prices"
-                    >Prices</a>                 
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link l-3 ms-4" href="#">Our Guarantee</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link l-4 ms-4" href="#">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link l-5 ms-4"
-                    asp-controller="home"
-                    asp-action="contactus"
-                    >Contact Us</a>
-                </li>
-                @if(User.Identity.IsAuthenticated)
-                {
-                }
-                else
-                {
-                  <li class="nav-item">
-                  <a
-                    class="nav-link l-6 nlbt ms-4"
-                    data-url='@Url.Action("login","account")'
-                    >Login</a>  
-                   </li>
-                    <li class="nav-item">
-                      <a class="nav-link l-7 nlbt ms-2" asp-controller="account" asp-action="becomeaprovider">Become a Helper</a>
-                    </li>
-                 }
-
-                <li class="nav-item">
-                  <div class="nav-link l-8 ms-2">
-                    <div class="btn-group dropstart">
-                      <button
-                        class="btn btn-secondary data-toggle"
-                        type="button"
-                        id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <img id="flagImage" src="~/images/ic-flag.png" alt="" />
-                        <img
-                          id="ddIcon"
-                          src="~/images/sp-arrow-down.png"
-                          alt=""
-                        />
-                      </button>
-                      <ul
-                        class="dropdown-menu mt-5"
-                        aria-labelledby="dropdownMenuButton1"
-                      >
-                        <li>
-                          <a class="dropdown-item"
-                            ><img src="~/images/ic-flag.png" alt="" /> UK</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item"
-                            ><img src="~/images/ic-flag-india.png" alt="" />
-                            Ind</a
-                          >
-                        </li>
-                        <li>
-                          <a class="dropdown-item"
-                            ><img src="~/images/ic-flag-australia.png" alt="" />
-                            AUS</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <!--header ends-->
-
-      <div class="d-flex flex-wrap flex-column justify-content-center">
+}
+@section AddAfterHeader{
+	<div class="d-flex flex-wrap flex-column justify-content-center">
         <div class="d-flex flex-column mt-235 ml-55">
           <h1>Do not feel like housework?</h1>
           <span
@@ -200,9 +67,17 @@
           ><img src="~/images/group-18_5.png" alt=""
         /></a>
       </div>
-    </section>
+}
 
-    <!--content that remain fixed on screen-->
+<!--For login and forget password modals-->
+    <div
+      class="modal fade"
+      tab-index="-1"
+      id="exampleModal"
+      role="dialog"
+    ></div>
+
+<!--content that remain fixed on screen-->
     <div id="acceptance">
       <div class="flex-grow-1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc
@@ -268,7 +143,7 @@
       </div>
     </section>
 
-    <!--blog section-->
+      <!--blog section-->
     <section
       class="d-flex flex-column align-items-center flex-wrap"
       id="our-blog"
@@ -421,53 +296,9 @@
     </section>
     <!--customer feedback section ends-->
 
-    <footer>
-      <div class="d-flex justify-content-center flex-wrap">
-        <div class="newslater-area">
-          <!--news later heading-->
-          <h6 class="newslatter-heading">GET OUR NEWSLETTER</h6>
-          <!--newslatter form-->
-          <form class="d-flex justify-content-center">
-            <input class="form-email" type="email" placeholder="Your Email" />
-            <input class="form-btn" type="button" value="Submit" />
-          </form>
-        </div>
-      </div>
-
-      <!--actual footer section-->
-      <div class="main-footer">
-        <div class="main-footer-raw-1">
-          <!--footer logo-->
-          <img src="~/images/footer-logo.png" id="footer-navbar-logo" />
-          <!--footer navbar-->
-          <div class="nav">
-            <a asp-controller="home" asp-action="index">home</a>
-            <a asp-controller="home" asp-action="aboutus">About</a>
-            <a href="#">Testimonials</a>
-            <a asp-controller="home" asp-action="faqs">Faqs</a>
-            <a href="#">Insurence Policy</a>
-            <a href="#">Impressum</a>
-          </div>
-          <!--social media icons-->
-          <div class="main-footer-socialmedia-area">
-            <img src="~/images/ic-facebook.png" alt="" />
-            <img src="~/images/ic-instagram.png" />
-          </div>
-        </div>
-        <hr />
-        <!--copyright-->
-        <p class="copyright-text">
-          ©2018 Helperland.&nbsp;All rights reserved.
-          <a href="#">Terms and Conditions</a> |
-          <a href="#">Privacy Policy</a>
-        </p>
-      </div>
-    </footer>
-
+@section AddAfterFooter{
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="~/js/home/index.js" asp-append-version="true"></script>
-  </body>
-</html>
+}

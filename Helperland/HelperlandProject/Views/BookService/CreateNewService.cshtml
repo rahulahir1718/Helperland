@@ -1,10 +1,8 @@
 ﻿@using HelperlandProject.Models.ViewModels.BookService
 @{
     ViewData["Title"] = "Book Service";
-    Layout = "~/Views/Home/_Layout.cshtml";
     ServiceScheduleViewModel model = new ServiceScheduleViewModel();
 }
-
 
 @section AddToHead{
 <link
@@ -232,9 +230,6 @@
 @section AddAfterFooter{
 <script src="~/lib/jquery-validate/jquery.validate.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-<script
-  src="~/js/bookservice/create-new-service.js"
-  asp-append-version="true"
-></script>
+<script src="~/js/bookservice/create-new-service.js" asp-append-version="true"></script>
 }
 

@@ -1,0 +1,58 @@
+﻿@using HelperlandProject.Models.ViewModels.Customer
+@model EditAddressViewModel
+
+<div class="modal-dialog modal-dialog-centered edit-address-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Edit Address</h4>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+        <form id="editAddressForm" data-ajax="true" data-ajax-url="/customer/editaddress" data-ajax-method="post" data-ajax-success="editCompleted()">
+			@Html.HiddenFor(model=>model.AddressId)
+			<div class="row">
+				<div class="col-sm-6 mb-3">
+					@Html.LabelFor(model=>model.StreetName,new{@class="form-label"})
+					@Html.TextBoxFor(model=>model.StreetName,new{@class="form-control"})
+					@Html.ValidationMessageFor(model=>model.StreetName,"",new{@class="text-danger"})
+				</div>
+				<div class="col-sm-6 mb-3">
+					@Html.LabelFor(model=>model.HouseNumber,new{@class="form-label"})
+					@Html.TextBoxFor(model=>model.HouseNumber,new{@class="form-control"})
+					@Html.ValidationMessageFor(model=>model.HouseNumber,"",new{@class="text-danger"})
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 mb-3 ">
+					@Html.LabelFor(model=>model.PostalCode,new{@class="form-label"})
+					@Html.TextBoxFor(model=>model.PostalCode,new{@class="form-control"})
+					@Html.ValidationMessageFor(model=>model.PostalCode,"",new{@class="text-danger"})
+				</div>
+				<div class="col-sm-6 mb-3">
+					@Html.LabelFor(model=>model.City,new{@class="form-label"})
+					@Html.TextBoxFor(model=>model.City,new{@class="form-control"})
+					@Html.ValidationMessageFor(model=>model.City,"",new{@class="text-danger"})
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 mb-3">
+					@Html.LabelFor(model=>model.PhoneNumber,new{@class="form-label"})
+					<div class="input-group">
+						<div class="input-group-text">+91</div>
+						@Html.TextBoxFor(model=>model.PhoneNumber,new{@class="form-control"})
+					</div>
+					@Html.ValidationMessageFor(model=>model.PhoneNumber,"",new{@class="text-danger"})
+				</div>
+			</div>
+			<input type="submit" value="Edit" class="btn btn-primary" />
+		</form>
+    </div>
+  </div>
+</div>
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

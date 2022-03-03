@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelperlandProject.Models.ViewModels.Customer;
+using System;
 using System.Collections.Generic;
 
 namespace HelperlandProject.Models.Data
@@ -49,5 +50,6 @@ namespace HelperlandProject.Models.Data
         public virtual ICollection<ServiceRequest> ServiceRequestServiceProviders { get; set; }
         public virtual ICollection<ServiceRequest> ServiceRequestUsers { get; set; }
         public virtual ICollection<UserAddress> UserAddresses { get; set; }
+
     }
 }

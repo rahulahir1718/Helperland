@@ -1,7 +1,9 @@
 ﻿@using HelperlandProject.Models.ViewModels
 @model RegisterUserViewModel;
 
-@{ ViewData["Title"] = "Register"; Layout = "~/Views/Home/_Layout.cshtml"; }
+@{ 
+    ViewData["Title"] = "Register";
+}
 @section AddToHead{
 <link
   rel="stylesheet"
@@ -127,10 +129,5 @@
 
 @section AddAfterFooter{
     <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-<script>
-  $("footer").hide();
-  $("header .navbar").css("background", "rgba(82, 82, 82, 1)");
-</script>
+    <script src="~/js/account/register_reset_passsword.js" asp-append-version="true"></script>
 }

@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "My Account";
+}
+
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/customer/my-account.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/customer/sidebar.css" asp-append-version="true" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>    
+}
+
+<div class="modal fade" tab-index="-1"id="customerModal"role="dialog"></div>
+
+<!--main section start-->
+    <section id="main-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>@User.Identity.Name.Split(" ").ElementAt(0) !</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="main-content">
+          <partial name="SideBar"/>
+         
+          <div class="account-div">
+              <ul class="nav nav-pills" id="tab-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" id="link-tab-1" data-bs-toggle="pill" href="#my-details-div">My Details</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="link-tab-2" data-bs-toggle="pill" href="#my-addresses-div">My Addresses</a >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="link-tab-3" data-bs-toggle="pill" href="#change-password-div">Change Password</a>
+                </li>
+              </ul>
+
+              <div class="tab-content mt-4">
+                <div class="tab-pane container active" id="my-details-div"></div>
+                <div class="tab-pane container fade" id="my-addresses-div"></div>
+                <div class="tab-pane container fade" id="change-password-div">
+                    <partial name="ChangePassword"/>
+                </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </section>
+    <!--main section ends-->
+
+@section AddAfterFooter{
+    <script src="~/js/customer/my-account.js" asp-append-version="true"></script>
+}
+   
+

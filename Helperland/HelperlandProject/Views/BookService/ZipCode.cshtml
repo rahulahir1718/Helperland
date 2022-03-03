@@ -1,6 +1,8 @@
 ﻿@using HelperlandProject.Models.ViewModels.BookService
 @model ZipCodeViewModel
-
+@{
+    Layout = null;
+}
 <form method="post" data-ajax="true" data-ajax-url="/bookservice/zipcode" data-ajax-method="post" data-ajax-update="#postalcode-div">
   <div class="row mb-4">
     <div class="col-sm-5">

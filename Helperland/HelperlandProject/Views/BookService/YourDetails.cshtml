@@ -1,10 +1,12 @@
 ﻿@using HelperlandProject.Models.ViewModels.BookService
 @model YourDetailsViewModel 
 @{
+    Layout = null;
     var postalCode = Model.userAddresses?.FirstOrDefault()?.PostalCode; 
     var city= Model.userAddresses?.FirstOrDefault()?.City;
     var mobile = Model.userAddresses?.FirstOrDefault()?.Mobile;
 }
+
 <form id="yourDetailsForm" data-ajax="true" data-ajax-url="/bookservice/yourdetails" data-ajax-method="post" data-ajax-update="#details-div">
   <div class="row mb-2">
     <div class="col-12">

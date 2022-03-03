@@ -1,49 +1,244 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HelperlandProject</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/HelperlandProject.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HelperlandProject</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - HelperlandProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <script
+      src="https://kit.fontawesome.com/9090ba710e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--importing bootstrap-->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+     <link
+      rel="stylesheet"
+      href="~/css/shared/layout.css"
+      asp-append-version="true"
+    />
+    @if (IsSectionDefined("AddToHead")) 
+    {
+        @RenderSection("AddToHead");
+    }
+
+  </head>
+  <body>
+    <main>
+      <section id="banner-section">
+          <!--header section-->
+      <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="home" asp-action="index"
+              ><img src="~/images/logo-large.png"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavbar"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link nlbt l-1" asp-controller="bookservice" asp-action="createnewservice">Book a cleaner</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link l-2 ms-2"
+                    asp-controller="home"
+                    asp-action="prices"
+                    >Prices</a>                 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-3 ms-4" href="#">Our Guarantee</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link l-4 ms-4" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link l-5 ms-4"
+                    asp-controller="home"
+                    asp-action="contactus"
+                    >Contact Us</a>
+                </li>
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item ms-3">
+                        <a class="nav-link notification-icon badge1" data-badge="6">
+                            <img src="~/images/alert.png">
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-3 me-4">
+                        <div class="btn-group">
+                          <button
+                            class="btn btn-secondary data-toggle"
+                            type="button"
+                            id="userDropDownMenuButton"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <img id="flagImage" src="~/images/user.png" alt="" />
+                            <img
+                              class="ms-1"
+                              id="ddIcon"
+                              src="~/images/sp-arrow-down.png"
+                              alt=""
+                            />
+                          </button>
+                          <ul
+                            id="userDropDownMenu"
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="userDropDownMenuButton"
+                          >
+                            <li class="mx-3 mb-2">Welcome,<br/><span id="userName">@User.Identity.Name</span></li>
+                            <hr class="divider-line" />
+                            @switch(User.Claims.FirstOrDefault(x=>x.Type==ClaimTypes.Role).Value)
+                            {
+                                case "1":<li class="mx-3 my-2"><a id="myDashboard" asp-controller="customer" asp-action="servicerequest">My Dashboard</a></li>
+                                          <li class="mx-3 my-2"><a id="mySettings" asp-controller="customer" asp-action="myaccount">My Settings</a></li>
+                                 break;
+                                 case "2":<li class="mx-3 my-2"><a id="myDashboard" asp-controller="serviceprovider" asp-action="newservicerequest">My Dashboard</a></li>
+                                          <li class="mx-3 my-2"><a id="mySettings" asp-controller="serviceprovider" asp-action="myaccount">My Settings</a></li>
+                                 break;
+                            }
+                            <li class="mx-3 my-2"><a asp-controller="account" asp-action="logout">Logout</a></li>
+                          </ul>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                  <li class="nav-item">
+                  <a
+                    class="nav-link l-6 nlbt ms-4"
+                    data-url='@Url.Action("login","account")'
+                    >Login</a>  
+                   </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link l-7 nlbt ms-2" asp-controller="account" asp-action="becomeaprovider">Become a Helper</a>
+                    </li>
+
+                    <li class="nav-item">
+                  <div class="nav-link l-8 ms-2" id="flagLink">
+                    <div class="btn-group dropstart">
+                      <button
+                        class="btn btn-secondary data-toggle"
+                        type="button"
+                        id="flagDropDownMenuButton"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <img id="flagImage" src="~/images/ic-flag.png" alt="" />
+                        <img
+                          id="ddIcon"
+                          src="~/images/sp-arrow-down.png"
+                          alt=""
+                        />
+                      </button>
+                      <ul
+                        class="dropdown-menu mt-5 dropdown-menu-end" id="flagDropDownMenu"
+                        aria-labelledby="flagDropDownMenuButton"
+                      >
+                        <li>
+                          <a class="dropdown-item flagDropDownItem"
+                            ><img src="~/images/ic-flag.png" alt="" /> UK</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item flagDropDownItem"
+                            ><img src="~/images/ic-flag-india.png" alt="" />
+                            Ind</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item flagDropDownItem"
+                            ><img src="~/images/ic-flag-australia.png" alt="" />
+                            AUS</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                 }
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!--header ends-->
+          @if (IsSectionDefined("AddAfterHeader")) 
+          {
+            @RenderSection("AddAfterHeader");
+          }
+      </section>
+
+      <!--For main content of different pages-->
+      @RenderBody();
+
+     
+      <footer>
+      <div class="d-flex justify-content-center flex-wrap">
+        <div class="newslater-area">
+          <!--news later heading-->
+          <h6 class="newslatter-heading">GET OUR NEWSLETTER</h6>
+          <!--newslatter form-->
+          <form class="d-flex justify-content-center">
+            <input class="form-email" type="email" placeholder="Your Email" />
+            <input class="form-btn" type="button" value="Submit" />
+          </form>
         </div>
+      </div>
+
+      <!--actual footer section-->
+      <div class="main-footer">
+        <div class="main-footer-raw-1">
+          <!--footer logo-->
+          <a asp-controller="home" asp-action="index"><img src="~/images/footer-logo.png" id="footer-navbar-logo" /></a>
+          <!--footer navbar-->
+          <div class="nav">
+            <a asp-controller="home" asp-action="index">home</a>
+            <a asp-controller="home" asp-action="aboutus">About</a>
+            <a href="#">Testimonials</a>
+            <a asp-controller="home" asp-action="faqs">Faqs</a>
+            <a href="#">Insurence Policy</a>
+            <a href="#">Impressum</a>
+          </div>
+          <!--social media icons-->
+          <div class="main-footer-socialmedia-area">
+            <a href="#"><img src="~/images/ic-facebook.png" alt="" /></a>
+            <a href="#"><img src="~/images/ic-instagram.png" /></a>
+          </div>
+        </div>
+        <hr />
+        <!--copyright-->
+        <p class="copyright-text">
+          ©2018 Helperland.&nbsp;All rights reserved.
+          <a href="#">Terms and Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    </main>
+
+    @if (IsSectionDefined("AddAfterFooter")) 
+    {
+        @RenderSection("AddAfterFooter");
+    }
+     @if (IsSectionDefined("ExtraScripts")) 
+    {
+        @RenderSection("ExtraScripts");
+    }
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <partial name="_ValidationScriptsPartial"/>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
+  </body>
 </html>
