@@ -1,0 +1,96 @@
+﻿@using HelperlandProject.Models.Data
+@model IEnumerable<Rating>
+@{
+    ViewData["Title"] = "My Ratings";
+}
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/serviceprovider/my-ratings.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/serviceprovider/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css" />
+    <link href="~/rateit-plugin/scripts/rateit.css" rel="stylesheet" type="text/css" />
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>--> 
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>    
+}
+
+<!--main section start-->
+    <section id="main-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>@User.Identity.Name.Split(" ").ElementAt(0) !</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="main-content">
+          <partial name="SideBar"/>
+          
+          <!--service table-->
+          <div class="my-ratings">
+
+            <!--table start-->
+            <table
+              id="table_id"
+              class="table table-borderless "
+              data-export-title="test"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Service Id & Customer Name</th>
+                  <th scope="col">Service Date</th>
+                  <th scope="col">Ratings</th>
+                  <th scope="col">Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach(var rating in Model)
+              {
+                    <tr>
+                        <td>@rating.ServiceRequestId<br /><b>@rating.RatingFromNavigation.FirstName @rating.RatingFromNavigation.LastName</b></td>
+                        <td class="date-column">
+                            <img src="~/images/calendar2.png" alt="" />
+                            <span id="date">@rating.ServiceRequest.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
+                            <br />
+                            <img src="~/images/layer-712.png" alt="" />@rating.ServiceRequest.ServiceStartDate.TimeOfDay
+                      </td>
+                       <td>
+                           <b>ratings:</b><br />
+                           <div class="d-flex align-items-center no-wrap">
+                                <div class="rateit" data-rateit-mode="font" style="font-size:20px" data-rateit-readonly="true" data-rateit-value="@rating.Ratings"></div>
+                               @if (rating.Ratings <= 2)
+                               {
+                                   <span>Poor</span>
+                               }
+                               else if (rating.Ratings == 3) 
+                               { 
+                                   <span>Good</span>
+                               }
+                               else
+                               {
+                                   <span>Very Good</span>
+                               }
+                           </div>
+                      </td>
+                       <td class="comment"><b>Customer Comment:</b><br>@rating.Comments</td>
+                    </tr> 
+              }
+            </tbody>
+           </table>
+            <!--table end-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main section ends-->
+
+@section AddAfterFooter{
+    <script src="~/rateit-plugin/scripts/jquery.rateit.js"></script>
+    <script src="~/js/serviceprovider/my-ratings.js" asp-append-version="true"></script>
+    <script src="~/DataTables/datatables.min.js"></script>
+    <!--<script src="~/DataTables/DataTables-1.11.3/js/dataTables.responsive.min.js"></script>-->
+}

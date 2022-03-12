@@ -1,0 +1,82 @@
+﻿@using HelperlandProject.Models.Data
+@using HelperlandProject.Models.ViewModels.ServiceProvider
+@model BlockCustomerViewModel
+@{
+    ViewData["Title"] = "Block Customer";
+}
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/serviceprovider/block-customer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/serviceprovider/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css" />
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>--> 
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>    
+}
+
+<!--main section start-->
+    <section id="main-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>@User.Identity.Name.Split(" ").ElementAt(0) !</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="main-content">
+          <partial name="SideBar"/>
+          
+          <!--service table-->
+          <div class="block-customer">
+
+            <!--table start-->
+            <table
+              id="table_id"
+              class="table table-borderless "
+              data-export-title="test"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Customer Profile</th>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach(var customer in Model.allCustomers)
+              {
+                    <tr>
+                        <td><img id="profileImg" src=@customer.UserProfilePicture alt="" /></td>
+                        <td>@customer.FirstName @customer.LastName</td>
+                      <td>
+                          @if(Model.blockedCustomers.Any(x=>x.UserId==customer.UserId))
+                          {
+                               <a class="btn btn-primary unblock-btn" data-id=@customer.UserId>Unblock</a>         
+                          }
+                          else
+                          {
+                              <a class="btn btn-primary block-btn" data-id=@customer.UserId>Block</a>          
+                          }
+                                    
+                      </td>
+                    </tr>        
+              }
+            </tbody>
+           </table>
+            <!--table end-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main section ends-->
+
+@section AddAfterFooter{
+    <script src="~/js/serviceprovider/block-customer.js" asp-append-version="true"></script>
+    <script src="~/DataTables/datatables.min.js"></script>
+    <!--<script src="~/DataTables/DataTables-1.11.3/js/dataTables.responsive.min.js"></script>-->
+}
+

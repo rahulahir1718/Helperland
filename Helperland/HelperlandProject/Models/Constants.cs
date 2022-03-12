@@ -14,6 +14,10 @@ namespace HelperlandProject.Models
         public const int SERVICE_CANCELLED = 4;
         public const int SERVICE_REFUNDED = 5;
 
+        public const int GENDER_MALE = 1;
+        public const int GENDER_FEMALE = 2;
+        public const int GENDER_OTHER = 3;
+
         public static List<SelectListItem> timeList = new List<SelectListItem>{
                              new SelectListItem{Text="8:00", Value="8:00:00"},
                              new SelectListItem{Text="8:30", Value="8:30:00"},
@@ -58,6 +62,11 @@ namespace HelperlandProject.Models
         public static List<SelectListItem> languageList = new List<SelectListItem>{
                              new SelectListItem{Text="English", Value="1"},
                              new SelectListItem{Text="French", Value="2"}, };
+
+        public static List<SelectListItem> nationalityList = new List<SelectListItem>{
+                             new SelectListItem{Text="India", Value="1"},
+                             new SelectListItem{Text="United Kingdom", Value="2"},
+                             new SelectListItem{Text="United States", Value="3"}};
 
     }
 }

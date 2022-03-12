@@ -27,6 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\ViewModels\NewFolder1\" />
+    <Folder Include="Models\ViewModels\NewFolder\" />
     <Folder Include="wwwroot\js\NewFolder1\" />
     <Folder Include="wwwroot\js\NewFolder\" />
     <Folder Include="wwwroot\NewFolder\" />

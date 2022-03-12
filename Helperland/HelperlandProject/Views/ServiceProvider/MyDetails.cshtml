@@ -1,0 +1,116 @@
+﻿@using HelperlandProject.Models.ViewModels.ServiceProvider
+
+@model MyDetailsViewModel
+<h3 id="account-status">Account Status: @if(Model.IsActive){<span class="account-active">Active</span>}else{<span class="account-inactive">Inactive</span>}<img id="mainProfileImg" src=@Model.UserProfilePicture /></h3>
+		
+<form id="myDetailsForm" data-ajax="true" data-ajax-url="/serviceprovider/mydetails" data-ajax-method="post" data-ajax-update="#my-details-div" data-ajax-success="myDetailsEvents()">	
+	@Html.HiddenFor(model=>model.UserProfilePicture,new{id="mainProfileImgValue"})
+	@Html.HiddenFor(model=>model.IsActive)
+	@Html.HiddenFor(model=>model.AddressId)
+
+	<h3 class="form-section-title">Basic Details</h3>
+		
+	<div class="row mt-4">
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.FirstName,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.FirstName,new {@class="form-control"})
+			@Html.ValidationMessageFor(model=>model.FirstName,"",new {@class="text-danger"})
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.LastName,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.LastName,new {@class="form-control"})
+			@Html.ValidationMessageFor(model=>model.LastName,"",new {@class="text-danger"})
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.Email,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.Email,new {@class="form-control",@type="email",@readonly = "readonly"})
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.Mobile,new {@class="form-label"})
+			<div class="input-group">
+				<div class="input-group-text">+91</div>
+				@Html.TextBoxFor(model=>model.Mobile,new {@class="form-control"})
+			</div>
+			@Html.ValidationMessageFor(model=>model.Mobile,"",new {@class="text-danger"})
+		</div>
+		<div class="col-sm-4">
+			<label class="form-label">Date Of Birth</label>
+			<div class="row">
+				<div class="col-auto mb-3">
+					@Html.DropDownListFor(model=>model.BirthDay,Constants.birthDateList,new {@class="form-select"})
+				</div>
+				<div class="col-auto mb-3">
+					@Html.DropDownListFor(model=>model.BirthMonth,Constants.birthMonthList,new {@class="form-select"})
+				</div>
+				<div class="col-auto mb-3">
+					@Html.DropDownListFor(model=>model.BirthYear,Constants.birthYearList,new {@class="form-select"})
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.Nationality,new{@class="form-label"})
+			@Html.DropDownListFor(model=>model.Nationality,Constants.nationalityList,new {@class="form-select"})
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 mb-3">
+			@Html.LabelFor(model=>model.Gender,new {@class="form-label"})
+			<div class="d-flex">
+				<div class="form-check">
+					@Html.RadioButtonFor(model=>model.Gender,Constants.GENDER_MALE,new {@class="form-check-input"})
+					@Html.Label("Gender","Male",new {@class="form-check-label"})
+				</div>
+				<div class="form-check ms-2">
+					  @Html.RadioButtonFor(model=>model.Gender,Constants.GENDER_FEMALE,new {@class="form-check-input"})
+					  @Html.Label("Gender","Female",new {@class="form-check-label"})
+				</div>
+				<div class="form-check ms-2">
+					  @Html.RadioButtonFor(model=>model.Gender,Constants.GENDER_OTHER,new {@class="form-check-input"})
+					  @Html.Label("Gender","Rather not to say",new {@class="form-check-label"})
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<label class="form-label">Select Avtar</label>
+		<div class="d-flex flex-wrap mb-4">
+			<img src="~/images/avtar/car.png" class="avtar-list"/>
+			<img src="~/images/avtar/female.png" class="ms-2 avtar-list"/>
+			<img src="~/images/avtar/hat.png" class="ms-2 avtar-list"/>
+			<img src="~/images/avtar/iron.png" class="ms-2 avtar-list"/>
+			<img src="~/images/avtar/male.png" class="ms-2 avtar-list"/>
+			<img src="~/images/avtar/ship.png" class="ms-2 avtar-list"/>
+		</div>
+	</div>
+	<h3 class="form-section-title">My address</h3>
+	<div class="row">
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.StreetName,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.StreetName,new {@class="form-control"})
+			@Html.ValidationMessageFor(model=>model.StreetName,"",new{@class="text-danger"})
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.HouseNumber,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.HouseNumber,new {@class="form-control"})
+			@Html.ValidationMessageFor(model=>model.HouseNumber,"",new{@class="text-danger"})
+		</div>
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.PostalCode,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.PostalCode,new {@class="form-control"})
+			@Html.ValidationMessageFor(model=>model.PostalCode,"",new{@class="text-danger"})
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 mb-3">
+			@Html.LabelFor(model=>model.City,new {@class="form-label"})
+			@Html.TextBoxFor(model=>model.City,new {@class="form-control"})
+			@Html.ValidationMessageFor(model=>model.City,"",new{@class="text-danger"})
+		</div>
+	</div>
+	<input class="btn btn-primary px-3 mb-3" type="submit" value="Save" />
+	@Html.Raw(@ViewBag.Alert)
+</form>
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

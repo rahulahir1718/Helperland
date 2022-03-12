@@ -1,0 +1,88 @@
+﻿@using HelperlandProject.Models.Data
+@model IEnumerable<ServiceRequest>
+@{
+    ViewData["Title"] = "New Requests";
+}
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/serviceprovider/new-service-request.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/serviceprovider/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>    
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>    
+}
+
+<div class="modal fade" tab-index="-1" id="spModal" role=" dialog"></div>
+
+<!--main section start-->
+    <section id="main-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>@User.Identity.Name.Split(" ").ElementAt(0) !</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="main-content">
+          <partial name="SideBar"/>
+          
+          <!--service table-->
+          <div class="new-service-request">
+
+            <!--table start-->
+            <table
+              id="table_id"
+              class="table table-borderless"
+              data-export-title="test"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Service Id</th>
+                  <th scope="col">Service Date</th>
+                  <th scope="col">Customer details</th>
+                  <th scope="col" data-orderable="false">Payment</th>
+                  <th scope="col" data-orderable="false">Time conflict</th>
+                  <th scope="col" data-orderable="false">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach(var request in Model)
+              {
+                    <tr>
+                        <td class="serviceId">@request.ServiceRequestId</td>
+                        <td>
+                            <img src="~/images/calendar2.png" alt="" />
+                            <span id="date">@request.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
+                            <br />
+                            <img src="~/images/layer-712.png" alt="" />@request.ServiceStartDate.TimeOfDay
+                      </td>
+                      <td>
+                          <div class="d-flex align-items-center">
+                              <img src="~/images/layer-15.png"/>
+                              <span>@request.User.FirstName @request.User.LastName <br />@request.User.UserAddresses.ElementAt(0).AddressLine1 @request.User.UserAddresses.ElementAt(0).AddressLine2<br />@request.User.UserAddresses.ElementAt(0).PostalCode @request.User.UserAddresses.ElementAt(0).City</span>
+                          </div>
+                      </td>
+                      <td><span>@request.TotalCost &euro;</span></td>
+                      <td></td>
+                      <td><div class="d-flex justify-content-end"><a class="btn btn-primary accept-btn" data-id=@request.ServiceRequestId>Accept</a></div></td>
+                    </tr>        
+              }
+            </tbody>
+           </table>
+            <!--table end-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main section ends-->
+
+@section AddAfterFooter{
+    <script src="~/js/serviceprovider/new-service-request.js" asp-append-version="true"></script>
+    <script src="~/DataTables/datatables.min.js"></script>
+    <script src="~/DataTables/DataTables-1.11.3/js/dataTables.responsive.min.js"></script>
+}

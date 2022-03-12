@@ -1,0 +1,107 @@
+﻿@using HelperlandProject.Models.Data
+@model ServiceRequest
+@{
+    string comment;
+    string commentImgUrl;
+    Layout = null;
+
+    if (Model.HasPets)
+    {
+        comment = "I have pets at home";
+        commentImgUrl = "/images/right.png";
+    }
+    else
+    {
+        comment = "I don't have pets at home";
+        commentImgUrl = "/images/not-included.png";
+    }
+
+    string extras="";
+    foreach (var extra in Model.ServiceRequestExtras)
+    {
+        switch (extra.ServiceExtraId)
+        {
+            case 1:extras += "Inside cabinets";
+                break;
+            case 2:extras += " Inside fridge";
+                break;
+            case 3:extras += " Inside oven";
+                break;
+            case 4:extras += " Laundry wash & dry";
+                break;
+            case 5:extras += " Interior windows";
+                break;
+        }
+    }
+
+    var startTime = Model.ServiceStartDate;
+    var endTime = startTime.AddHours(Model.ServiceHours);
+
+    string addressString = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAC-8ggDYHZme3Nnd5c9yJEdipoXEc4AJ4&q= "+Model.ServiceRequestAddresses.ElementAt(0).AddressLine1 + ", " + Model.ServiceRequestAddresses.ElementAt(0).AddressLine2 + ", " + Model.ServiceRequestAddresses.ElementAt(0).PostalCode + ", " + Model.ServiceRequestAddresses.ElementAt(0).City;
+}
+
+<div class="modal-dialog modal-dialog-centered srd-modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h6 class="modal-title">Service Details</h6>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body service-request-detail">
+        <div class="d-flex">
+            <div style="width:55%" class="me-3">
+              <h5>@Model.ServiceStartDate.ToString("dd/MM/yyyy") @startTime.ToString("HH:mm")-@endTime.ToString("HH:mm")</h5>
+      
+              <span><b>Duration: </b>@Model.ServiceHours Hrs</span><br />
+
+              <div class="d-flex justify-content-center my-2">
+                <hr class="divider-line" />
+              </div>
+
+              <span><b>Service Id: </b><span id="serviceId">@Model.ServiceRequestId</span></span><br />
+              <span><b>Extras: </b>@extras</span><br />
+              <div class="d-flex align-items-center"><span><b>Total Payment: </b></span> <span class="payment-text ms-2">@Model.TotalCost &euro;</span></div>
+
+              <div class="d-flex justify-content-center my-2">
+                <hr class="divider-line" />
+              </div>
+
+              <span><b>Customer Name:</b> @Model.User.FirstName @Model.User.LastName</span><br />
+              <span><b>Service Address: </b> @Model.ServiceRequestAddresses.ElementAt(0).AddressLine1 @Model.ServiceRequestAddresses.ElementAt(0).AddressLine2, @Model.ServiceRequestAddresses.ElementAt(0).PostalCode @Model.ServiceRequestAddresses.ElementAt(0).City</span><br />
+              <span><b>Distance:</b></span>
+
+              <div class="d-flex justify-content-center my-2">
+                <hr class="divider-line" />
+              </div>
+
+              <span><b>Comments:</b><br /><img src=@commentImgUrl alt="" class="me-2">@comment</span><br />
+
+              <div class="d-flex justify-content-center my-2">
+                <hr class="divider-line" />
+              </div>
+              <div class="d-flex mb-3">
+             @if(Model.Status==Constants.SERVICE_PENDING)
+             {
+                <a class="btn btn-primary modal-accept-btn" data-id=@Model.ServiceRequestId>&#10004;<span>Accept</span></a>
+             }
+             @if(Model.Status==Constants.SERVICE_ACCEPTED)
+             {
+                <a class="btn btn-primary modal-cancel-btn" data-id=@Model.ServiceRequestId>&#10006;<span>Cancel</span></a>
+                if((DateTime.Compare(Model.ServiceStartDate.AddHours(Model.ServiceHours),DateTime.Now))<0)
+                {
+                    <a class="btn btn-primary modal-complete-btn ms-2" data-id=@Model.ServiceRequestId>&#10004;<span>Complete</span></a>
+                }
+             }
+            </div>
+            @Html.Raw(@ViewBag.Alert)
+           </div>
+           <iframe style="width:45%" height="auto" style="border: 0" loading="lazy" allowfullscreen src="@addressString">
+        </div>
+    </div>
+  </div>
+</div>
+

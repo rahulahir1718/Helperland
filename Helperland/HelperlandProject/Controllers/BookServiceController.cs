@@ -130,7 +130,7 @@ namespace HelperlandProject.Controllers
             serviceRequest.ModifiedDate = DateTime.Now;
             serviceRequest.ModifiedBy = user.UserId;
             serviceRequest.Status = Constants.SERVICE_PENDING;
-            serviceRequest.RecordVersion = new Guid();
+            serviceRequest.RecordVersion = Guid.NewGuid();
             serviceRequest.ServiceRequestAddresses.Add(new ServiceRequestAddress() { 
                 AddressLine1=userAddress.AddressLine1,
                 AddressLine2=userAddress.AddressLine2,
