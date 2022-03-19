@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section AddToHead{
+    <link href="~/rateit-plugin/scripts/rateit.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/css/admin/service-requests.css" asp-append-version="true" />
+    <link rel="stylesheet"type="text/css" href="~/DataTables/datatables.min.css"/>
+    <link rel="stylesheet" href="~/DataTables/DataTables-1.11.3/css/responsive.dataTables.min.css"/>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script> 
+}
+
+<div class="modal fade" tab-index="-1" id="adminModal" role="dialog"></div>
+
+<div class="d-flex flex-column table-container">
+    <h6>Service Requests</h6>
+    <!--horizontal form starts-->
+    <div class="form">
+        <div class="row g-3">
+            <div class="col-auto">
+              <input type="text" class="form-control" id="serviceId" placeholder="Service ID"/>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="postalCode" placeholder="Postal code"/>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="email" placeholder="Email"/>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="customerName" placeholder="Customer Name"/>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="spName" placeholder="Service Provider Name"/>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" id="status">
+                  <option selected value="">Select Status</option>
+                  <option value=1>Pending</option>
+                  <option value=2>Accepted</option>
+                  <option value=3>Completed</option>
+                  <option value=4>Cancelled</option>
+                  <option value=5>Refunded</option>
+                </select>
+            </div>
+            <div class="col-auto ms-4">
+                <input class="form-check-input" type="checkbox" value="" id="hasIssue">
+                <label class="form-check-label">Has Issue</label>
+            </div>
+            <div class="col-auto">
+                <input type="date" class="form-control" id="fromDate" placeholder="From Date"/>
+            </div>
+            <div class="col-auto">
+                <input type="date" class="form-control" id="toDate" placeholder="To Date" value="To Date"/>
+            </div>
+            <div class="col-auto">
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="col-auto">
+                <button id="clearBtn">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!--responsive table starts-->
+    <table id="table_id" class="table table-borderless display nowrap">
+        <thead>
+            <tr>
+              <th>Service ID</th>
+              <th>Service Date</th>
+              <th>Cutomer Details</th>
+              <th>Service Provider</th>
+              <th>Gross Amount</th>
+              <th>Net Ammount</th>
+              <th>Discount</th>
+              <th>Status</th>
+              <th>Payment Status</th>
+              <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+        </tbody>
+    </table>
+    <!--responsive table ends-->
+
+    <!--footer copyright-->
+    <p>©2018 Helperland. All rights reserved.</p>
+</div>
+
+@section AddAfterFooter{
+    <script src="~/rateit-plugin/scripts/jquery.rateit.js"></script>
+    <script type="text/javascript" src="~/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/DataTables/DataTables-1.11.3/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/DataTables/datatables.min.js"></script>
+    <script src="~/js/admin/service-requests.js" asp-append-version="true"></script>
+}

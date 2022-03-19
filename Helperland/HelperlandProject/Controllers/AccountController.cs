@@ -65,7 +65,7 @@ namespace HelperlandProject.Controllers
                             {
                                 case Constants.CUSTOMER : return Json("returnUrl=/customer/servicerequest");
                                 case Constants.SERVICE_PROVIDER : return Json("returnUrl=/serviceprovider/newservicerequest");
-                                case Constants.ADMIN : return Json("returnUrl=/admin/dashboard");
+                                case Constants.ADMIN : return Json("returnUrl=/admin/servicerequests");
                                 default: return Json("returnUrl=/home/index");
                             }
                         }

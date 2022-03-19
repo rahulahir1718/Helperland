@@ -18,6 +18,22 @@ namespace HelperlandProject.Models
         public const int GENDER_FEMALE = 2;
         public const int GENDER_OTHER = 3;
 
+        public const int USER_ACTIVE = 1;
+        public const int USER_INACTIVE = 2;
+
+        public static string GetStatus(int? status)
+        {
+            switch (status)
+            {
+                case 1: return "New";
+                case 2: return "Accepted";
+                case 3: return "Completed";
+                case 4: return "Cancelled";
+                case 5: return "Refunded";
+                default: return "none";
+            }
+        }
+
         public static List<SelectListItem> timeList = new List<SelectListItem>{
                              new SelectListItem{Text="8:00", Value="8:00:00"},
                              new SelectListItem{Text="8:30", Value="8:30:00"},

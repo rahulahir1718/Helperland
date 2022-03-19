@@ -1,0 +1,280 @@
+﻿.table-container {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: 273px;
+  margin-top: 60px;
+}
+
+.table-container h6 {
+  width: 100%;
+  margin-bottom: 14px;
+  margin-top: 29px;
+  color: #646464;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.form {
+  background-color: white;
+  vertical-align: middle;
+  color: #a0a0a0;
+  margin-bottom: 20px;
+  border: 1px solid #e1e1e1;
+}
+
+.form .row {
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.form .col-auto select,
+.form .col-auto input {
+  color: #a0a0a0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+#searchBtn {
+  width: 84px;
+  background: #1fb6ff;
+  border-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#clearBtn {
+  width: 84px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #dedddd;
+  color: #646464;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form input,
+#searchBtn,
+#clearBtn,
+#userType {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border: 1px solid #1fb6ff;
+  box-shadow: none !important;
+}
+
+#export {
+  background: #1fb6ff;
+  border: none !important;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  transition: all 0.3s ease;
+  padding: 11px 15px;
+}
+
+table {
+  border: 1px solid #e1e1e1 !important;
+  border-bottom: 0px !important;
+  width: 100% !important;
+}
+
+table thead {
+  background-color: #f9f9f9 !important;
+  border-bottom: 0px;
+}
+
+table thead tr th {
+  color: #646464;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid #e1e1e1 !important;
+}
+
+td {
+  font-size: 16px;
+  font-weight: 400;
+  color: #646464;
+  border-bottom: 1px solid #e1e1e1 !important;
+  vertical-align: middle;
+}
+
+.cap {
+  text-align: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e1e1e1;
+  vertical-align: middle;
+}
+
+.users-rating {
+  height: 44px;
+}
+
+.users-rating img {
+  height: 16px;
+  width: 16px;
+}
+
+td > div {
+  column-gap: 11px;
+}
+
+td > li {
+  list-style: none;
+}
+
+td > button {
+  font-size: 13px;
+  font-weight: 400;
+  color: white;
+  height: 24px;
+}
+
+.active,
+.inactive {
+  width: 80px;
+  height: 22px;
+  border-color: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: white;
+  padding: 5px;
+}
+
+.active {
+  background: #67b644;
+}
+
+.inactive {
+  background: #ff6b6b;
+}
+
+.createdDate {
+  font-weight: 700;
+}
+
+a {
+  cursor: pointer !important;
+}
+
+a:hover {
+  background-color: white !important;
+}
+
+.sidebar-links:hover,
+.active-sidebar-link {
+  color: #1fb6ff !important;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  background-color: transparent !important;
+}
+
+#table_id_wrapper .row {
+  --bs-gutter-x: 0 !important;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #e1e1e1 !important;
+  border-top: 0px !important;
+}
+
+.table-container p {
+  color: #a2a6a8;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.dataTables_paginate {
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  padding: 0 !important;
+}
+
+.dataTables_paginate span a,
+.dataTables_paginate a {
+  width: 40px;
+  height: 40px;
+  margin: 0 !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #646464 !important;
+}
+
+#table_id_previous,
+#table_id_next {
+  border: 1px solid #d6d6d6 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: #565656 !important;
+  color: #ffffff !important;
+}
+
+.page-item.active .page-link {
+  color: white !important;
+}
+
+.dataTables_paginate span a {
+  border: 1px solid #d6d6d6 !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    display: none;
+  }
+
+  .table-container {
+    margin: 0px;
+  }
+
+  .sidebar,
+  .sidebar li .submenu {
+    background-color: #6dcbfa;
+  }
+
+  .sidebar ul li a {
+    color: white;
+  }
+
+  .sidebar button,
+  #openbtn {
+    display: block;
+  }
+
+  .sidebar button {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .navbar li a span {
+    visibility: hidden !important;
+  }
+
+  .container-fluid {
+    flex-wrap: nowrap !important;
+  }
+}
+
+input[type="date"] {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-left: 0px !important;
+}

@@ -1,0 +1,96 @@
+﻿
+@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
+
+    <script
+      src="https://kit.fontawesome.com/9090ba710e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--importing bootstrap-->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+     <link
+      rel="stylesheet"
+      href="~/css/shared/admin-layout.css"
+      asp-append-version="true"
+    />
+    <script src="~/lib/jquery/jquery.js"></script>
+    @if (IsSectionDefined("AddToHead")) 
+    {
+        @RenderSection("AddToHead");
+    }
+
+  </head>
+  <body>
+    <main>
+        <!--header start-->
+    <header>
+      <!--navigation bar-->
+      <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+          <a asp-controller="admin" asp-action="servicerequests" class="navbar-brand"><h2>helperland</h2> </a>
+            <ul class="navbar-nav ms-auto me-4">
+              <li class="nav-item">
+                <a class="nav-link"
+                  ><img src="~/images/admin-user.png" alt="" /><span
+                    >@User.Identity.Name</span
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-2" asp-controller="account" asp-action="logout"
+                  ><img src="~/images/logout.png" alt=""
+                /></a>
+              </li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+    <!--header ends-->
+
+     <!--toggle buttons for collapsive sidebar-->
+    <button id="openbtn">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!--main section starts-->
+    <section id="main_section">
+      <!--sidebar starts-->
+      <div class="sidebar">
+        <ul>
+          <div>
+            <button id="closebtn">
+              <i class="fas fa-hand-point-left"></i>
+            </button>
+          </div>
+          <li>
+            <a asp-controller="admin" asp-action="servicerequests" class="sidebar-links">Service Requests</a>
+          </li>
+          <li><a asp-controller="admin" asp-action="usermanagement" class="sidebar-links">User Management</a></li>
+        </ul>
+      </div>
+      <!--sidebar ends-->
+     
+      <!--For main content of different pages-->
+      @RenderBody();
+      </section>
+    </main>
+
+    @if (IsSectionDefined("AddAfterFooter")) 
+    {
+        @RenderSection("AddAfterFooter");
+    }
+     @if (IsSectionDefined("ExtraScripts")) 
+    {
+        @RenderSection("ExtraScripts");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <partial name="_ValidationScriptsPartial"/>
+    @await RenderSectionAsync("Scripts", required: false)
+  </body>
+</html>

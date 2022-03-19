@@ -1,0 +1,19 @@
+﻿<div class="modal-dialog modal-dialog-centered cancel-modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Cancel Service Request</h4>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body cancel-request">
+        <span>Why you want to cancel the service request?</span>
+        <textarea rows="4"></textarea>
+        @Html.Raw(@ViewBag.Alert)
+        <button id="cancelRequestBtn">Cancel Now</button>
+    </div>
+  </div>
+</div>

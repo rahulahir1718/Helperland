@@ -16298,6 +16298,16 @@
   "RootNamespace": "HelperlandProject",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Admin\\ServiceRequests.cshtml",
+      "TargetPath": "Views\\Admin\\ServiceRequests.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Admin\\UserManagement.cshtml",
+      "TargetPath": "Views\\Admin\\UserManagement.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Account\\ForgotPassword.cshtml",
       "TargetPath": "Views\\Account\\ForgotPassword.cshtml",
       "FileKind": "mvc"
@@ -16373,6 +16383,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Admin\\CancelServiceRequest.cshtml",
+      "TargetPath": "Views\\Admin\\CancelServiceRequest.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Home\\ContactUs.cshtml",
       "TargetPath": "Views\\Home\\ContactUs.cshtml",
       "FileKind": "mvc"
@@ -16390,6 +16405,11 @@
     {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\ChangePassword.cshtml",
       "TargetPath": "Views\\Customer\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Admin\\ServiceRequestDetail.cshtml",
+      "TargetPath": "Views\\Admin\\ServiceRequestDetail.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16448,6 +16468,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Shared\\_AdminLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_AdminLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -16470,6 +16495,11 @@
     {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Account\\ResetPassword.cshtml",
       "TargetPath": "Views\\Account\\ResetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Admin\\EditRequest.cshtml",
+      "TargetPath": "Views\\Admin\\EditRequest.cshtml",
       "FileKind": "mvc"
     },
     {
