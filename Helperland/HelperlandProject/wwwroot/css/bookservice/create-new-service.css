@@ -3,10 +3,10 @@
 }
 
 .fixed {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .title {
@@ -181,12 +181,12 @@ label {
 }
 
 .payment-summary-section {
-    width:320px
+  width: 320px;
 }
 .card {
-    color: #4f4f4f;
-    width: auto;
-    height: fit-content;
+  color: #4f4f4f;
+  width: auto;
+  height: fit-content;
 }
 
 .card-header {
@@ -430,22 +430,22 @@ h5 {
   }
 }
 
-@media screen and (max-width:710px) {
-    .nav-link span {
-        display:none;
-    }
+@media screen and (max-width: 710px) {
+  .nav-link span {
+    display: none;
+  }
 
-    #tab-nav {
-        width:100%;
-    }
+  #tab-nav {
+    width: 100%;
+  }
 }
 
-@media screen and (max-width:320px) {
-    .payment-summary-section {
-        width:100%;
-        padding-left:10px;
-        padding-right:10px;
-    }
+@media screen and (max-width: 320px) {
+  .payment-summary-section {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media screen and (max-width: 560px) {
@@ -458,4 +458,26 @@ h5 {
   #applyBtn {
     margin-top: 10px;
   }
+}
+
+.profileImg {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #b0b0b0;
+  border-radius: 500px;
+}
+
+.spName {
+  font-weight: 500;
+}
+
+.select-sp,
+.unselect-sp,
+.select-sp:hover,
+.unselect-sp:hover {
+  background-color: #ffffff;
+  border: 1px solid #4f4f4f;
+  padding: 5px 20px;
+  color: #4f4f4f;
+  font-weight: 500;
 }

@@ -21,7 +21,8 @@ namespace HelperlandProject.Controllers
         public IActionResult ServiceRequest() 
         {
             //return partialview with all the requests which are completed and cancelled yet
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x=>x.ServiceProvider).ThenInclude(x=>x.RatingRatingToNavigations).Where(x => x.Status == Constants.SERVICE_PENDING || x.Status == Constants.SERVICE_ACCEPTED).ToList();
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x=>x.ServiceProvider).ThenInclude(x=>x.RatingRatingToNavigations).Where(x=>x.UserId==id && (x.Status == Constants.SERVICE_PENDING || x.Status == Constants.SERVICE_ACCEPTED)).ToList();
             return View(serviceRequests);
         }
 
@@ -150,7 +151,8 @@ namespace HelperlandProject.Controllers
         public IActionResult ServiceHistory() 
         {
             //return partialview with all the requests which are completed,cancelled or refunded.
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x=>x.ServiceProvider).ThenInclude(x=>x.RatingRatingToNavigations).Where(x => x.Status != Constants.SERVICE_PENDING && x.Status != Constants.SERVICE_ACCEPTED).ToList();
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x=>x.ServiceProvider).ThenInclude(x=>x.RatingRatingToNavigations).Where(x=>x.UserId==id &&(x.Status != Constants.SERVICE_PENDING && x.Status != Constants.SERVICE_ACCEPTED)).ToList();
             return View(serviceRequests);
         }
 
@@ -176,6 +178,79 @@ namespace HelperlandProject.Controllers
             return Json(" ");
         }
 
+        public IActionResult FavouriteProviders()
+        {
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            FavouriteProvidersViewModel model = new FavouriteProvidersViewModel();
+            model.ServiceProviders= helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).ThenInclude(x => x.RatingRatingToNavigations).Where(x => x.UserId == id && x.Status == Constants.SERVICE_COMPLETED).Select(x => x.ServiceProvider).Distinct().AsEnumerable();
+            model.FavouriteSpIds = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == id && x.IsFavorite==true).Select(x => x.TargetUserId).Distinct().ToList();
+            model.BlockedSpIds = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == id && x.IsBlocked == true).Select(x => x.TargetUserId).Distinct().ToList();
+            return View(model);
+        }
+
+        public JsonResult MarkFavourite(int spId)
+        {
+            int customerId= Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            FavoriteAndBlocked fSP = helperlandContext.FavoriteAndBlockeds.FirstOrDefault(x => x.UserId == customerId && x.TargetUserId == spId);
+            if (fSP == null)
+            {
+                fSP = new FavoriteAndBlocked();
+                fSP.UserId = customerId;
+                fSP.TargetUserId = spId;
+                fSP.IsFavorite = true;
+                helperlandContext.FavoriteAndBlockeds.Add(fSP);
+                helperlandContext.SaveChanges();
+            }
+            else 
+            {
+                fSP.IsFavorite = true;
+                helperlandContext.FavoriteAndBlockeds.Update(fSP);
+                helperlandContext.SaveChanges();
+            }
+            return Json("ok");
+        }
+
+        public JsonResult MarkUnfavourite(int spId)
+        {
+            int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            FavoriteAndBlocked fSP = helperlandContext.FavoriteAndBlockeds.FirstOrDefault(x => x.UserId == customerId && x.TargetUserId == spId && x.IsFavorite==true);
+            fSP.IsFavorite = false;
+            helperlandContext.FavoriteAndBlockeds.Update(fSP);
+            helperlandContext.SaveChanges();
+            return Json("ok");
+        }
+
+        public JsonResult MarkBlocked(int spId) 
+        {
+            int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            FavoriteAndBlocked bSP = helperlandContext.FavoriteAndBlockeds.FirstOrDefault(x => x.UserId == customerId && x.TargetUserId == spId);
+            if (bSP == null)
+            {
+                bSP = new FavoriteAndBlocked();
+                bSP.UserId = customerId;
+                bSP.TargetUserId = spId;
+                bSP.IsBlocked = true;
+                helperlandContext.FavoriteAndBlockeds.Add(bSP);
+                helperlandContext.SaveChanges();
+            }
+            else 
+            {
+                bSP.IsBlocked = true;
+                helperlandContext.FavoriteAndBlockeds.Update(bSP);
+                helperlandContext.SaveChanges();
+            }
+            return Json("ok");
+        }
+
+        public JsonResult MarkUnBlocked(int spId)
+        {
+            int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            FavoriteAndBlocked fSP = helperlandContext.FavoriteAndBlockeds.FirstOrDefault(x => x.UserId == customerId && x.TargetUserId == spId && x.IsBlocked == true);
+            fSP.IsBlocked = false;
+            helperlandContext.FavoriteAndBlockeds.Update(fSP);
+            helperlandContext.SaveChanges();
+            return Json("ok");
+        }
         public IActionResult MyAccount() 
         {
             //returns view for My Account

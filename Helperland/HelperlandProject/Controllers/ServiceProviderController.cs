@@ -23,8 +23,10 @@ namespace HelperlandProject.Controllers
             int spId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
             //fetch all the block customers who have been blocked by logged in service provider
             IEnumerable<int> blockedCustomerList = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == spId && x.IsBlocked==true).Select(x => x.TargetUserId).Distinct().ToList();
-            //fetch list of service requests which are created by customers except blocked customers
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x=>x.User).ThenInclude(x=>x.UserAddresses.Where(x=>x.IsDefault==true)).Where(x => x.Status == Constants.SERVICE_PENDING && !blockedCustomerList.Any(a=>a==x.UserId)).ToList();
+            //fetch all the customers id who have blocked logged in service provider
+            IEnumerable<int> blockedByCustomerList = helperlandContext.FavoriteAndBlockeds.Where(x => x.TargetUserId == spId && x.IsBlocked == true).Select(x => x.UserId).Distinct().ToList();
+            //fetch list of service requests which are created by customers except blocked customers and blocked by customers
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x=>x.User).ThenInclude(x=>x.UserAddresses.Where(x=>x.IsDefault==true)).Where(x => x.Status == Constants.SERVICE_PENDING && !blockedCustomerList.Any(a=>a==x.UserId) && !blockedByCustomerList.Any(a=>a==x.UserId)).ToList();
             //return view with list
             return View(serviceRequests);
         }
@@ -92,7 +94,7 @@ namespace HelperlandProject.Controllers
                 string recordVersion = HttpContext.Session.GetString("CurrentServiceRecordVersion");
                 ServiceRequest serviceRequest = helperlandContext.ServiceRequests.Include(x => x.User).Include(x => x.ServiceRequestAddresses).Include(x => x.ServiceRequestExtras).FirstOrDefault(x => x.ServiceRequestId == requestId);
                 //compare record version stored in session with record version of database
-                if (recordVersion == serviceRequest.RecordVersion.Value.ToString())
+                if (recordVersion == serviceRequest.RecordVersion.Value.ToString() && serviceRequest.Status==Constants.SERVICE_PENDING)
                 {
                     //if both are same then go ahead and check time conflicts
                     //fetch all the request with same service provider id and not yet completed
@@ -183,6 +185,33 @@ namespace HelperlandProject.Controllers
             IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.User).ThenInclude(x => x.UserAddresses.Where(x => x.IsDefault == true)).Where(x => x.Status == Constants.SERVICE_ACCEPTED&& x.ServiceProviderId==id).ToList();
             //return view with service list
             return View(serviceRequests);
+        }
+
+        public IActionResult ServiceSchedule()
+        {
+            return View();
+        }
+
+        public JsonResult GetRequests()
+        {
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            var requestList = helperlandContext.ServiceRequests.Where(x=>x.ServiceProviderId == id && (x.Status == Constants.SERVICE_COMPLETED || x.Status == Constants.SERVICE_ACCEPTED)).ToList();
+            List<Object> objects = new List<Object>();
+            foreach (var request in requestList)
+            {
+                var color = "";
+                if (request.Status == Constants.SERVICE_ACCEPTED)
+                {
+                    color = "#1d7a8c";
+                }
+                else 
+                {
+                    color = "#67b644";
+                }
+                var v = new { title = request.ServiceStartDate.ToString("HH:mm")+" - "+request.ServiceStartDate.AddHours(request.ServiceHours).ToString("HH:mm"), color = color,start=request.ServiceStartDate,id=request.ServiceRequestId};
+                objects.Add(v);
+            }
+            return Json(new { data = objects });
         }
 
         public IActionResult ServiceHistory()

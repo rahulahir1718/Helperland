@@ -16298,6 +16298,11 @@
   "RootNamespace": "HelperlandProject",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Customer\\FavouriteProviders.cshtml",
+      "TargetPath": "Views\\Customer\\FavouriteProviders.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Admin\\ServiceRequests.cshtml",
       "TargetPath": "Views\\Admin\\ServiceRequests.cshtml",
       "FileKind": "mvc"
@@ -16455,6 +16460,11 @@
     {
       "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\Views\\ServiceProvider\\ServiceSchedule.cshtml",
+      "TargetPath": "Views\\ServiceProvider\\ServiceSchedule.cshtml",
       "FileKind": "mvc"
     },
     {

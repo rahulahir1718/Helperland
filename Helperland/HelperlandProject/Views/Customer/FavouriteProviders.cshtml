@@ -1,0 +1,102 @@
+﻿@using HelperlandProject.Models.Data
+@using HelperlandProject.Models.ViewModels.Customer
+@model FavouriteProvidersViewModel
+@{
+    ViewData["Title"] = "Favourite Providers";
+}
+@section AddToHead{
+    <link rel="stylesheet" href="~/css/customer/favourite-providers.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/customer/sidebar.css" asp-append-version="true" />
+    <link href="~/rateit-plugin/scripts/rateit.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/DataTables/datatables.min.css" />
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"/>--> 
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>    
+}
+
+<!--main section start-->
+    <section id="main-section">
+      <div class="d-flex flex-wrap flex-column align-items-center">
+        <!--user title-->
+        <div
+          class="d-flex justify-content-center align-items-center welcome-user"
+        >
+          <h2 id="user-title">Welcome, <b>@User.Identity.Name.Split(" ").ElementAt(0) !</b></h2>
+        </div>
+
+        <button id="openbtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="main-content">
+          <partial name="SideBar"/>
+          
+          <!--service table-->
+          <div class="favourite-providers">
+
+            <!--table start-->
+            <table
+              id="table_id"
+              class="table table-borderless "
+              data-export-title="test"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Customer Profile</th>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Total Cleanings</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach(var sp in Model.ServiceProviders)
+              {
+                    <tr>
+                        <td class="mb-4"><img id="profileImg" src=@sp.UserProfilePicture alt="" /></td>
+                        <td>@sp.FirstName @sp.LastName</td>
+                        <td class="mb-2">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="rateit" data-rateit-mode="font" style="font-size:20px" data-rateit-readonly="true" data-rateit-value="@sp.RatingRatingToNavigations.Average(x=>x.Ratings)"></div>
+                                <span>@sp.RatingRatingToNavigations.Average(x=>x.Ratings)</span>
+                            </div>
+                      </td>
+                      <td class="mb-2"><span>@sp.RatingRatingToNavigations.Count() Cleanings</span></td>
+                      <td>
+                          <div class="d-flex justify-content-center">
+                              @if(Model.FavouriteSpIds.Any(x=>x==sp.UserId))
+                              {
+                                <a class="btn btn-primary uf-btn" data-id=@sp.UserId>Unfavourite</a>
+                              }
+                              else
+                              {
+                                <a class="btn btn-primary f-btn" data-id=@sp.UserId>Favourite</a>              
+                              }
+                              @if(Model.BlockedSpIds.Any(x=>x==sp.UserId))
+                              {
+                                  <a class="btn btn-primary ms-2 unblock-btn" data-id=@sp.UserId>Unblock</a>         
+                              }
+                              else
+                              {
+                                  <a class="btn btn-primary ms-2 block-btn" data-id=@sp.UserId>Block</a>          
+                              }
+                          </div>
+                      </td>
+                    </tr>        
+              }
+            </tbody>
+           </table>
+            <!--table end-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main section ends-->
+
+@section AddAfterFooter{
+    <script src="~/rateit-plugin/scripts/jquery.rateit.js"></script>
+    <script src="~/js/customer/favourite-providers.js" asp-append-version="true"></script>
+    <script src="~/DataTables/datatables.min.js"></script>
+    <!--<script src="~/DataTables/DataTables-1.11.3/js/dataTables.responsive.min.js"></script>-->
+}
+

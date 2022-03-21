@@ -90,7 +90,10 @@
              }
              @if(Model.Status==Constants.SERVICE_ACCEPTED)
              {
-                <a class="btn btn-primary modal-cancel-btn" data-id=@Model.ServiceRequestId>&#10006;<span>Cancel</span></a>
+                 @if(Model.ServiceProviderId==Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value))
+                 {
+                    <a class="btn btn-primary modal-cancel-btn" data-id=@Model.ServiceRequestId>&#10006;<span>Cancel</span></a>
+                 }
                 if((DateTime.Compare(Model.ServiceStartDate.AddHours(Model.ServiceHours),DateTime.Now))<0)
                 {
                     <a class="btn btn-primary modal-complete-btn ms-2" data-id=@Model.ServiceRequestId>&#10004;<span>Complete</span></a>

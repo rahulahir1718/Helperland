@@ -10,7 +10,7 @@
       <div class="row mt-2">
         <div class="col-auto">
           @Html.TextBoxFor(model =>
-          model.ServiceDate,DateTime.Now.ToString("yyyy-MM-dd"),new { @type ="date",@class="form-control mb-2",@max="@DateTime.Now.ToString('yyyy-MM-dd')"})
+          model.ServiceDate,DateTime.Now.ToString("yyyy-MM-dd"),new { @type ="date",@class="form-control mb-2",@min=DateTime.Now.ToString("yyyy-MM-dd")})
         </div>
         <div class="col-auto">
           @Html.DropDownListFor(model=>model.ServiceTime,Constants.timeList,new{@class="form-select"})

@@ -1,0 +1,225 @@
+﻿.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.divider-line {
+  margin: 0;
+  width: 100%;
+  height: 1px;
+  color: #4f4f4f;
+}
+
+.welcome-user {
+  width: 100%;
+  height: 119px;
+  background-color: #f9f9f9;
+  border: 1px solid #e1e1e1 !important;
+}
+
+#user-title {
+  color: #4f4f4f;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+}
+
+.main-content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+}
+
+#openbtn {
+  background-color: #1d7a8c;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+  border-color: transparent;
+  color: white;
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  display: none;
+  margin-top: 10px;
+}
+
+#closebtn {
+  display: none;
+}
+
+.calender-view {
+  width: 861px;
+}
+
+#spModal {
+  width: auto;
+  height: auto;
+  position: fixed;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-dialog {
+  background-color: white;
+}
+
+.modal-header {
+  background-color: white;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+
+.modal-title {
+  font-weight: 700;
+  color: #4c4c4c;
+}
+
+.srd-modal-dialog {
+  width: 700px;
+}
+
+.service-request-detail h5 {
+  margin: 0px;
+  color: #4f4f4f;
+  font-weight: 700;
+}
+
+.service-request-detail span {
+  font-weight: 400;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+
+.payment-text {
+  color: #1d7a8c !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+}
+
+@media screen and (min-width: 576px) {
+  .srd-modal-dialog {
+    max-width: 700px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #spModal {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .srd-modal-dialog {
+    width: inherit;
+  }
+}
+
+@media screen and (max-width: 1139px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    display: none;
+  }
+
+  #openbtn,
+  #closebtn {
+    display: block;
+  }
+
+  #closebtn {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 1123px) {
+  .main-content {
+    width: 100% !important;
+  }
+
+  .calender-view {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+.cancel-btn,
+.complete-btn,
+.modal-cancel-btn,
+.modal-complete-btn,
+.modal-accept-btn {
+  width: auto;
+  height: 34px;
+  text-align: center;
+  background: #146371;
+  border-radius: 17px;
+  color: white;
+  border-color: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.modal-cancel-btn {
+  background: indianred;
+}
+
+.modal-cancel-btn:hover {
+  background: indianred;
+  border-color: transparent;
+}
+
+.modal-complete-btn:hover {
+  background: #146371;
+  border-color: transparent;
+}
+
+.modal-accept-btn {
+  background: #8fd400;
+}
+
+.modal-accept-btn:hover {
+  background: #8fd400;
+  border-color: transparent;
+}
+
+.service-request-detail .modal-accept-btn > span,
+.service-request-detail .modal-cancel-btn > span,
+.service-request-detail .modal-complete-btn > span {
+  color: white !important;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.fc-content {
+  text-align: center;
+}
+
+.fc-content:hover {
+  cursor: pointer;
+}
+
+.fc-title {
+  font-weight: 700;
+}
+
+.fc-left {
+  vertical-align: middle !important;
+}
+.fc-left h2 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 44px;
+  margin-left: 15px;
+  color: #646464;
+}

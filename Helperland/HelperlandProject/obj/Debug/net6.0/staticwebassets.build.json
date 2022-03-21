@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Xbh86lZbA9huPANAjzLZcftfwjMlV9K9u8vslOFvkR8=",
+  "Hash": "UZsgNURbfEyBuDJKqp6JghsG8kyd6cIDhe4oVd/8ySk=",
   "Source": "HelperlandProject",
   "BasePath": "_content/HelperlandProject",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bookservice\\create-new-service.css"
+    },
+    {
+      "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\css\\customer\\favourite-providers.css",
+      "SourceId": "HelperlandProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\",
+      "BasePath": "_content/HelperlandProject",
+      "RelativePath": "css/customer/favourite-providers.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\customer\\favourite-providers.css"
     },
     {
       "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\css\\customer\\my-account.css",
@@ -457,6 +474,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\serviceprovider\\service-history.css"
+    },
+    {
+      "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\css\\serviceprovider\\service-schedule.css",
+      "SourceId": "HelperlandProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\",
+      "BasePath": "_content/HelperlandProject",
+      "RelativePath": "css/serviceprovider/service-schedule.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\serviceprovider\\service-schedule.css"
     },
     {
       "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\css\\serviceprovider\\sidebar.css",
@@ -3825,12 +3859,12 @@
       "OriginalItemSpec": "wwwroot\\js\\bookservice\\create-new-service.js"
     },
     {
-      "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\js\\bookservice\\JavaScript.js",
+      "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\js\\customer\\favourite-providers.js",
       "SourceId": "HelperlandProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\",
       "BasePath": "_content/HelperlandProject",
-      "RelativePath": "js/bookservice/JavaScript.js",
+      "RelativePath": "js/customer/favourite-providers.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3839,7 +3873,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\bookservice\\JavaScript.js"
+      "OriginalItemSpec": "wwwroot\\js\\customer\\favourite-providers.js"
     },
     {
       "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\js\\customer\\my-account.js",
@@ -4063,6 +4097,23 @@
       "OriginalItemSpec": "wwwroot\\js\\serviceprovider\\service-history.js"
     },
     {
+      "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\js\\serviceprovider\\service-schedule.js",
+      "SourceId": "HelperlandProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\",
+      "BasePath": "_content/HelperlandProject",
+      "RelativePath": "js/serviceprovider/service-schedule.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\serviceprovider\\service-schedule.js"
+    },
+    {
       "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\js\\serviceprovider\\upcoming-request.js",
       "SourceId": "HelperlandProject",
       "SourceType": "Discovered",
@@ -4078,23 +4129,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\serviceprovider\\upcoming-request.js"
-    },
-    {
-      "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\js\\site.js",
-      "SourceId": "HelperlandProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\",
-      "BasePath": "_content/HelperlandProject",
-      "RelativePath": "js/site.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
       "Identity": "C:\\Users\\Rahul Kumbharvadiya\\OneDrive\\Desktop\\Helperland\\Helperland\\HelperlandProject\\wwwroot\\lib\\bootstrap\\css\\bootstrap.css",

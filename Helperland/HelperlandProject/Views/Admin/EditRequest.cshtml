@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-6 mb-3">
                     @Html.LabelFor(model=>model.ServiceStartDate,new{@class="form-label"})
-                    @Html.TextBoxFor(model=>model.ServiceStartDate,Model.ServiceStartDate.ToString("yyyy-MM-dd"),new {@type ="date",@class="form-control"})
+                    @Html.TextBoxFor(model=>model.ServiceStartDate,Model.ServiceStartDate.ToString("yyyy-MM-dd"),new {@type ="date",@class="form-control",@min=DateTime.Now.ToString("yyyy-MM-dd")})
                     @Html.ValidationMessageFor(model=>model.ServiceStartDate,"",new {@class="text-danger"})
                 </div>
                  <div class="col-6 mb-3">

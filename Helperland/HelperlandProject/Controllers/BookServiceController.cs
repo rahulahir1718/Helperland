@@ -83,7 +83,9 @@ namespace HelperlandProject.Controllers
         [HttpGet]
         public IActionResult YourDetails()
         {
+            int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
             YourDetailsViewModel model = new YourDetailsViewModel();
+            model.favouriteSP = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == customerId && x.IsFavorite == true).Select(x => x.TargetUser).Distinct().ToList();
             model.userAddresses = helperlandContext.UserAddresses.Where(address => address.UserId == user.UserId && address.PostalCode == user.ZipCode).ToList();
             HttpContext.Session.SetString("UserAddressList", JsonConvert.SerializeObject(model.userAddresses));
             return PartialView(model);
@@ -94,9 +96,11 @@ namespace HelperlandProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
                 var value = HttpContext.Session.GetString("UserAddressList");
                 model.userAddresses = JsonConvert.DeserializeObject<IEnumerable<UserAddress>>(value);
                 HttpContext.Session.SetString("YourDetailsViewModel", JsonConvert.SerializeObject(model));
+                model.favouriteSP = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == customerId && x.IsFavorite == true).Select(x => x.TargetUser).Distinct().ToList();
                 ViewBag.Message = "MakePayment";
                 return PartialView(model);
             }
@@ -119,7 +123,7 @@ namespace HelperlandProject.Controllers
 
             
             UserAddress userAddress = yourDetailsViewModel.userAddresses.FirstOrDefault(address=>address.AddressId==yourDetailsViewModel.check);
-            
+            int? spId = yourDetailsViewModel.selectedFSPId;
             serviceRequest.UserId = user.UserId;
             serviceRequest.ZipCode = zipCodeViewModel.ZipCode;
             serviceRequest.ServiceStartDate = serviceScheduleViewModel.ServiceStartDate;
@@ -129,7 +133,6 @@ namespace HelperlandProject.Controllers
             serviceRequest.CreatedDate = DateTime.Now;
             serviceRequest.ModifiedDate = DateTime.Now;
             serviceRequest.ModifiedBy = user.UserId;
-            serviceRequest.Status = Constants.SERVICE_PENDING;
             serviceRequest.RecordVersion = Guid.NewGuid();
             serviceRequest.ServiceRequestAddresses.Add(new ServiceRequestAddress() { 
                 AddressLine1=userAddress.AddressLine1,
@@ -139,16 +142,33 @@ namespace HelperlandProject.Controllers
                 Mobile=userAddress.Mobile,
                 Email=userAddress.Email
             });
-            helperlandContext.ServiceRequests.Add(serviceRequest);
-            var isError = helperlandContext.SaveChanges();
+            if (spId == null || spId == 0)
+            {
+                serviceRequest.Status = Constants.SERVICE_PENDING;
+                helperlandContext.ServiceRequests.Add(serviceRequest);
+                var isError = helperlandContext.SaveChanges();
+                int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+                //fetch all the block service providers id who have been blocked by logged in customer
+                List<int> blockedSPIds = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == customerId && x.IsBlocked == true).Select(x => x.TargetUserId).Distinct().ToList();
+                var emailList = helperlandContext.Users.Where(user => user.UserTypeId == 2 && user.ZipCode == zipCodeViewModel.ZipCode && !blockedSPIds.Any(a => a == user.UserId)).Select(user => user.Email).ToList();
+                string subject = "New Service Request arrived!!Hurry Up..";
+                string body = "new service request arrived which is in your area and id of the service is " + serviceRequest.ServiceRequestId;
+                EmailManager.SendEmail(emailList, subject, body);
+            }
+            else 
+            {
+                serviceRequest.Status = Constants.SERVICE_ACCEPTED;
+                serviceRequest.ServiceProviderId = spId;
+                helperlandContext.ServiceRequests.Add(serviceRequest);
+                var isError = helperlandContext.SaveChanges();
+                var emailList = helperlandContext.Users.Where(user => user.UserId==spId).Select(user => user.Email).ToList();
+                string subject = "New Service Request arrived!!Hurry Up..";
+                string body = "A service request "+serviceRequest.ServiceRequestId+" has been directly assigned to you.";
+                EmailManager.SendEmail(emailList, subject, body);
+            }
             ViewBag.IsError = false;
             ViewBag.ResultMessage = "Booking has been successfully submitted";
             ViewBag.ServiceRequestId = serviceRequest.ServiceRequestId;
-           
-            var emailList = helperlandContext.Users.Where(user => user.UserTypeId == 2 && user.ZipCode == zipCodeViewModel.ZipCode).Select(user => user.Email).ToList();
-            string subject = "New Service Request arrived!!Hurry Up..";
-            string body = "new service request arrived which is in your area and id of the service is " + serviceRequest.ServiceRequestId;
-            EmailManager.SendEmail(emailList, subject, body);
             return PartialView();
         }
 
