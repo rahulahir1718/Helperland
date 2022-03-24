@@ -39,6 +39,8 @@ namespace HelperlandProject.Controllers
         {
             RescheduleServiceViewModel model = new RescheduleServiceViewModel();
             model.ServiceRequestId = id;
+            model.ServiceDate = helperlandContext.ServiceRequests.FirstOrDefault(x => x.ServiceRequestId == id).ServiceStartDate;
+            model.ServiceTime = helperlandContext.ServiceRequests.FirstOrDefault(x => x.ServiceRequestId == id).ServiceStartDate.ToString("HH:mm:ss");
             //return partialview for service rescheduling
             return PartialView(model);
         }
@@ -50,8 +52,7 @@ namespace HelperlandProject.Controllers
             //fetch service details from the database with given service request id
             ServiceRequest serviceRequest = helperlandContext.ServiceRequests.Include(x=>x.ServiceProvider).FirstOrDefault(x => x.ServiceRequestId == model.ServiceRequestId);
             var day = model.ServiceDate.ToString("dd-MM-yyyy");
-            var time = model.ServiceTime.ToString("hh:mm:ss");
-            var actual = day + " " + time;
+            var actual = day + " " + model.ServiceTime;
             DateTime newStartDate = DateTime.Parse(actual);
 
             //if service is not accepted by any service provider yet then reschedule the request
@@ -389,9 +390,9 @@ namespace HelperlandProject.Controllers
                 string currentUser = HttpContext.Session.GetString("CurrentUser");
                 User user = JsonConvert.DeserializeObject<User>(currentUser);
                 //update user's password into the database if current password is correctly entered,otherwise return partialview with error message
-                if (user.Password.Equals(model.CurrentPassword))
+                if (user.Password.Equals(Constants.EncryptString(model.CurrentPassword)))
                 {
-                    user.Password = model.ConfirmPassword;
+                    user.Password = Constants.EncryptString(model.ConfirmPassword);
                     helperlandContext.Users.Update(user);
                     helperlandContext.SaveChanges();
                     HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));

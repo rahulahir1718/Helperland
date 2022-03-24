@@ -22,6 +22,10 @@
 
   $("#service-history").addClass("active-link");
 
+  $(".rateit-average").rateit({ readonly: true });
+  $(".rateit-ontime").rateit();
+  $(".rateit-friendly").rateit();
+  $(".rateit-quality").rateit();
   $(".rateit-reset").hide();
 });
 
@@ -100,6 +104,11 @@ function findParameters() {
   var entries = table.page.info().recordsTotal;
   $("#table_id_length label").append(" Total Record: " + entries);
 
+  $(".date").each(function () {
+    var date = $(this).text().split("-");
+    $(this).html(date[0] + "/" + date[1] + "/" + date[2]);
+  });
+
   clickEvents();
 }
 
@@ -139,10 +148,10 @@ function clickEvents() {
           "src",
           result.ratingToNavigation.userProfilePicture
         );
-        $(".rateit-average").rateit({ value: result.ratings, readonly: true });
-        $(".rateit-ontime").rateit({ value: result.onTimeArrival });
-        $(".rateit-friendly").rateit({ value: result.friendly });
-        $(".rateit-quality").rateit({ value: result.qualityOfService });
+        $(".rateit-average").rateit("value", result.ratings);
+        $(".rateit-ontime").rateit("value", result.onTimeArrival);
+        $(".rateit-friendly").rateit("value", result.friendly);
+        $(".rateit-quality").rateit("value", result.qualityOfService);
         $(".rateit-reset").hide();
         $("#ratingModal #average-rating-text").html(result.ratings);
         $("#ratingModal").modal("show");
@@ -165,8 +174,8 @@ function clickEvents() {
             url: "/customer/editrating",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(data),
-              success: function (result) {
-                  window.location.href = "/customer/servicehistory";
+            success: function (result) {
+              window.location.href = "/customer/servicehistory";
             },
             error: function () {
               alert("Failed to receive the Data");

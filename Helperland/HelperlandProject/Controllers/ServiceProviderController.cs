@@ -372,9 +372,9 @@ namespace HelperlandProject.Controllers
                 string currentUser = HttpContext.Session.GetString("CurrentUser");
                 User user = JsonConvert.DeserializeObject<User>(currentUser);
                 //update user's password into the database if current password is correctly entered,otherwise return partialview with error message
-                if (user.Password.Equals(model.CurrentPassword))
+                if (user.Password.Equals(Constants.EncryptString(model.CurrentPassword)))
                 {
-                    user.Password = model.ConfirmPassword;
+                    user.Password = Constants.EncryptString(model.ConfirmPassword);
                     helperlandContext.Users.Update(user);
                     helperlandContext.SaveChanges();
                     HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));

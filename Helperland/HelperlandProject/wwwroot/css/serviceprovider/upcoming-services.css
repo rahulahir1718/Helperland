@@ -1,4 +1,10 @@
-﻿.fixed {
+﻿.date {
+  font-weight: 700;
+  font-size: 16px;
+  color: #646464;
+}
+
+.fixed {
   position: fixed;
   top: 0;
   width: 100%;
@@ -114,11 +120,13 @@
   border-color: transparent;
 }
 
-.service-request-detail .modal-accept-btn > span, .service-request-detail .modal-cancel-btn > span, .service-request-detail .modal-complete-btn > span {
-    color: white !important;
-    font-size: 14px;
-    font-weight: 400;
-    margin-left: 5px;
+.service-request-detail .modal-accept-btn > span,
+.service-request-detail .modal-cancel-btn > span,
+.service-request-detail .modal-complete-btn > span {
+  color: white !important;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 5px;
 }
 
 table {

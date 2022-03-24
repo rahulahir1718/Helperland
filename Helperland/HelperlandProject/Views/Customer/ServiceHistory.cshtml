@@ -64,9 +64,9 @@
                       <td class="serviceId">@request.ServiceRequestId</td>
                       <td>
                         <img src="~/images/calendar2.png" alt="" />
-                        <span id="date">@request.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
+                        <span class="date">@request.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
                         <br />
-                        <img src="~/images/layer-712.png" alt="" />@request.ServiceStartDate.TimeOfDay
+                        <img src="~/images/layer-712.png" alt="" /> @request.ServiceStartDate.ToString("HH:mm") - @request.ServiceStartDate.AddHours(request.ServiceHours).ToString("HH:mm")
                       </td> 
                        <td>
                          @if (request.ServiceProvider!=null) 

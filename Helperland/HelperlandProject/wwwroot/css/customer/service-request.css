@@ -59,7 +59,7 @@
   row-gap: 6px;
 }
 
-.current-service-request #date {
+.current-service-request .date {
   font-weight: 700;
   font-size: 16px;
   color: #646464;

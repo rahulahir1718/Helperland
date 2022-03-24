@@ -24,8 +24,8 @@ namespace HelperlandProject.Models.ViewModels.Admin
         [Display(Name = "House number")]
         public string HouseNumber { get; set; }
 
-        [Required]
         [Display(Name = "Postal code")]
+        [RegularExpression("^[0-9]{6}$", ErrorMessage = "Invalid ZipCode!!")]
         public string PostalCode { get; set; }
 
         [Required]

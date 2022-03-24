@@ -364,12 +364,13 @@ h5 {
 }
 
 #paymentSubmit:disabled,
-#paymentSubmit.disabled {
+#paymentSubmit.disabled #scheduleSubmit:disabled,
+#scheduleSubmit.disabled {
   color: #fff;
   background-color: #1d7a8c;
   opacity: 0.7;
   border-color: transparent;
-  cursor: no-drop;
+  cursor: no-drop !important;
   pointer-events: visible;
 }
 

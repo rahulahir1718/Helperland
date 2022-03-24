@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace HelperlandProject.Models
 {
@@ -21,6 +23,7 @@ namespace HelperlandProject.Models
         public const int USER_ACTIVE = 1;
         public const int USER_INACTIVE = 2;
 
+        public static string key = "987654321a4e4133bbce2ea2315a1916";
         public static string GetStatus(int? status)
         {
             switch (status)
@@ -35,10 +38,10 @@ namespace HelperlandProject.Models
         }
 
         public static List<SelectListItem> timeList = new List<SelectListItem>{
-                             new SelectListItem{Text="8:00", Value="8:00:00"},
-                             new SelectListItem{Text="8:30", Value="8:30:00"},
-                             new SelectListItem{Text="9:00", Value="9:00:00"},
-                             new SelectListItem{Text="9:30", Value="9:30:00"},
+                             new SelectListItem{Text="8:00", Value="08:00:00"},
+                             new SelectListItem{Text="8:30", Value="08:30:00"},
+                             new SelectListItem{Text="9:00", Value="09:00:00"},
+                             new SelectListItem{Text="9:30", Value="09:30:00"},
                              new SelectListItem{Text="10:00",Value="10:00:00"},
                              new SelectListItem{Text="10:30",Value="10:30:00"},
                              new SelectListItem{Text="11:00",Value="11:00:00"},
@@ -84,5 +87,33 @@ namespace HelperlandProject.Models
                              new SelectListItem{Text="United Kingdom", Value="2"},
                              new SelectListItem{Text="United States", Value="3"}};
 
+        public static string EncryptString(string plainText)
+        {
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(plainText);
+                        }
+
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+
+            return Convert.ToBase64String(array);
+        }
     }
 }

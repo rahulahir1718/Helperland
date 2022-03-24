@@ -53,7 +53,8 @@ namespace HelperlandProject.Controllers
                 int skip = start != null ? Convert.ToInt16(start) : 0;
                 int recordsTotal = 0;
 
-                var data = helperlandContext.Users.Where(x=>x.IsDeleted!=true).ToList();
+                int myId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+                var data = helperlandContext.Users.Where(x=>x.IsDeleted!=true && x.UserId!=myId).ToList();
                 //apply filters
                 if (searchItems > 0)
                 {
@@ -68,8 +69,24 @@ namespace HelperlandProject.Controllers
 
                     if (!string.IsNullOrEmpty(userName))
                     {
-                        var fullName = userName.Split(" ");
-                        data = data.Where(x => x.FirstName == fullName[0] && x.LastName == fullName[1]).ToList();
+                        var fullname = userName.Split(" ");
+                        if (fullname.Length == 1)
+                        {
+                            char[] a = userName.ToCharArray();
+                            a[0] = char.ToUpper(a[0]);
+                            userName = new string(a);
+                            data = data.Where(x => x.FirstName.Contains(userName) || x.LastName.Contains(userName)).ToList();
+                        }
+                        else
+                        {
+                            char[] a = fullname[0].ToCharArray();
+                            a[0] = char.ToUpper(a[0]);
+                            fullname[0] = new string(a);
+                            a = fullname[1].ToCharArray();
+                            a[0] = char.ToUpper(a[0]);
+                            fullname[1] = new string(a);
+                            data = data.Where(x => x.FirstName.Contains(fullname[0]) && x.LastName.Contains(fullname[1])).ToList();
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(userType))
@@ -79,17 +96,17 @@ namespace HelperlandProject.Controllers
 
                     if (!string.IsNullOrEmpty(phoneNumber))
                     {
-                        data = data.Where(x => x.Mobile == phoneNumber).ToList();
+                        data = data.Where(x => x.Mobile.Contains(phoneNumber)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(postalCode))
                     {
-                        data = data.Where(x => x.ZipCode == postalCode).ToList();
+                        data = data.Where(x => x.ZipCode==postalCode).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(email))
                     {
-                        data = data.Where(x => x.Email == email).ToList();
+                        data = data.Where(x => x.Email.Contains(email)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(fromDate) && !string.IsNullOrEmpty(toDate))
@@ -231,8 +248,23 @@ namespace HelperlandProject.Controllers
                     if (!string.IsNullOrEmpty(customerName))
                     {
                         var name = customerName.Split(" ");
-                        data = data.Where(x => x.User.FirstName == name[0] && x.User.LastName == name[1]).ToList();
-
+                        if (name.Length == 1)
+                        {
+                            char[] a = customerName.ToCharArray();
+                            a[0] = char.ToUpper(a[0]);
+                            customerName = new string(a);
+                            data = data.Where(x => x.User.FirstName.Contains(customerName) || x.User.LastName.Contains(customerName)).ToList();
+                        }
+                        else 
+                        {
+                            char[] a = name[0].ToCharArray();
+                            a[0] = char.ToUpper(a[0]);
+                            name[0] = new string(a);
+                            a = name[1].ToCharArray();
+                            a[0] = char.ToUpper(a[0]);
+                            name[1] = new string(a);
+                            data = data.Where(x => x.User.FirstName.Contains(name[0]) && x.User.LastName.Contains(name[1])).ToList();
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(spName))
@@ -329,7 +361,7 @@ namespace HelperlandProject.Controllers
             EditRequestViewModel editRequestViewModel = new EditRequestViewModel();
             editRequestViewModel.ServiceRequestId = serviceRequest.ServiceRequestId;
             editRequestViewModel.ServiceStartDate = serviceRequest.ServiceStartDate.Date;
-            editRequestViewModel.ServiceStartTime = serviceRequest.ServiceStartDate.ToString("HH:mm");
+            editRequestViewModel.ServiceStartTime = serviceRequest.ServiceStartDate.ToString("HH:mm:ss");
             editRequestViewModel.StreetName = serviceRequest.ServiceRequestAddresses.ElementAt(0).AddressLine1;
             editRequestViewModel.HouseNumber= serviceRequest.ServiceRequestAddresses.ElementAt(0).AddressLine2;
             editRequestViewModel.PostalCode= serviceRequest.ServiceRequestAddresses.ElementAt(0).PostalCode;

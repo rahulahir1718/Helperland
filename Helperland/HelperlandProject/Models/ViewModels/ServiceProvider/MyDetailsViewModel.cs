@@ -11,14 +11,18 @@ namespace HelperlandProject.Models.ViewModels.ServiceProvider
         [Required]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
+
         [Required]
         [Display(Name = "Last name")]
         public string LastName { get; set; }
+
         [Required]
+        [EmailAddress]
         [Display(Name = "E-mail address")]
         public string Email { get; set; }
-        [Required]
+
         [Display(Name = "Mobile number")]
+        [RegularExpression("^[0-9]{10}$", ErrorMessage = "Invalid Mobile Number")]
         public string Mobile { get; set; }
 
         public string BirthDay { get; set; }
@@ -43,6 +47,7 @@ namespace HelperlandProject.Models.ViewModels.ServiceProvider
 
         [Required]
         [Display(Name = "Postal code")]
+        [RegularExpression("^[0-9]{6}$", ErrorMessage = "Invalid ZipCode!!")]
         public string PostalCode { get; set; }
 
         [Required]

@@ -50,6 +50,11 @@ function findParameters() {
   var entries = table.page.info().recordsTotal;
   $("#table_id_length label").append(" Total Record: " + entries);
 
+  $(".date").each(function () {
+    var date = $(this).text().split("-");
+    $(this).html(date[0] + "/" + date[1] + "/" + date[2]);
+  });
+
   clickEvents();
 }
 

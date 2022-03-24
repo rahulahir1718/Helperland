@@ -32,6 +32,11 @@ $(document).ready(function () {
 
   $(".newslater-area").hide();
 
+  var date = $("#ServiceDate").val().split("-");
+  $("#service-date").html(date[2] + "/" + date[1] + "/" + date[0]);
+  var time = $("#ServiceTime").val().split(":");
+  $("#service-time").html(time[0] + ":" + time[1]);
+
   var url = "/bookservice/yourdetails";
   $.get(url, function (data) {
     $("#details-div").html(data);
@@ -53,14 +58,50 @@ $(document).ready(function () {
     });*/
 
   $("#ServiceDate").change(function () {
-    $("#service-date").html($("#ServiceDate").val());
+    var date = $("#ServiceDate").val().split("-");
+    $("#service-date").html(date[2] + "/" + date[1] + "/" + date[0]);
     $("#per-cleaning-payment").html(perCleaningPayment + ",00&euro;");
     $("#total-payment-count").html(totalPayment + ",00&euro;");
   });
 
   $("#ServiceTime").change(function () {
-    $("#service-time").html($("#ServiceTime").val());
+    var time = $("#ServiceTime").val().split(":");
+    var decimalTime = "";
+    if (time[1] == "30") decimalTime = "5";
+    else decimalTime = "0";
+    var serviceStartTime = parseFloat(time[0] + "." + decimalTime);
+    var serviceHours = parseFloat($("#ServiceHours").val());
+    var serviceEndTime = serviceStartTime + serviceHours;
+    if (serviceEndTime <= 20) {
+      $("#service-time").html(time[0] + ":" + time[1]);
+      $("#scheduleSubmit").prop("disabled", false);
+    } else {
+      alert(
+        "Sorry!! service provider can't stay after 20:00 hours,you have to select another time.."
+      );
+      $("#scheduleSubmit").prop("disabled", true);
+    }
   });
+
+  $("#ServiceHours").change(function () {
+    var time = $("#ServiceTime").val().split(":");
+    var decimalTime = "";
+    if (time[1] == "30") decimalTime = "5";
+    else decimalTime = "0";
+    var serviceStartTime = parseFloat(time[0] + "." + decimalTime);
+    var serviceHours = parseFloat($("#ServiceHours").val());
+    var serviceEndTime = serviceStartTime + serviceHours;
+    if (serviceEndTime <= 20) {
+      $("#total-service-time").html($("#ServiceHours").val());
+      $("#scheduleSubmit").prop("disabled", false);
+    } else {
+      alert(
+        "Sorry!! service provider can't stay after 20:00 hours,you have to select another time.."
+      );
+      $("#scheduleSubmit").prop("disabled", true);
+    }
+  });
+
   findServiceScheduleElements();
 });
 
@@ -119,6 +160,11 @@ function AddService(service, children) {
   totalPayment += 10;
   $("#total-service-time").html(totalServieTime);
   $("#total-payment-count").html(totalPayment + ",00&euro;");
+  if (totalServieTime % 1 != 0) {
+    $("#ServiceHours").val(totalServieTime.toString());
+  } else {
+    $("#ServiceHours").val(totalServieTime.toString() + ".0");
+  }
 }
 
 function RemoveService(children) {
@@ -127,6 +173,11 @@ function RemoveService(children) {
   totalPayment -= 10;
   $("#total-service-time").html(totalServieTime);
   $("#total-payment-count").html(totalPayment + ",00&euro;");
+  if (totalServieTime % 1 != 0) {
+    $("#ServiceHours").val(totalServieTime.toString());
+  } else {
+    $("#ServiceHours").val(totalServieTime.toString() + ".0");
+  }
 }
 
 function findYourDetailsElements() {

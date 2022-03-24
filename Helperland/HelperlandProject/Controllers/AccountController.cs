@@ -31,7 +31,7 @@ namespace HelperlandProject.Controllers
             string message;
             if (ModelState.IsValid)
             {
-                User user=helperlandContext.Users.Where(user => user.Email.Equals(model.Email) && user.Password.Equals(model.Password)).FirstOrDefault();
+                User user=helperlandContext.Users.Where(user => user.Email.Equals(model.Email) && user.Password.Equals(Constants.EncryptString(model.Password)) && user.IsDeleted==false).FirstOrDefault();
                 if (user != null)
                 {
                     if (user.IsApproved)
@@ -73,14 +73,23 @@ namespace HelperlandProject.Controllers
                     }
                     else 
                     {
-                        message = "Your account is yet to be approve by admin..Try again after some time!!";
-                        ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                        return View(model);
+                        if (user.UserTypeId == Constants.CUSTOMER && user.IsActive == false)
+                        {
+                            message = "Your account is not active";
+                            ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                            return View(model);
+                        }
+                        else 
+                        {
+                            message = "Your account is yet to be approve by admin..Try again after some time!!";
+                            ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                            return View(model);
+                        }
                     }
                 }
                 else 
                 {
-                    message = "Invalid username or password";
+                    message = "Invalid username or password or account does not exist.";
                     ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                     return View(model);
                 }
@@ -117,7 +126,7 @@ namespace HelperlandProject.Controllers
                         LastName = model.LastName,
                         Email = model.Email,
                         Mobile = model.Mobile,
-                        Password = model.Password,
+                        Password = Constants.EncryptString(model.Password), 
                         UserTypeId = Constants.CUSTOMER,
                         CreatedDate = DateTime.Now,
                         ModifiedDate = DateTime.Now,
@@ -164,7 +173,7 @@ namespace HelperlandProject.Controllers
                         LastName = model.LastName,
                         Email = model.Email,
                         Mobile = model.Mobile,
-                        Password = model.Password,
+                        Password = Constants.EncryptString(model.Password),
                         UserTypeId = Constants.SERVICE_PROVIDER,
                         IsRegisteredUser = true,
                         CreatedDate = DateTime.Now,
@@ -232,7 +241,7 @@ namespace HelperlandProject.Controllers
             if (ModelState.IsValid)
             {
                 User user = helperlandContext.Users.Where(user => user.Email.Equals(model.Email)).FirstOrDefault();
-                user.Password = model.Password;
+                user.Password = Constants.EncryptString(model.Password);
                 user.ModifiedDate = DateTime.Now;
                 user.ModifiedBy = user.UserId;
                 helperlandContext.Users.Update(user);

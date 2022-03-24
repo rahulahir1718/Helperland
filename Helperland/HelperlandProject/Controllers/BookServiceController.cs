@@ -85,7 +85,7 @@ namespace HelperlandProject.Controllers
         {
             int customerId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
             YourDetailsViewModel model = new YourDetailsViewModel();
-            model.favouriteSP = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == customerId && x.IsFavorite == true).Select(x => x.TargetUser).Distinct().ToList();
+            model.favouriteSP = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == customerId && x.IsFavorite == true && x.IsBlocked==false).Select(x => x.TargetUser).Distinct().ToList();
             model.userAddresses = helperlandContext.UserAddresses.Where(address => address.UserId == user.UserId && address.PostalCode == user.ZipCode).ToList();
             HttpContext.Session.SetString("UserAddressList", JsonConvert.SerializeObject(model.userAddresses));
             return PartialView(model);
